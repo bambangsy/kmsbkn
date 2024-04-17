@@ -5,43 +5,59 @@ use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Role;
 use App\Models\User;
+use Illuminate\Auth\Middleware\Authorize\RoleMiddleware;
 
 Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/dashboard', function () {
-    $user = Auth::user();
-    $role = Role::find($user->role_id);
-    $role = $role->role;
 
-    return view('dashboard', compact('role'));
+Route::get('/dashboard', function () {
+    return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
-Route::middleware(['auth', 'verified'])->group(function () {
+
+Route::middleware(['auth', 'verified','role:admin'])->group(function () {
     Route::get('/admin', function () {
-        $user = Auth::user();
-        $role = Role::find($user->role_id);
-        $role = $role->role;
-        if ($role == 'admin') {
-            return view('dbadmin', compact('role'));
-        } else {
-            return redirect('dashboard');
-        }
+        return view('dbadmin');
     })->name('admin');
 
     Route::get('/kanban', function () {
-        $user = Auth::user();
-        $role = Role::find($user->role_id);
-        $role = $role->role;
-        if ($role == 'admin') {
-            return view('kanban', compact('role'));
-        } else {
-            return redirect('dashboard');
-        }
+        return view('kanban');
     })->name('kanban');
-
 });
+
+Route::middleware(['auth', 'verified','role:validator'])->group(function () {
+    Route::get('/validator/dashboard', function () {
+        return view('');
+    })->name('');
+
+    Route::get('/validator/manajemen-dokumen', function () {
+        return view('');
+    })->name('');
+});
+
+Route::middleware(['auth', 'verified','role:expert'])->group(function () {
+    Route::get('/expert/dashboard', function () {
+        return view('');
+    })->name('');
+
+    Route::get('/expert/pengetahuan', function () {
+        return view('');
+    })->name('');
+    Route::get('/expert/help-desk', function () {
+        return view('');
+    })->name('');
+    Route::get('/expert/rating', function () {
+        return view('');
+    })->name('');
+});
+
+
+
+
+
+
 
 Route::middleware('auth')->group(function () {
     return view('auth.login');
@@ -58,3 +74,6 @@ Route::middleware('auth')->group(function () {
 });
 
 require __DIR__.'/auth.php';
+
+
+
