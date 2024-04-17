@@ -10,8 +10,8 @@
 </head>
 
 <body>
-    @include('components.admin.navbar')
-    @include('components.admin.sidebar')
+    @include('components.expert.navbar')
+    @include('components.expert.sidebar')
 
     <div class="p-4 sm:ml-64">
         <div class="p-4  mt-14">

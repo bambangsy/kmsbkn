@@ -2,5 +2,5 @@
 
 
 @section('content')
-    <p>ini adalah konten.</p>
+    <p>ini adalah manajemen pengetahuan.</p>
 @endsection

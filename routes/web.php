@@ -24,7 +24,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
         $role = Role::find($user->role_id);
         $role = $role->role;
         if ($role == 'admin') {
-            return view('dbadmin', compact('role'));
+            return view('admin.dbadmin', compact('role'));
         } else {
             return redirect('dashboard');
         }
@@ -35,11 +35,33 @@ Route::middleware(['auth', 'verified'])->group(function () {
         $role = Role::find($user->role_id);
         $role = $role->role;
         if ($role == 'admin') {
-            return view('kanban', compact('role'));
+            return view('admin.kanban', compact('role'));
         } else {
             return redirect('dashboard');
         }
     })->name('kanban');
+
+    Route::get('/user-management', function () {
+        $user = Auth::user();
+        $role = Role::find($user->role_id);
+        $role = $role->role;
+        if ($role == 'admin') {
+            return view('admin.user-management', compact('role'));
+        } else {
+            return redirect('dashboard');
+        }
+    })->name('user-management');
+
+    Route::get('/knowledge-management', function () {
+        $user = Auth::user();
+        $role = Role::find($user->role_id);
+        $role = $role->role;
+        if ($role == 'admin') {
+            return view('admin.knowledge-management', compact('role'));
+        } else {
+            return redirect('dashboard');
+        }
+    })->name('knowledge-management');
 
 });
 
