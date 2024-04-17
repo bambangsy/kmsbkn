@@ -4,6 +4,9 @@ use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 
+use App\Models\User;
+
+
 
 Route::get('/', function () {
 
@@ -11,9 +14,8 @@ Route::get('/', function () {
 });
 
 Route::get('/dashboard', function () {
-    $user = Auth::user();
-    $role = $user->role;
-    return view('dashboard', compact('role'));
+    $user = User::find(Auth::id())->name;
+    return view('dashboard', compact('user'));
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 
