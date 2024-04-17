@@ -24,11 +24,23 @@ Route::middleware(['auth', 'verified'])->group(function () {
         $role = Role::find($user->role_id);
         $role = $role->role;
         if ($role == 'admin') {
-            return view('admin', compact('role'));
+            return view('dbadmin', compact('role'));
         } else {
             return redirect('dashboard');
         }
     })->name('admin');
+
+    Route::get('/kanban', function () {
+        $user = Auth::user();
+        $role = Role::find($user->role_id);
+        $role = $role->role;
+        if ($role == 'admin') {
+            return view('kanban', compact('role'));
+        } else {
+            return redirect('dashboard');
+        }
+    })->name('kanban');
+
 });
 
 Route::middleware('auth')->group(function () {
