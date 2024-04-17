@@ -27,8 +27,12 @@ Route::middleware(['auth', 'verified','role:admin'])->group(function () {
     })->name('kanban');
 
     Route::get('/user-management', function () {
-        return view('admin.user-management')
-    })->name('kanban');
+        return view('admin.user-management');
+    })->name('user-management');
+
+    Route::get('/knowledge-management', function () {
+        return view('admin.knowledge-management');
+    })->name('knowledge-management');
 });
 
 Route::middleware(['auth', 'verified','role:validator'])->group(function () {
@@ -56,11 +60,6 @@ Route::middleware(['auth', 'verified','role:expert'])->group(function () {
         return view('');
     })->name('');
 });
-
-
-
-
-
 
 
 Route::middleware('auth')->group(function () {
