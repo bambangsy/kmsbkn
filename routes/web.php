@@ -2,13 +2,18 @@
 
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Auth;
+
 
 Route::get('/', function () {
+
     return view('welcome');
 });
 
 Route::get('/dashboard', function () {
-    return view('dashboard');
+    $user = Auth::user();
+    $role = $user->role;
+    return view('dashboard', compact('role'));
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 
