@@ -24,41 +24,40 @@ Route::middleware(['auth', 'verified','role:admin'])->group(function () {
 
     Route::get('/kanban', function () {
         return view('admin.kanban');
-    })->name('kanban');
+    })->name('admin-kanban');
 
     Route::get('/user-management', function () {
         return view('admin.user-management');
-    })->name('user-management');
+    })->name('admin-user-management');
 
     Route::get('/knowledge-management', function () {
         return view('admin.knowledge-management');
-    })->name('knowledge-management');
+    })->name('admin-knowledge-management');
 });
 
 Route::middleware(['auth', 'verified','role:validator'])->group(function () {
     Route::get('/validator/dashboard', function () {
-        return view('');
-    })->name('');
+        return view('validator.dashboard');
+    })->name('validator-dashboard');
 
     Route::get('/validator/manajemen-dokumen', function () {
-        return view('');
-    })->name('');
+        return view('validator.manajemen-dokumen');
+    })->name('validator-manajemen-dokumen');
 });
 
 Route::middleware(['auth', 'verified','role:expert'])->group(function () {
     Route::get('/expert/dashboard', function () {
-        return view('');
-    })->name('');
-
+        return view('expert.dashboard');
+    })->name('expert-dashboard');
     Route::get('/expert/pengetahuan', function () {
-        return view('');
-    })->name('');
-    Route::get('/expert/help-desk', function () {
-        return view('');
-    })->name('');
+        return view('expert.pengetahuan');
+    })->name('expert-pengetahuan');
+    Route::get('/expert/helpdesk', function () {
+        return view('expert.helpdesk');
+    })->name('expert-helpdesk');
     Route::get('/expert/rating', function () {
-        return view('');
-    })->name('');
+        return view('expert.rating');
+    })->name('xpert-rating');
 });
 
 
