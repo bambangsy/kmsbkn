@@ -14,7 +14,15 @@ Route::get('/', function () {
 
 Route::get('/user', function () {
     return view('welcome');
-});
+})->name('home');
+
+Route::get('/alur-belajar', function () {
+    return view('welcome');
+})->name('alur-belajar');
+
+Route::get('/pelatihan', function () {
+    return view('welcome');
+})->name('pelatihan');
 
 
 Route::get('/dashboard', function () {
