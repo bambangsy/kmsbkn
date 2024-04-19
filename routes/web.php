@@ -8,6 +8,11 @@ use App\Models\User;
 use Illuminate\Auth\Middleware\Authorize\RoleMiddleware;
 
 Route::get('/', function () {
+    return view('layouts/user');
+});
+
+
+Route::get('/user', function () {
     return view('welcome');
 });
 
