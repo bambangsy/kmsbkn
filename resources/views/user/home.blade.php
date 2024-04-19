@@ -78,14 +78,14 @@
                 <div class="col-md-6 col-lg-4 card-group-row__col">
 
                     <div class="card card--elevated posts-card-popular overlay card-group-row__card">
-                        <img src="../../public/images/paths/sketch_430x168.png" alt="" class="card-img">
+                        <img src="https://random.imagecdn.app/640/480" alt="" class="card-img">
                         <div class="fullbleed bg-primary" style="opacity: .5"></div>
                         <div class="posts-card-popular__content">
                             <div class="card-body d-flex align-items-center">
                                 <div class="avatar-group flex">
                                     <div class="avatar avatar-xs" data-toggle="tooltip" data-placement="top"
                                         title="Janell D.">
-                                        <a href=""><img src="../../public/images/256_luke-porter-261779-unsplash.jpg"
+                                        <a href=""><img src="https://random.imagecdn.app/500/500"
                                                 alt="Avatar" class="avatar-img rounded-circle"></a>
                                     </div>
                                 </div>
