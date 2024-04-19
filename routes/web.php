@@ -8,7 +8,7 @@ use App\Models\User;
 use Illuminate\Auth\Middleware\Authorize\RoleMiddleware;
 
 Route::get('/', function () {
-    return view('layouts/user');
+    return view('user/home');
 });
 
 
