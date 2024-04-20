@@ -17,9 +17,7 @@
                 <h1 class="text-white text-shadow">KMS BKN</h1>
                 <p class="lead measure-hero-lead mx-auto text-white text-shadow ">Temukan berbagai materi pembelajaran dari para ahli di bidangnya.</p>
 
-                <a href="courses.html" class="btn btn-lg btn-white btn--raised mb-16pt">Cari Pelatihan</a>
-
-               
+                <a href="courses.html" class="btn btn-lg btn-white btn--raised mb-16pt">Cari Pelatihan</a>               
 
             </div>
         </div>
@@ -48,8 +46,7 @@
                             </div>
                             <div class="posts-card-popular__title card-body">
                                 <small class="text-muted text-uppercase">Raka Dimas Saputra</small>
-                                <a class="card-title" href="blog-post.html">Microlearning Pengenalan Pengelolaan Keuangan
-                                    Badan Layanan Umum</a>
+                                <a class="card-title" href="blog-post.html">Suasana Sholat Idul Fitri 1445H di Lapangan Kantor Pusat BKN</a>
                             </div>
                         </div>
                     </div>
@@ -69,8 +66,7 @@
                             </div>
                             <div class="posts-card-popular__title card-body">
                                 <small class="text-muted text-uppercase">Raka Dimas Saputra</small>
-                                <a class="card-title" href="blog-post.html">Microlearning Perencanaan dan Penganggaran Badan
-                                    Layanan Umum</a>
+                                <a class="card-title" href="blog-post.html">Capaian Koperasi Promart BKN Tahun Buku 2023 Tercatat Berkinerja Positif</a>
                             </div>
                         </div>
                     </div>
@@ -91,8 +87,7 @@
                             </div>
                             <div class="posts-card-popular__title card-body">
                                 <small class="text-muted text-uppercase">Raka Dimas Saputra</small>
-                                <a class="card-title" href="blog-post.html">Microlearning Badan Layanan Umum Service and
-                                    Government Maturity Rating BLUSmart Assesment and Evaluation Tools</a>
+                                <a class="card-title" href="blog-post.html">Paket Sembako Gratis PT. Taspen Bagi PPNPN di BKN</a>
                             </div>
                         </div>
                     </div>
@@ -631,7 +626,7 @@
     <div class="page-section border-bottom-2">
         <div class="container page__container">
             <div class="page-separator">
-                <div class="page-separator__text">Design Courses</div>
+                <div class="page-separator__text">Pelatihan</div>
             </div>
 
             <div class="row card-group-row">
@@ -642,11 +637,11 @@
                         data-toggle="popover" data-trigger="click">
 
                         <a href="student-course.html" class="card-img-top js-image" data-position="" data-height="140">
-                            <img src="../../public/images/paths/sketch_430x168.png" alt="course">
+                            <img src="https://random.imagecdn.app/1280/720" alt="course">
                             <span class="overlay__content">
                                 <span class="overlay__action d-flex flex-column text-center">
                                     <i class="material-icons icon-32pt">play_circle_outline</i>
-                                    <span class="card-title text-white">Preview</span>
+                                    <span class="card-title text-white">Pratinjau</span>
                                 </span>
                             </span>
                         </a>
@@ -654,8 +649,8 @@
                         <div class="card-body flex">
                             <div class="d-flex">
                                 <div class="flex">
-                                    <a class="card-title" href="student-course.html">Learn Sketch</a>
-                                    <small class="text-50 font-weight-bold mb-4pt">Elijah Murray</small>
+                                    <a class="card-title" href="student-course.html">Microlearning</a>
+                                    <small class="text-50 font-weight-bold mb-4pt">Raden Bambang</small>
                                 </div>
                                 <a href="student-course.html" data-toggle="tooltip" data-title="Add Favorite"
                                     data-placement="top" data-boundary="window"
@@ -676,11 +671,11 @@
                             <div class="row justify-content-between">
                                 <div class="col-auto d-flex align-items-center">
                                     <span class="material-icons icon-16pt text-50 mr-4pt">access_time</span>
-                                    <p class="flex text-50 lh-1 mb-0"><small>6 hours</small></p>
+                                    <p class="flex text-50 lh-1 mb-0"><small>6 jam</small></p>
                                 </div>
                                 <div class="col-auto d-flex align-items-center">
                                     <span class="material-icons icon-16pt text-50 mr-4pt">play_circle_outline</span>
-                                    <p class="flex text-50 lh-1 mb-0"><small>12 lessons</small></p>
+                                    <p class="flex text-50 lh-1 mb-0"><small>12 pelajaran</small></p>
                                 </div>
                             </div>
                         </div>
@@ -688,45 +683,41 @@
                     <div class="popoverContainer d-none">
                         <div class="media">
                             <div class="media-left mr-12pt">
-                                <img src="../../public/images/paths/sketch_40x40@2x.png" width="40" height="40"
+                                <img src="https://random.imagecdn.app/1280/720" width="40" height="40"
                                     alt="Angular" class="rounded">
                             </div>
                             <div class="media-body">
-                                <div class="card-title mb-0">Learn Sketch</div>
+                                <div class="card-title mb-0">Microlearning</div>
                                 <p class="lh-1 mb-0">
                                     <span class="text-50 small">with</span>
-                                    <span class="text-50 small font-weight-bold">Elijah Murray</span>
+                                    <span class="text-50 small font-weight-bold">Raden Bambang</span>
                                 </p>
                             </div>
                         </div>
 
-                        <p class="my-16pt text-70">Learn the fundamentals of working with Angular and how to
-                            create basic applications.</p>
+                        <p class="my-16pt text-70">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent ac imperdiet risus, fringilla maximus ligula. Mauris eget felis ante. Suspendisse.</p>
 
                         <div class="mb-16pt">
                             <div class="d-flex align-items-center">
                                 <span class="material-icons icon-16pt text-50 mr-8pt">check</span>
-                                <p class="flex text-50 lh-1 mb-0"><small>Fundamentals of working with
-                                        Angular</small></p>
+                                <p class="flex text-50 lh-1 mb-0"><small>Lorem ipsum dolor sit amet</small></p>
                             </div>
                             <div class="d-flex align-items-center">
                                 <span class="material-icons icon-16pt text-50 mr-8pt">check</span>
-                                <p class="flex text-50 lh-1 mb-0"><small>Create complete Angular
-                                        applications</small></p>
+                                <p class="flex text-50 lh-1 mb-0"><small>Lorem ipsum dolor sit amet</small></p>
                             </div>
                             <div class="d-flex align-items-center">
                                 <span class="material-icons icon-16pt text-50 mr-8pt">check</span>
-                                <p class="flex text-50 lh-1 mb-0"><small>Working with the Angular CLI</small>
+                                <p class="flex text-50 lh-1 mb-0"><small>Lorem ipsum dolor sit amet</small>
                                 </p>
                             </div>
                             <div class="d-flex align-items-center">
                                 <span class="material-icons icon-16pt text-50 mr-8pt">check</span>
-                                <p class="flex text-50 lh-1 mb-0"><small>Understanding Dependency
-                                        Injection</small></p>
+                                <p class="flex text-50 lh-1 mb-0"><small>Lorem ipsum dolor sit amet</small></p>
                             </div>
                             <div class="d-flex align-items-center">
                                 <span class="material-icons icon-16pt text-50 mr-8pt">check</span>
-                                <p class="flex text-50 lh-1 mb-0"><small>Testing with Angular</small></p>
+                                <p class="flex text-50 lh-1 mb-0"><small>Lorem ipsum dolor sit amet</small></p>
                             </div>
                         </div>
 
@@ -734,19 +725,19 @@
                             <div class="col-auto">
                                 <div class="d-flex align-items-center mb-4pt">
                                     <span class="material-icons icon-16pt text-50 mr-4pt">access_time</span>
-                                    <p class="flex text-50 lh-1 mb-0"><small>6 hours</small></p>
+                                    <p class="flex text-50 lh-1 mb-0"><small>6 jam</small></p>
                                 </div>
                                 <div class="d-flex align-items-center mb-4pt">
                                     <span class="material-icons icon-16pt text-50 mr-4pt">play_circle_outline</span>
-                                    <p class="flex text-50 lh-1 mb-0"><small>12 lessons</small></p>
+                                    <p class="flex text-50 lh-1 mb-0"><small>12 pelajaran</small></p>
                                 </div>
                                 <div class="d-flex align-items-center">
                                     <span class="material-icons icon-16pt text-50 mr-4pt">assessment</span>
-                                    <p class="flex text-50 lh-1 mb-0"><small>Beginner</small></p>
+                                    <p class="flex text-50 lh-1 mb-0"><small>Pemula</small></p>
                                 </div>
                             </div>
                             <div class="col text-right">
-                                <a href="student-course.html" class="btn btn-primary">Watch trailer</a>
+                                <a href="student-course.html" class="btn btn-primary">Tonton cuplikan</a>
                             </div>
                         </div>
 
@@ -760,11 +751,11 @@
                         data-toggle="popover" data-trigger="click">
 
                         <a href="student-course.html" class="card-img-top js-image" data-position="" data-height="140">
-                            <img src="../../public/images/paths/flinto_430x168.png" alt="course">
+                            <img src="https://random.imagecdn.app/1280/720" alt="course">
                             <span class="overlay__content">
                                 <span class="overlay__action d-flex flex-column text-center">
                                     <i class="material-icons icon-32pt">play_circle_outline</i>
-                                    <span class="card-title text-white">Preview</span>
+                                    <span class="card-title text-white">Pratinjau</span>
                                 </span>
                             </span>
                         </a>
@@ -772,8 +763,8 @@
                         <div class="card-body flex">
                             <div class="d-flex">
                                 <div class="flex">
-                                    <a class="card-title" href="student-course.html">Learn Flinto</a>
-                                    <small class="text-50 font-weight-bold mb-4pt">Elijah Murray</small>
+                                    <a class="card-title" href="student-course.html">Microlearning</a>
+                                    <small class="text-50 font-weight-bold mb-4pt">Raden Bambang</small>
                                 </div>
                                 <a href="student-course.html" data-toggle="tooltip" data-title="Add Favorite"
                                     data-placement="top" data-boundary="window"
@@ -794,11 +785,11 @@
                             <div class="row justify-content-between">
                                 <div class="col-auto d-flex align-items-center">
                                     <span class="material-icons icon-16pt text-50 mr-4pt">access_time</span>
-                                    <p class="flex text-50 lh-1 mb-0"><small>6 hours</small></p>
+                                    <p class="flex text-50 lh-1 mb-0"><small>6 jam</small></p>
                                 </div>
                                 <div class="col-auto d-flex align-items-center">
                                     <span class="material-icons icon-16pt text-50 mr-4pt">play_circle_outline</span>
-                                    <p class="flex text-50 lh-1 mb-0"><small>12 lessons</small></p>
+                                    <p class="flex text-50 lh-1 mb-0"><small>12 pelajaran</small></p>
                                 </div>
                             </div>
                         </div>
@@ -806,45 +797,41 @@
                     <div class="popoverContainer d-none">
                         <div class="media">
                             <div class="media-left mr-12pt">
-                                <img src="../../public/images/paths/flinto_40x40@2x.png" width="40" height="40"
+                                <img src="https://random.imagecdn.app/1280/720" width="40" height="40"
                                     alt="Angular" class="rounded">
                             </div>
                             <div class="media-body">
-                                <div class="card-title mb-0">Learn Flinto</div>
+                                <div class="card-title mb-0">Microlearning</div>
                                 <p class="lh-1 mb-0">
                                     <span class="text-50 small">with</span>
-                                    <span class="text-50 small font-weight-bold">Elijah Murray</span>
+                                    <span class="text-50 small font-weight-bold">Raden Bambang</span>
                                 </p>
                             </div>
                         </div>
 
-                        <p class="my-16pt text-70">Learn the fundamentals of working with Angular and how to
-                            create basic applications.</p>
+                        <p class="my-16pt text-70">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent ac imperdiet risus, fringilla maximus ligula. Mauris eget felis ante. Suspendisse.</p>
 
                         <div class="mb-16pt">
                             <div class="d-flex align-items-center">
                                 <span class="material-icons icon-16pt text-50 mr-8pt">check</span>
-                                <p class="flex text-50 lh-1 mb-0"><small>Fundamentals of working with
-                                        Angular</small></p>
+                                <p class="flex text-50 lh-1 mb-0"><small>Lorem ipsum dolor sit amet</small></p>
                             </div>
                             <div class="d-flex align-items-center">
                                 <span class="material-icons icon-16pt text-50 mr-8pt">check</span>
-                                <p class="flex text-50 lh-1 mb-0"><small>Create complete Angular
-                                        applications</small></p>
+                                <p class="flex text-50 lh-1 mb-0"><small>Lorem ipsum dolor sit amet</small></p>
                             </div>
                             <div class="d-flex align-items-center">
                                 <span class="material-icons icon-16pt text-50 mr-8pt">check</span>
-                                <p class="flex text-50 lh-1 mb-0"><small>Working with the Angular CLI</small>
+                                <p class="flex text-50 lh-1 mb-0"><small>Lorem ipsum dolor sit amet</small>
                                 </p>
                             </div>
                             <div class="d-flex align-items-center">
                                 <span class="material-icons icon-16pt text-50 mr-8pt">check</span>
-                                <p class="flex text-50 lh-1 mb-0"><small>Understanding Dependency
-                                        Injection</small></p>
+                                <p class="flex text-50 lh-1 mb-0"><small>Lorem ipsum dolor sit amet</small></p>
                             </div>
                             <div class="d-flex align-items-center">
                                 <span class="material-icons icon-16pt text-50 mr-8pt">check</span>
-                                <p class="flex text-50 lh-1 mb-0"><small>Testing with Angular</small></p>
+                                <p class="flex text-50 lh-1 mb-0"><small>Lorem ipsum dolor sit amet</small></p>
                             </div>
                         </div>
 
@@ -852,19 +839,19 @@
                             <div class="col-auto">
                                 <div class="d-flex align-items-center mb-4pt">
                                     <span class="material-icons icon-16pt text-50 mr-4pt">access_time</span>
-                                    <p class="flex text-50 lh-1 mb-0"><small>6 hours</small></p>
+                                    <p class="flex text-50 lh-1 mb-0"><small>6 jam</small></p>
                                 </div>
                                 <div class="d-flex align-items-center mb-4pt">
                                     <span class="material-icons icon-16pt text-50 mr-4pt">play_circle_outline</span>
-                                    <p class="flex text-50 lh-1 mb-0"><small>12 lessons</small></p>
+                                    <p class="flex text-50 lh-1 mb-0"><small>12 pelajaran</small></p>
                                 </div>
                                 <div class="d-flex align-items-center">
                                     <span class="material-icons icon-16pt text-50 mr-4pt">assessment</span>
-                                    <p class="flex text-50 lh-1 mb-0"><small>Beginner</small></p>
+                                    <p class="flex text-50 lh-1 mb-0"><small>Pemula</small></p>
                                 </div>
                             </div>
                             <div class="col text-right">
-                                <a href="student-course.html" class="btn btn-primary">Watch trailer</a>
+                                <a href="student-course.html" class="btn btn-primary">Tonton cuplikan</a>
                             </div>
                         </div>
 
@@ -878,11 +865,11 @@
                         data-toggle="popover" data-trigger="click">
 
                         <a href="student-course.html" class="card-img-top js-image" data-position="" data-height="140">
-                            <img src="../../public/images/paths/photoshop_430x168.png" alt="course">
+                            <img src="https://random.imagecdn.app/1280/720" alt="course">
                             <span class="overlay__content">
                                 <span class="overlay__action d-flex flex-column text-center">
                                     <i class="material-icons icon-32pt">play_circle_outline</i>
-                                    <span class="card-title text-white">Preview</span>
+                                    <span class="card-title text-white">Pratinjau</span>
                                 </span>
                             </span>
                         </a>
@@ -890,8 +877,8 @@
                         <div class="card-body flex">
                             <div class="d-flex">
                                 <div class="flex">
-                                    <a class="card-title" href="student-course.html">Learn Photoshop</a>
-                                    <small class="text-50 font-weight-bold mb-4pt">Elijah Murray</small>
+                                    <a class="card-title" href="student-course.html">Microlearning</a>
+                                    <small class="text-50 font-weight-bold mb-4pt">Raden Bambang</small>
                                 </div>
                                 <a href="student-course.html" data-toggle="tooltip" data-title="Add Favorite"
                                     data-placement="top" data-boundary="window"
@@ -912,11 +899,11 @@
                             <div class="row justify-content-between">
                                 <div class="col-auto d-flex align-items-center">
                                     <span class="material-icons icon-16pt text-50 mr-4pt">access_time</span>
-                                    <p class="flex text-50 lh-1 mb-0"><small>6 hours</small></p>
+                                    <p class="flex text-50 lh-1 mb-0"><small>6 jam</small></p>
                                 </div>
                                 <div class="col-auto d-flex align-items-center">
                                     <span class="material-icons icon-16pt text-50 mr-4pt">play_circle_outline</span>
-                                    <p class="flex text-50 lh-1 mb-0"><small>12 lessons</small></p>
+                                    <p class="flex text-50 lh-1 mb-0"><small>12 pelajaran</small></p>
                                 </div>
                             </div>
                         </div>
@@ -924,45 +911,41 @@
                     <div class="popoverContainer d-none">
                         <div class="media">
                             <div class="media-left mr-12pt">
-                                <img src="../../public/images/paths/photoshop_40x40@2x.png" width="40" height="40"
+                                <img src="https://random.imagecdn.app/1280/720" width="40" height="40"
                                     alt="Angular" class="rounded">
                             </div>
                             <div class="media-body">
-                                <div class="card-title mb-0">Learn Photoshop</div>
+                                <div class="card-title mb-0">Microlearning</div>
                                 <p class="lh-1 mb-0">
                                     <span class="text-50 small">with</span>
-                                    <span class="text-50 small font-weight-bold">Elijah Murray</span>
+                                    <span class="text-50 small font-weight-bold">Raden Bambang</span>
                                 </p>
                             </div>
                         </div>
 
-                        <p class="my-16pt text-70">Learn the fundamentals of working with Angular and how to
-                            create basic applications.</p>
+                        <p class="my-16pt text-70">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent ac imperdiet risus, fringilla maximus ligula. Mauris eget felis ante. Suspendisse.</p>
 
                         <div class="mb-16pt">
                             <div class="d-flex align-items-center">
                                 <span class="material-icons icon-16pt text-50 mr-8pt">check</span>
-                                <p class="flex text-50 lh-1 mb-0"><small>Fundamentals of working with
-                                        Angular</small></p>
+                                <p class="flex text-50 lh-1 mb-0"><small>Lorem ipsum dolor sit amet</small></p>
                             </div>
                             <div class="d-flex align-items-center">
                                 <span class="material-icons icon-16pt text-50 mr-8pt">check</span>
-                                <p class="flex text-50 lh-1 mb-0"><small>Create complete Angular
-                                        applications</small></p>
+                                <p class="flex text-50 lh-1 mb-0"><small>Lorem ipsum dolor sit amet</small></p>
                             </div>
                             <div class="d-flex align-items-center">
                                 <span class="material-icons icon-16pt text-50 mr-8pt">check</span>
-                                <p class="flex text-50 lh-1 mb-0"><small>Working with the Angular CLI</small>
+                                <p class="flex text-50 lh-1 mb-0"><small>Lorem ipsum dolor sit amet</small>
                                 </p>
                             </div>
                             <div class="d-flex align-items-center">
                                 <span class="material-icons icon-16pt text-50 mr-8pt">check</span>
-                                <p class="flex text-50 lh-1 mb-0"><small>Understanding Dependency
-                                        Injection</small></p>
+                                <p class="flex text-50 lh-1 mb-0"><small>Lorem ipsum dolor sit amet</small></p>
                             </div>
                             <div class="d-flex align-items-center">
                                 <span class="material-icons icon-16pt text-50 mr-8pt">check</span>
-                                <p class="flex text-50 lh-1 mb-0"><small>Testing with Angular</small></p>
+                                <p class="flex text-50 lh-1 mb-0"><small>Lorem ipsum dolor sit amet</small></p>
                             </div>
                         </div>
 
@@ -970,19 +953,19 @@
                             <div class="col-auto">
                                 <div class="d-flex align-items-center mb-4pt">
                                     <span class="material-icons icon-16pt text-50 mr-4pt">access_time</span>
-                                    <p class="flex text-50 lh-1 mb-0"><small>6 hours</small></p>
+                                    <p class="flex text-50 lh-1 mb-0"><small>6 jam</small></p>
                                 </div>
                                 <div class="d-flex align-items-center mb-4pt">
                                     <span class="material-icons icon-16pt text-50 mr-4pt">play_circle_outline</span>
-                                    <p class="flex text-50 lh-1 mb-0"><small>12 lessons</small></p>
+                                    <p class="flex text-50 lh-1 mb-0"><small>12 pelajaran</small></p>
                                 </div>
                                 <div class="d-flex align-items-center">
                                     <span class="material-icons icon-16pt text-50 mr-4pt">assessment</span>
-                                    <p class="flex text-50 lh-1 mb-0"><small>Beginner</small></p>
+                                    <p class="flex text-50 lh-1 mb-0"><small>Pemula</small></p>
                                 </div>
                             </div>
                             <div class="col text-right">
-                                <a href="student-course.html" class="btn btn-primary">Watch trailer</a>
+                                <a href="student-course.html" class="btn btn-primary">Tonton cuplikan</a>
                             </div>
                         </div>
 
@@ -996,11 +979,11 @@
                         data-toggle="popover" data-trigger="click">
 
                         <a href="student-course.html" class="card-img-top js-image" data-position="" data-height="140">
-                            <img src="../../public/images/paths/figma_430x168.png" alt="course">
+                            <img src="https://random.imagecdn.app/1280/720" alt="course">
                             <span class="overlay__content">
                                 <span class="overlay__action d-flex flex-column text-center">
                                     <i class="material-icons icon-32pt">play_circle_outline</i>
-                                    <span class="card-title text-white">Preview</span>
+                                    <span class="card-title text-white">Pratinjau</span>
                                 </span>
                             </span>
                         </a>
@@ -1008,8 +991,8 @@
                         <div class="card-body flex">
                             <div class="d-flex">
                                 <div class="flex">
-                                    <a class="card-title" href="student-course.html">Learn Figma</a>
-                                    <small class="text-50 font-weight-bold mb-4pt">Elijah Murray</small>
+                                    <a class="card-title" href="student-course.html">Microlearning</a>
+                                    <small class="text-50 font-weight-bold mb-4pt">Raden Bambang</small>
                                 </div>
                                 <a href="student-course.html" data-toggle="tooltip" data-title="Add Favorite"
                                     data-placement="top" data-boundary="window"
@@ -1030,11 +1013,11 @@
                             <div class="row justify-content-between">
                                 <div class="col-auto d-flex align-items-center">
                                     <span class="material-icons icon-16pt text-50 mr-4pt">access_time</span>
-                                    <p class="flex text-50 lh-1 mb-0"><small>6 hours</small></p>
+                                    <p class="flex text-50 lh-1 mb-0"><small>6 jam</small></p>
                                 </div>
                                 <div class="col-auto d-flex align-items-center">
                                     <span class="material-icons icon-16pt text-50 mr-4pt">play_circle_outline</span>
-                                    <p class="flex text-50 lh-1 mb-0"><small>12 lessons</small></p>
+                                    <p class="flex text-50 lh-1 mb-0"><small>12 pelajaran</small></p>
                                 </div>
                             </div>
                         </div>
@@ -1042,45 +1025,41 @@
                     <div class="popoverContainer d-none">
                         <div class="media">
                             <div class="media-left mr-12pt">
-                                <img src="../../public/images/paths/figma_40x40@2x.png" width="40" height="40"
+                                <img src="https://random.imagecdn.app/1280/720" width="40" height="40"
                                     alt="Angular" class="rounded">
                             </div>
                             <div class="media-body">
-                                <div class="card-title mb-0">Learn Figma</div>
+                                <div class="card-title mb-0">Microlearning</div>
                                 <p class="lh-1 mb-0">
                                     <span class="text-50 small">with</span>
-                                    <span class="text-50 small font-weight-bold">Elijah Murray</span>
+                                    <span class="text-50 small font-weight-bold">Raden Bambang</span>
                                 </p>
                             </div>
                         </div>
 
-                        <p class="my-16pt text-70">Learn the fundamentals of working with Angular and how to
-                            create basic applications.</p>
+                        <p class="my-16pt text-70">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent ac imperdiet risus, fringilla maximus ligula. Mauris eget felis ante. Suspendisse.</p>
 
                         <div class="mb-16pt">
                             <div class="d-flex align-items-center">
                                 <span class="material-icons icon-16pt text-50 mr-8pt">check</span>
-                                <p class="flex text-50 lh-1 mb-0"><small>Fundamentals of working with
-                                        Angular</small></p>
+                                <p class="flex text-50 lh-1 mb-0"><small>Lorem ipsum dolor sit amet</small></p>
                             </div>
                             <div class="d-flex align-items-center">
                                 <span class="material-icons icon-16pt text-50 mr-8pt">check</span>
-                                <p class="flex text-50 lh-1 mb-0"><small>Create complete Angular
-                                        applications</small></p>
+                                <p class="flex text-50 lh-1 mb-0"><small>Lorem ipsum dolor sit amet</small></p>
                             </div>
                             <div class="d-flex align-items-center">
                                 <span class="material-icons icon-16pt text-50 mr-8pt">check</span>
-                                <p class="flex text-50 lh-1 mb-0"><small>Working with the Angular CLI</small>
+                                <p class="flex text-50 lh-1 mb-0"><small>Lorem ipsum dolor sit amet</small>
                                 </p>
                             </div>
                             <div class="d-flex align-items-center">
                                 <span class="material-icons icon-16pt text-50 mr-8pt">check</span>
-                                <p class="flex text-50 lh-1 mb-0"><small>Understanding Dependency
-                                        Injection</small></p>
+                                <p class="flex text-50 lh-1 mb-0"><small>Lorem ipsum dolor sit amet</small></p>
                             </div>
                             <div class="d-flex align-items-center">
                                 <span class="material-icons icon-16pt text-50 mr-8pt">check</span>
-                                <p class="flex text-50 lh-1 mb-0"><small>Testing with Angular</small></p>
+                                <p class="flex text-50 lh-1 mb-0"><small>Lorem ipsum dolor sit amet</small></p>
                             </div>
                         </div>
 
@@ -1088,19 +1067,19 @@
                             <div class="col-auto">
                                 <div class="d-flex align-items-center mb-4pt">
                                     <span class="material-icons icon-16pt text-50 mr-4pt">access_time</span>
-                                    <p class="flex text-50 lh-1 mb-0"><small>6 hours</small></p>
+                                    <p class="flex text-50 lh-1 mb-0"><small>6 jam</small></p>
                                 </div>
                                 <div class="d-flex align-items-center mb-4pt">
                                     <span class="material-icons icon-16pt text-50 mr-4pt">play_circle_outline</span>
-                                    <p class="flex text-50 lh-1 mb-0"><small>12 lessons</small></p>
+                                    <p class="flex text-50 lh-1 mb-0"><small>12 pelajaran</small></p>
                                 </div>
                                 <div class="d-flex align-items-center">
                                     <span class="material-icons icon-16pt text-50 mr-4pt">assessment</span>
-                                    <p class="flex text-50 lh-1 mb-0"><small>Beginner</small></p>
+                                    <p class="flex text-50 lh-1 mb-0"><small>Pemula</small></p>
                                 </div>
                             </div>
                             <div class="col text-right">
-                                <a href="student-course.html" class="btn btn-primary">Watch trailer</a>
+                                <a href="student-course.html" class="btn btn-primary">Tonton cuplikan</a>
                             </div>
                         </div>
 
