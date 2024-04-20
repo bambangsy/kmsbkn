@@ -27,5 +27,6 @@
 
     <!-- App CSS -->
     <link type="text/css" href="{{ asset('luma/css/app.css') }}" rel="stylesheet">
+    @vite(['resources/css/app.css', 'resources/js/app.js'])
 
 </head>

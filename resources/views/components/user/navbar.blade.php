@@ -35,13 +35,22 @@
                 </ul>
 
                 <ul class="nav navbar-nav ml-auto mr-0">
+                    
+                    @auth
+                        <li class="nav-item">
+                            <a href="/dashboard" class="btn btn-outline-dark">dashboard</a>
+                        </li>
 
-                    <li class="nav-item">
-                        <a href="/login" class="btn btn-outline-dark">Login</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="/register" class="btn btn-outline-dark">Register</a>
-                    </li>
+                    @else 
+                        <li class="nav-item">
+                            <a href="/login" class="btn btn-outline-dark">Login</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="/register" class="btn btn-outline-dark">Register</a>
+                        </li>
+                    
+                    @endauth
+                    
                 </ul>
             </div>
 

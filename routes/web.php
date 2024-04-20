@@ -11,6 +11,9 @@ Route::get('/', function () {
     return view('user/home');
 });
 
+Route::get('/menus', function () {
+    return view('menus');
+});
 
 Route::get('/user', function () {
     return view('welcome');
@@ -26,7 +29,15 @@ Route::get('/pelatihan', function () {
 
 
 Route::get('/dashboard', function () {
-    return view('dashboard');
+    $user = Auth::user();
+    $role = $user->roles->first()->name;
+    if ($role =="admin"){
+        return view('admin/dbadmin');
+    }
+    else{
+        return view('dashboard');
+    }
+    
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 
