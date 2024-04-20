@@ -14,11 +14,9 @@
         </div>
         <div class="mdk-box__content justify-content-center">
             <div class="hero container page__container text-center py-112pt">
-                <h1 class="text-white text-shadow">KMS BKN</h1>
+                <h1 class="text-white text-shadow">BKN Learning Hub</h1>
                 <p class="lead measure-hero-lead mx-auto text-white text-shadow ">Temukan berbagai materi pembelajaran dari para ahli di bidangnya.</p>
-
                 <a href="courses.html" class="btn btn-lg btn-white btn--raised mb-16pt">Cari Pelatihan</a>               
-
             </div>
         </div>
     </div>

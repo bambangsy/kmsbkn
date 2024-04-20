@@ -16,16 +16,18 @@ Route::get('/menus', function () {
 });
 
 Route::get('/user', function () {
-    return view('welcome');
+    return view('user/home');
 })->name('home');
-
 Route::get('/alur-belajar', function () {
-    return view('welcome');
+    return view('user/alur-belajar');
 })->name('alur-belajar');
-
 Route::get('/pelatihan', function () {
-    return view('welcome');
+    return view('user/pelatihan');
 })->name('pelatihan');
+Route::get('/artikel', function () {
+    return view('user/artikel');
+})->name('artikel');
+
 
 
 Route::get('/dashboard', function () {

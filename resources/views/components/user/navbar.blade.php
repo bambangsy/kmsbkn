@@ -22,11 +22,11 @@
                             data-caret="false">Pelatihan</a>
                         <div class="dropdown-menu">
                             <a href="{{route('pelatihan')}}" class="dropdown-item">Cari Pelatihan</a>
-                            <a href="s{{route('alur-belajar')}}" class="dropdown-item">Alur Belajar</a>
+                            <a href="{{route('alur-belajar')}}" class="dropdown-item">Alur Belajar</a>
                         </div>
                     </li>
                     <li class="nav-item">
-                        <a href="pricing.html" class="nav-link">Artikel</a>
+                        <a href="{{route('artikel')}}" class="nav-link">Artikel</a>
                     </li>
                     <li class="nav-item">
                         <a href="pricing.html" class="nav-link">FAQ</a>
