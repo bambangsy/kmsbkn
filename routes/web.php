@@ -1,6 +1,8 @@
 <?php
 
+use App\Http\Controllers\KnowledgeController;
 use App\Http\Controllers\ProfileController;
+
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Role;
@@ -79,18 +81,7 @@ Route::middleware(['auth', 'verified','role:validator'])->group(function () {
 });
 
 Route::middleware(['auth', 'verified','role:expert'])->group(function () {
-    Route::get('/expert/dashboard', function () {
-        return view('expert.dashboard');
-    })->name('expert-dashboard');
-    Route::get('/expert/pengetahuan', function () {
-        return view('expert.pengetahuan');
-    })->name('expert-pengetahuan');
-    Route::get('/expert/helpdesk', function () {
-        return view('expert.helpdesk');
-    })->name('expert-helpdesk');
-    Route::get('/expert/rating', function () {
-        return view('expert.rating');
-    })->name('xpert-rating');
+    Route::get('/dashboard/pelatihan', KnowledgeController::class )->name('validator-dashboard');
 });
 
 
