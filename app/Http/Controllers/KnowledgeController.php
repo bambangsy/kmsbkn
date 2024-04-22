@@ -11,7 +11,7 @@ class KnowledgeController extends Controller
      */
     public function index()
     {
-        //
+        return view("expert.knowledge");
     }
 
     /**
@@ -19,7 +19,7 @@ class KnowledgeController extends Controller
      */
     public function create()
     {
-        //
+        return view("expert.create");
     }
 
     /**
@@ -35,7 +35,7 @@ class KnowledgeController extends Controller
      */
     public function show(string $id)
     {
-        //
+        return view("expert.show");
     }
 
     /**
@@ -43,7 +43,7 @@ class KnowledgeController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        return view("expert.edit");
     }
 
     /**

@@ -81,7 +81,7 @@ Route::middleware(['auth', 'verified','role:validator'])->group(function () {
 });
 
 Route::middleware(['auth', 'verified','role:expert'])->group(function () {
-    Route::get('/dashboard/pelatihan', KnowledgeController::class )->name('validator-dashboard');
+    Route::get('/dashboard/pelatihan', [KnowledgeController::class, 'index'] )->name('knowledge');
 });
 
 

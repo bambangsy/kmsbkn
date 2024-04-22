@@ -16,8 +16,8 @@
                         {{ __('Dashboard') }}
                     </x-nav-link>
                    
-                    <x-nav-link :href="route('profil')" :active="request()->routeIs('profil')">
-                        {{ __('Profil') }}
+                    <x-nav-link :href="route('knowledge')" :active="request()->routeIs('knowledge')">
+                        {{ __('Pengetahuan') }}
                     </x-nav-link>
              
                     
