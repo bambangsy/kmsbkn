@@ -26,8 +26,12 @@ class KnowledgeController extends Controller
      * Store a newly created resource in storage.
      */
     public function store(Request $request)
-    {
-        //
+    {   
+        $name = $request->name;
+        $description = $request->description;
+        $file = $request->file;
+        return dd([$name,$description,$file]);
+        #return redirect('/dashboard/pelatihan');
     }
 
     /**

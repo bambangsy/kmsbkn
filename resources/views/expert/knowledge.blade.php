@@ -11,7 +11,10 @@
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 text-gray-900 dark:text-gray-100">
-                    {{ __("Knowledge") }}
+                    <a href="{{route('knowledge.create')}}" class="bg-blue-500 px-5 py-3 rounded-md text-white shadow-sm hover:bg-blue-600">
+                        Add
+                    </a>
+                    
                 </div>
             </div>
         </div>

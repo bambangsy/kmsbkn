@@ -81,7 +81,10 @@ Route::middleware(['auth', 'verified','role:validator'])->group(function () {
 });
 
 Route::middleware(['auth', 'verified','role:expert'])->group(function () {
-    Route::get('/dashboard/pelatihan', [KnowledgeController::class, 'index'] )->name('knowledge');
+    Route::resource('/dashboard/pelatihan', KnowledgeController::class)->names([
+        'index' => 'knowledge',
+        'create' => 'knowledge.create',
+        'store' => 'knowledge.store']);
 });
 
 
