@@ -3,7 +3,7 @@
 
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="shrink-to-fit=no">
-    <title>Luma</title>
+    <title>BKN Learning Hub</title>
 
     <!-- Prevent the demo from appearing in search engines -->
     <meta name="robots" content="noindex">

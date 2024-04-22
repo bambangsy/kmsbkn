@@ -32,7 +32,7 @@ class PermissionsDemoSeeder extends Seeder
 
 
 
-
+        
         // create roles and assign existing permissions
         $role1 = Role::create(['name' => 'admin']);
         $role1->givePermissionTo('admin');
@@ -41,11 +41,16 @@ class PermissionsDemoSeeder extends Seeder
         $role2->givePermissionTo('validator');
 
         $role3 = Role::create(['name' => 'expert']);
-        $role2->givePermissionTo('expert');
+        $role3->givePermissionTo('expert');
+        
+        $role4 = Role::create(['name' => 'user']);
+        $role4->givePermissionTo('user');
 
         // gets all permissions via Gate::before rule; see AuthServiceProvider
 
         // create demo users
+        
+
         $user = \App\Models\User::factory()->create([
             'name' => 'admin',
             'email' => 'admin@gmail.com',
@@ -66,5 +71,12 @@ class PermissionsDemoSeeder extends Seeder
             'password' => 'expert'
         ]);
         $user->assignRole($role3);
+        
+        $user = \App\Models\User::factory()->create([
+            'name' => 'user',
+            'email' => 'user@gmail.com',
+            'password' => 'user'
+        ]);
+        $user->assignRole($role4);
     }
 }

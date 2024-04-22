@@ -38,7 +38,10 @@
                     
                     @auth
                         <li class="nav-item">
-                            <a href="/dashboard" class="btn btn-outline-dark">dashboard</a>
+                            <form method="POST" action="{{ route('logout') }}">
+                                @csrf
+                                <button type="submit" class="btn btn-outline-dark">Logout</button>
+                            </form>
                         </li>
 
                     @else 
@@ -54,4 +57,3 @@
                 </ul>
             </div>
 
-            <!-- // END Header -->

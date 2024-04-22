@@ -36,6 +36,9 @@ Route::get('/dashboard', function () {
     if ($role =="admin"){
         return view('admin/dbadmin');
     }
+    elseif($role == "user"){
+        return redirect('/');
+    }
     else{
         return view('dashboard');
     }
