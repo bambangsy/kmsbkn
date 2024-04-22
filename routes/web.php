@@ -39,8 +39,12 @@ Route::get('/dashboard', function () {
     elseif($role == "user"){
         return redirect('/');
     }
-    else{
+    elseif($role == "expert"){
         return view('dashboard');
+    }
+
+    elseif($role == "validator"){
+        return redirect('/');
     }
     
 })->middleware(['auth', 'verified'])->name('dashboard');
