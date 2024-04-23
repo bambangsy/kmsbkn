@@ -1,0 +1,1 @@
+<iframe src ="{{ asset('storage/'.'post-images/xpOHN7BJWLkDaVPgHLHqBfDHiPrzFBovMo8sOG1Q.pdf'); }}" width="1280px" height="600px"></iframe>

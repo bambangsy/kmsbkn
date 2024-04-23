@@ -29,9 +29,14 @@ class KnowledgeController extends Controller
     {   
         $name = $request->name;
         $description = $request->description;
-        $file = $request->file;
-        return dd([$name,$description,$file]);
-        #return redirect('/dashboard/pelatihan');
+        $file = $request->file('image')->store('post-images');
+        dd($file);
+         
+        
+
+
+        
+        return asset('storage/'.$file);
     }
 
     /**
@@ -55,7 +60,7 @@ class KnowledgeController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        
     }
 
     /**

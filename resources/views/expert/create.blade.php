@@ -19,7 +19,7 @@
                     </div>
                     <h1 class="pb-6 text-3xl">Create Knowledge</h1>
                     <div>
-                        <form class="" method="POST" action="{{route("knowledge.store")}}" >
+                        <form class="" method="POST" action="{{route("knowledge.store")}}" enctype="multipart/form-data" >
                             @csrf
                             {{-- nama --}}
                             <div class="mb-5">
@@ -47,7 +47,7 @@
                             <div class="mb-5">
                                 <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
                                 for="user_avatar">Unggah dokumen</label>
-                                <input name="file"
+                                <input name="image"
                                     class="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400"
                                     aria-describedby="user_avatar_help" id="user_avatar" type="file">
                             </div>
