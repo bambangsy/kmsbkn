@@ -2,7 +2,7 @@
 
 use App\Http\Controllers\KnowledgeController;
 use App\Http\Controllers\ProfileController;
-use App\Http\Controllers\UserKnowledgeController ;
+use App\Http\Controllers\UserKnowledgeController;
 
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
@@ -41,12 +41,11 @@ Route::get('/dashboard', function () {
         return view('admin/dbadmin', ['role' => $role]);
     } elseif ($role == "user") {
         return redirect('/');
-    } elseif ($role == "expert"  ) {
+    } elseif ($role == "expert") {
         return redirect(route('expert-dashboard'));
-    } 
-    elseif ($role == "validator" ) {
+    } elseif ($role == "validator") {
         return redirect(route('validator-dashboard'));
-    } 
+    }
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 
@@ -75,14 +74,16 @@ Route::middleware(['auth', 'verified', 'role:validator'])->group(function () {
     Route::get('/validator/dashboard', function () {
         return view('validator_dashboard');
     })->name('validator-dashboard');
-
+    Route::get('/validator/validasi', function () {
+        return view('validator.validasi.validasi');
+    })->name('validator-validasi');
 });
 
 Route::middleware(['auth', 'verified', 'role:expert'])->group(function () {
     Route::get('/expert/dashboard', function () {
         return view('dashboard');
     })->name('expert-dashboard');
-    
+
     Route::resource('/dashboard/pelatihan', KnowledgeController::class)->names([
         'index' => 'knowledge',
         'create' => 'knowledge.create',
