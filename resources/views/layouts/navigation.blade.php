@@ -20,6 +20,10 @@
                         {{ __('Pengetahuan') }}
                     </x-nav-link>
 
+                    <x-nav-link :href="route('course')" :active="request()->routeIs('course')">
+                        {{ __('Pelatihan') }}
+                    </x-nav-link>
+
                     <x-nav-link :href="route('helpdesk')" :active="request()->routeIs('helpdesk')">
                         {{ __('Help Desk') }}
                     </x-nav-link>

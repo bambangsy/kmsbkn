@@ -92,6 +92,19 @@ Route::middleware(['auth', 'verified', 'role:expert'])->group(function () {
     Route::get('/rating', function () {
         return view('expert.rating');
     })->name('rating');
+
+    Route::get('/course', function () {
+        return view('expert.course.course');
+    })->name('course');
+
+    // Route::resource('/dashboard/course', KnowledgeController::class)->names([
+    //     'index' => 'knowledge',
+    //     'create' => 'knowledge.create',
+    //     'store' => 'knowledge.store',
+    //     'destroy' => 'knowledge.destroy',
+    //     'edit' => 'knowledge.edit',
+    //     'update' => 'knowledge.update'
+    // ]);
 });
 
 
