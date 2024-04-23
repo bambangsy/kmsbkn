@@ -26,7 +26,7 @@
                         </div>
                     </li>
                     <li class="nav-item">
-                        <a href="{{route('artikel')}}" class="nav-link">Artikel</a>
+                        <a href="{{route('user.knowledge')}}" class="nav-link">Artikel</a>
                     </li>
                     <li class="nav-item">
                         <a href="pricing.html" class="nav-link">FAQ</a>

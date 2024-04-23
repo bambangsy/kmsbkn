@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\KnowledgeController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\UserKnowledgeController ;
 
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
@@ -26,9 +27,10 @@ Route::get('/alur-belajar', function () {
 Route::get('/pelatihan', function () {
     return view('user/pelatihan');
 })->name('pelatihan');
-Route::get('/artikel', function () {
-    return view('user/artikel');
-})->name('artikel');
+Route::prefix('user')->name('user.')->group(function () {
+    Route::get('/pengetahuan', [UserKnowledgeController::class, 'index'])->name('knowledge');
+    Route::get('/pengetahuan/{id}', [UserKnowledgeController::class, 'show'])->name('knowledge.show');
+});
 
 
 
