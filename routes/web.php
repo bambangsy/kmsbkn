@@ -38,15 +38,19 @@ Route::get('/dashboard', function () {
     $user = Auth::user();
     $role = $user->roles->first()->name;
     if ($role == "admin") {
-        return view('admin/dbadmin');
+        return view('admin/dbadmin', ['role' => $role]);
     } elseif ($role == "user") {
         return redirect('/');
-    } elseif ($role == "expert") {
-        return view('dashboard');
-    } elseif ($role == "validator") {
-        return redirect('/');
-    }
+    } elseif ($role == "expert"  ) {
+        return redirect(route('expert-dashboard'));
+    } 
+    elseif ($role == "validator" ) {
+        return redirect(route('validator-dashboard'));
+    } 
 })->middleware(['auth', 'verified'])->name('dashboard');
+
+
+
 
 
 Route::middleware(['auth', 'verified', 'role:admin'])->group(function () {
@@ -69,15 +73,18 @@ Route::middleware(['auth', 'verified', 'role:admin'])->group(function () {
 
 Route::middleware(['auth', 'verified', 'role:validator'])->group(function () {
     Route::get('/validator/dashboard', function () {
-        return view('validator.dashboard');
+        
+        return view('validator_dashboard');
+        
     })->name('validator-dashboard');
 
-    Route::get('/validator/manajemen-dokumen', function () {
-        return view('validator.manajemen-dokumen');
-    })->name('validator-manajemen-dokumen');
 });
 
 Route::middleware(['auth', 'verified', 'role:expert'])->group(function () {
+    Route::get('/expert/dashboard', function () {
+        return view('dashboard');
+    })->name('expert-dashboard');
+    
     Route::resource('/dashboard/pelatihan', KnowledgeController::class)->names([
         'index' => 'knowledge',
         'create' => 'knowledge.create',
