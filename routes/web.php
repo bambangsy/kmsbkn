@@ -79,7 +79,10 @@ Route::middleware(['auth', 'verified', 'role:expert'])->group(function () {
     Route::resource('/dashboard/pelatihan', KnowledgeController::class)->names([
         'index' => 'knowledge',
         'create' => 'knowledge.create',
-        'store' => 'knowledge.store'
+        'store' => 'knowledge.store',
+        'destroy' => 'knowledge.destroy',
+        'edit' => 'knowledge.edit',
+        'update' => 'knowledge.update'
     ]);
 
     Route::get('/helpdesk', function () {

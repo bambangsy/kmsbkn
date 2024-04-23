@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+use App\Models\Knowledge;
 
 use Illuminate\Http\Request;
 
@@ -11,10 +12,12 @@ class KnowledgeController extends Controller
      */
     public function index()
     {
-        return view("expert.knowledge");
+        $knowledges = Knowledge::all();
+        return view("expert.knowledge", ['knowledges' => $knowledges]);
     }
 
     /**
+     * 
      * Show the form for creating a new resource.
      */
     public function create()
@@ -30,13 +33,13 @@ class KnowledgeController extends Controller
         $name = $request->name;
         $description = $request->description;
         $file = $request->file('image')->store('post-images');
-        dd($file);
-         
-        
-
-
-        
-        return asset('storage/'.$file);
+        $filePath = 'storage/'.$file;
+        Knowledge::create([
+            'name' => $name,
+            'description' => $description,
+            'file' => $file,
+        ]);
+        return redirect('/dashboard/pelatihan');
     }
 
     /**
@@ -49,25 +52,35 @@ class KnowledgeController extends Controller
 
     /**
      * Show the form for editing the specified resource.
-     */
+     *  */
     public function edit(string $id)
     {
-        return view("expert.edit");
+        $knowledge = Knowledge::find($id);
+        return view("expert.edit", ['knowledge' => $knowledge]);
     }
+    
 
-    /**
-     * Update the specified resource in storage.
-     */
     public function update(Request $request, string $id)
     {
-        
+        $knowledge = Knowledge::find($id);
+        $knowledge->name = $request->name;
+        $knowledge->description = $request->description;
+        if ($request->image) {
+            $file = $request->file('image')->store('post-images');
+            $filePath = 'storage/'.$file;
+            $knowledge->file = $file;
+         
+        }
+        $knowledge->save();
+        return redirect('/dashboard/pelatihan');
     }
-
     /**
      * Remove the specified resource from storage.
      */
     public function destroy(string $id)
     {
-        //
+        $knowledge = Knowledge::find($id);
+        $knowledge->delete();
+        return redirect('/dashboard/pelatihan');
     }
 }
