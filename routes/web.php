@@ -35,24 +35,19 @@ Route::get('/artikel', function () {
 Route::get('/dashboard', function () {
     $user = Auth::user();
     $role = $user->roles->first()->name;
-    if ($role =="admin"){
+    if ($role == "admin") {
         return view('admin/dbadmin');
-    }
-    elseif($role == "user"){
+    } elseif ($role == "user") {
         return redirect('/');
-    }
-    elseif($role == "expert"){
+    } elseif ($role == "expert") {
         return view('dashboard');
-    }
-
-    elseif($role == "validator"){
+    } elseif ($role == "validator") {
         return redirect('/');
     }
-    
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 
-Route::middleware(['auth', 'verified','role:admin'])->group(function () {
+Route::middleware(['auth', 'verified', 'role:admin'])->group(function () {
     Route::get('/admin', function () {
         return view('admin.dbadmin');
     })->name('admin');
@@ -70,7 +65,7 @@ Route::middleware(['auth', 'verified','role:admin'])->group(function () {
     })->name('admin-knowledge-management');
 });
 
-Route::middleware(['auth', 'verified','role:validator'])->group(function () {
+Route::middleware(['auth', 'verified', 'role:validator'])->group(function () {
     Route::get('/validator/dashboard', function () {
         return view('validator.dashboard');
     })->name('validator-dashboard');
@@ -80,11 +75,20 @@ Route::middleware(['auth', 'verified','role:validator'])->group(function () {
     })->name('validator-manajemen-dokumen');
 });
 
-Route::middleware(['auth', 'verified','role:expert'])->group(function () {
+Route::middleware(['auth', 'verified', 'role:expert'])->group(function () {
     Route::resource('/dashboard/pelatihan', KnowledgeController::class)->names([
         'index' => 'knowledge',
         'create' => 'knowledge.create',
-        'store' => 'knowledge.store']);
+        'store' => 'knowledge.store'
+    ]);
+
+    Route::get('/helpdesk', function () {
+        return view('expert.helpdesk');
+    })->name('helpdesk');
+
+    Route::get('/rating', function () {
+        return view('expert.rating');
+    })->name('rating');
 });
 
 
@@ -102,7 +106,4 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-require __DIR__.'/auth.php';
-
-
-
+require __DIR__ . '/auth.php';
