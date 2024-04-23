@@ -73,9 +73,7 @@ Route::middleware(['auth', 'verified', 'role:admin'])->group(function () {
 
 Route::middleware(['auth', 'verified', 'role:validator'])->group(function () {
     Route::get('/validator/dashboard', function () {
-        
         return view('validator_dashboard');
-        
     })->name('validator-dashboard');
 
 });
