@@ -16,8 +16,8 @@
                         {{ __('Dashboard') }}
                     </x-nav-link>
 
-                    <x-nav-link :href="route('knowledge')" :active="request()->routeIs('knowledge')">
-                        {{ __('Pengetahuan') }}
+                    <x-nav-link :href="route('validator-validasi')" :active="request()->routeIs('validator-validasi')">
+                        {{ __('Validasi') }}
                     </x-nav-link>
 
 
