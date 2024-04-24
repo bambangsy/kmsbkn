@@ -17,7 +17,15 @@
                     </x-nav-link>
 
                     <x-nav-link :href="route('validasiknowledge')" :active="request()->routeIs('validasiknowledge')">
-                        {{ __('Validasi') }}
+                        {{ __('Validasi Artikel') }}
+                    </x-nav-link>
+
+                    <x-nav-link :href="route('validasicourse')" :active="request()->routeIs('validasicourse')">
+                        {{ __('Validasi Pelatihan') }}
+                    </x-nav-link>
+
+                    <x-nav-link :href="route('validasicoursepath')" :active="request()->routeIs('validasicoursepath')">
+                        {{ __('Validasi Alur') }}
                     </x-nav-link>
 
 

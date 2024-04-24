@@ -76,6 +76,7 @@ Route::middleware(['auth', 'verified', 'role:validator'])->group(function () {
     Route::get('/validator/dashboard', function () {
         return view('validator_dashboard');
     })->name('validator-dashboard');
+
     Route::resource('/validator/validasi', ValidatorKnowledgeController::class)->names([
         'index' => 'validasiknowledge',
         'create' => 'validasiknowledge.create',
@@ -86,6 +87,15 @@ Route::middleware(['auth', 'verified', 'role:validator'])->group(function () {
     ]);
     Route::patch('/validator/validasi/{id}/approve', [ValidatorKnowledgeController::class, 'approve'])->name('validasiknowledge.approve');
     Route::patch('/validator/validasi/{id}/reject', [ValidatorKnowledgeController::class, 'reject'])->name('validasiknowledge.reject');
+
+    Route::get('/validasicourse', function () {
+        return view('validator.courses.course');
+    })->name('validasicourse');
+
+    Route::get('/validasicoursepath', function () {
+        return view('validator.coursepath.coursepath');
+    })->name('validasicoursepath');
+
     
 });
 

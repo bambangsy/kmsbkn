@@ -1,3 +1,14 @@
+@php
+    // This is only for demonstration and should not be used in production code.
+    // Normally, $knowledges should be passed to the view by the controller.
+    $knowledges = collect([
+        (object) ['id' => 1, 'name' => 'Knowledge 1', 'description' => 'Description for Knowledge 1', 'file' => 'file1.pdf', 'status' => 0],
+        (object) ['id' => 2, 'name' => 'Knowledge 2', 'description' => 'Description for Knowledge 2', 'file' => 'file2.pdf', 'status' => 1],
+        (object) ['id' => 3, 'name' => 'Knowledge 3', 'description' => 'Description for Knowledge 3', 'file' => 'file3.pdf', 'status' => 2],
+        // ... more items
+    ]);
+@endphp
+
 @extends('layouts.validator')
 
 @section('content')
@@ -5,8 +16,6 @@
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 text-gray-900 dark:text-gray-100">
-
-
                     <h1 class="mb-6 text-3xl">Belum Disetujui</h1>
                     <div class="flex flex-col">
                         <div class="overflow-x-auto sm:-mx-6 lg:-mx-8">
