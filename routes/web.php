@@ -3,7 +3,7 @@
 use App\Http\Controllers\KnowledgeController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\UserKnowledgeController;
-
+use App\Http\Controllers\ValidatorKnowledgeController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Role;
@@ -74,9 +74,17 @@ Route::middleware(['auth', 'verified', 'role:validator'])->group(function () {
     Route::get('/validator/dashboard', function () {
         return view('validator_dashboard');
     })->name('validator-dashboard');
-    Route::get('/validator/validasi', function () {
-        return view('validator.validasi.validasi');
-    })->name('validator-validasi');
+    Route::resource('/validator/validasi', ValidatorKnowledgeController::class)->names([
+        'index' => 'validasiknowledge',
+        'create' => 'validasiknowledge.create',
+        'store' => 'validasiknowledge.store',
+        'destroy' => 'validasiknowledge.destroy',
+        'edit' => 'validasiknowledge.edit',
+        'update' => 'validasiknowledge.update'
+    ]);
+    Route::patch('/validator/validasi/{id}/approve', [ValidatorKnowledgeController::class, 'approve'])->name('validasiknowledge.approve');
+    Route::patch('/validator/validasi/{id}/reject', [ValidatorKnowledgeController::class, 'reject'])->name('validasiknowledge.reject');
+    
 });
 
 Route::middleware(['auth', 'verified', 'role:expert'])->group(function () {

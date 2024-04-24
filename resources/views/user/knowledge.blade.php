@@ -65,7 +65,7 @@
         
                     <div class="row card-group-row">
         
-                        @foreach($knowledges as $knowledge)
+                        @foreach($knowledges->where('status', 1) as $knowledge)
                         <div class="col-md-6 col-lg-4 card-group-row__col">
 
                             <div class="card card--elevated posts-card-popular overlay card-group-row__card">

@@ -24,6 +24,7 @@
                                             <th scope="col" class="px-6 py-4">Name</th>
                                             <th scope="col" class="px-6 py-4">Description</th>
                                             <th scope="col" class="px-6 py-4">File</th>
+                                            <th scope="col" class="px-6 py-4">Status</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -34,6 +35,16 @@
                                             <td class="whitespace-nowrap px-6 py-4">
                                                 <a href="{{asset('storage/'.$knowledge->file)}}" class="text-blue-500 hover:underline">Download</a>
                                             </td>
+                                            <td class="whitespace-nowrap px-6 py-4">
+                                                @if ($knowledge->status==0)
+                                                <span class="text-gray-500">menunggu validasi</span>
+                                                @elseif ($knowledge->status==1)
+                                                <span class="text-green-500">sudah disetujui</span>
+                                                @elseif ($knowledge->status==2)
+                                                <span class="text-red-500">ditolak</span>
+                                                @endif
+                                                
+                                                </td>
                                             <td class="whitespace-nowrap py-2 flex justify-end">
                                                 
                                                 <a href="{{ route('knowledge.edit', $knowledge->id) }}" class="bg-yellow-500 px-5 py-3 rounded-md text-white shadow-sm hover:bg-yellow-600 ">

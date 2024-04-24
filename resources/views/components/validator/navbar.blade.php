@@ -16,7 +16,7 @@
                         {{ __('Dashboard') }}
                     </x-nav-link>
 
-                    <x-nav-link :href="route('validator-validasi')" :active="request()->routeIs('validator-validasi')">
+                    <x-nav-link :href="route('validasiknowledge')" :active="request()->routeIs('validasiknowledge')">
                         {{ __('Validasi') }}
                     </x-nav-link>
 

@@ -38,6 +38,7 @@ class KnowledgeController extends Controller
             'name' => $name,
             'description' => $description,
             'file' => $file,
+            'status' => 0
         ]);
         return redirect('/dashboard/pelatihan');
     }
