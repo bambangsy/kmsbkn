@@ -40,8 +40,8 @@
                                             @foreach ($paths as $path)
                                                 <tr class="border-b border-neutral-200 dark:border-white/10">
                                                     <td class="whitespace-nowrap px-6 py-4">{{ $path->name }}</td>
-                                                    <td class="whitespace-nowrap px-6 py-4">
-                                                        {{ $path->description }}</td>
+                                                    <td> {{ strlen($path->description) > 50 ? substr($path->description, 0, 50) . '...' : $path->description }}</td>
+                                                       
 
                                                     <td class="whitespace-nowrap px-6 py-4">
                                                         @if ($path->status == 0)
