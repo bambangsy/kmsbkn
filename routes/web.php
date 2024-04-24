@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\CourseController;
+use App\Http\Controllers\CoursePathController;
 use App\Http\Controllers\KnowledgeController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\UserKnowledgeController;
@@ -92,7 +94,7 @@ Route::middleware(['auth', 'verified', 'role:expert'])->group(function () {
         return view('dashboard');
     })->name('expert-dashboard');
 
-    Route::resource('/dashboard/pelatihan', KnowledgeController::class)->names([
+    Route::resource('/dashboard/pengetahuan', KnowledgeController::class)->names([
         'index' => 'knowledge',
         'create' => 'knowledge.create',
         'store' => 'knowledge.store',
@@ -109,18 +111,24 @@ Route::middleware(['auth', 'verified', 'role:expert'])->group(function () {
         return view('expert.rating');
     })->name('rating');
 
-    Route::get('/course', function () {
-        return view('expert.course.course');
-    })->name('course');
+    Route::resource('/expert/pelatihan', CourseController::class)->names([
+        'index' => 'course',
+        'create' => 'course.create',
+        'store' => 'course.store',
+        'destroy' => 'course.destroy',
+        'edit' => 'course.edit',
+        'update' => 'course.update'
+    ]);
 
-    // Route::resource('/dashboard/course', KnowledgeController::class)->names([
-    //     'index' => 'knowledge',
-    //     'create' => 'knowledge.create',
-    //     'store' => 'knowledge.store',
-    //     'destroy' => 'knowledge.destroy',
-    //     'edit' => 'knowledge.edit',
-    //     'update' => 'knowledge.update'
-    // ]);
+    Route::resource('/expert/alur-pelatihan', CoursePathController::class)->names([
+
+        'create' => 'course_path.create',
+        'store' => 'course_path.store',
+        'destroy' => 'course_path.destroy',
+        'edit' => 'course_path.edit',
+        'update' => 'course_path.update'
+    ]);
+
 });
 
 

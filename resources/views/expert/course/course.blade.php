@@ -20,7 +20,7 @@ $knowledges = [
             <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 text-gray-900 dark:text-gray-100">
                     <h1 class="mb-6 text-3xl">Alur Pelatihan</h1>
-                    <a href="{{route('knowledge.create')}}" class="bg-blue-500 px-5 py-3 rounded-md text-white shadow-sm hover:bg-blue-600">
+                    <a href="{{route('course_path.create')}}" class="bg-blue-500 px-5 py-3 rounded-md text-white shadow-sm hover:bg-blue-600">
                         Add
                     </a>
                     <div class="flex flex-col">
@@ -116,7 +116,7 @@ $knowledges = [
                 
                 <div class="p-6 text-gray-900 dark:text-gray-100">
                     <h1 class="mb-6 text-3xl">Pelatihan</h1>
-                    <a href="{{route('knowledge.create')}}" class="bg-blue-500 px-5 py-3 rounded-md text-white shadow-sm hover:bg-blue-600">
+                    <a href="{{route('course.create')}}" class="bg-blue-500 px-5 py-3 rounded-md text-white shadow-sm hover:bg-blue-600">
                         Add
                     </a>
                     <div class="flex flex-col">

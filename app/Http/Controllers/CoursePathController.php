@@ -4,14 +4,14 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-class CourseController extends Controller
+class CoursePathController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        return view('expert.course.course');
+        
     }
 
     /**
@@ -19,7 +19,7 @@ class CourseController extends Controller
      */
     public function create()
     {
-        return view('expert.course.create_course');
+        return view('expert.course.path');
     }
 
     /**
@@ -27,7 +27,17 @@ class CourseController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $name = $request->name;
+        $description = $request->description;
+        $file = $request->file('file')->store('file');
+        $filePath = 'storage/'.$file;
+        Knowledge::create([
+            'name' => $name,
+            'description' => $description,
+            'file' => $file,
+            'status' => 0
+        ]);
+        return redirect('/dashboard/pelatihan');
     }
 
     /**

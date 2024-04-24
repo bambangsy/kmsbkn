@@ -18,8 +18,7 @@ return new class extends Migration
             $table->text('file');
             $table->tinyInteger('status')->default(0);
             $table->timestamps();
-
-            $table->foreign('status')->references('id')->on('status');
+             // Changed foreign key definition
         });
     }
 

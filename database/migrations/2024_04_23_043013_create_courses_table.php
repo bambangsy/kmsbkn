@@ -18,7 +18,7 @@ return new class extends Migration
             $table->text('file');
             $table->timestamps();
 
-            $table->foreign('status')->references('id')->on('status');
+
         });
     }
 
