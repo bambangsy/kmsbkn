@@ -24,8 +24,7 @@
                                             @foreach ($knowledges->where('status', 0) as $knowledge)
                                                 <tr class="border-b border-neutral-200 dark:border-white/10">
                                                     <td class="whitespace-nowrap px-6 py-4">{{ $knowledge->name }}</td>
-                                                    <td class="whitespace-nowrap px-6 py-4">{{ $knowledge->description }}
-                                                    </td>
+                                                    <td> {{ strlen($knowledge->description) > 50 ? substr($knowledge->description, 0, 50) . '...' : $knowledge->description }}</td>
                                                     <td class="whitespace-nowrap px-6 py-4">
                                                         <a href="{{ asset('storage/' . $knowledge->file) }}"
                                                             class="text-blue-500 hover:underline">Download</a>
@@ -81,8 +80,7 @@
                                             @foreach ($knowledges->where('status', 1) as $knowledge)
                                                 <tr class="border-b border-neutral-200 dark:border-white/10">
                                                     <td class="whitespace-nowrap px-6 py-4">{{ $knowledge->name }}</td>
-                                                    <td class="whitespace-nowrap px-6 py-4">{{ $knowledge->description }}
-                                                    </td>
+                                                    <td> {{ strlen($knowledge->description) > 50 ? substr($knowledge->description, 0, 50) . '...' : $knowledge->description }}</td>
                                                     <td class="whitespace-nowrap px-6 py-4">
                                                         <a href="{{ asset('storage/' . $knowledge->file) }}"
                                                             class="text-blue-500 hover:underline">Download</a>
@@ -118,8 +116,7 @@
                                             @foreach ($knowledges->where('status', 2) as $knowledge)
                                                 <tr class="border-b border-neutral-200 dark:border-white/10">
                                                     <td class="whitespace-nowrap px-6 py-4">{{ $knowledge->name }}</td>
-                                                    <td class="whitespace-nowrap px-6 py-4">{{ $knowledge->description }}
-                                                    </td>
+                                                    <td> {{ strlen($knowledge->description) > 50 ? substr($knowledge->description, 0, 50) . '...' : $knowledge->description }}</td>
                                                     <td class="whitespace-nowrap px-6 py-4">
                                                         <a href="{{ asset('storage/' . $knowledge->file) }}"
                                                             class="text-blue-500 hover:underline">Download</a>

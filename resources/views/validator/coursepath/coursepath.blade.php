@@ -2,7 +2,8 @@
     // This is only for demonstration and should not be used in production code.
     // Normally, $knowledges should be passed to the view by the controller.
     $knowledges = collect([
-        (object) ['id' => 1, 'name' => 'Knowledge 1', 'description' => 'Description for Knowledge 1', 'file' => 'file1.pdf', 'status' => 0],
+        (object) ['id' => 1, 'name' => 'Knowledge 1', 'description' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+', 'file' => 'file1.pdf', 'status' => 0],
         (object) ['id' => 2, 'name' => 'Knowledge 2', 'description' => 'Description for Knowledge 2', 'file' => 'file2.pdf', 'status' => 1],
         (object) ['id' => 3, 'name' => 'Knowledge 3', 'description' => 'Description for Knowledge 3', 'file' => 'file3.pdf', 'status' => 2],
         // ... more items
@@ -33,8 +34,7 @@
                                             @foreach ($knowledges->where('status', 0) as $knowledge)
                                                 <tr class="border-b border-neutral-200 dark:border-white/10">
                                                     <td class="whitespace-nowrap px-6 py-4">{{ $knowledge->name }}</td>
-                                                    <td class="whitespace-nowrap px-6 py-4">{{ $knowledge->description }}
-                                                    </td>
+                                                    <td> {{ strlen($knowledge->description) > 50 ? substr($knowledge->description, 0, 50) . '...' : $knowledge->description }}</td>
                                                     <td class="whitespace-nowrap px-6 py-4">
                                                         <a href="{{ asset('storage/' . $knowledge->file) }}"
                                                             class="text-blue-500 hover:underline">Download</a>
@@ -90,8 +90,7 @@
                                             @foreach ($knowledges->where('status', 1) as $knowledge)
                                                 <tr class="border-b border-neutral-200 dark:border-white/10">
                                                     <td class="whitespace-nowrap px-6 py-4">{{ $knowledge->name }}</td>
-                                                    <td class="whitespace-nowrap px-6 py-4">{{ $knowledge->description }}
-                                                    </td>
+                                                    <td> {{ strlen($knowledge->description) > 50 ? substr($knowledge->description, 0, 50) . '...' : $knowledge->description }}</td>
                                                     <td class="whitespace-nowrap px-6 py-4">
                                                         <a href="{{ asset('storage/' . $knowledge->file) }}"
                                                             class="text-blue-500 hover:underline">Download</a>
@@ -127,8 +126,7 @@
                                             @foreach ($knowledges->where('status', 2) as $knowledge)
                                                 <tr class="border-b border-neutral-200 dark:border-white/10">
                                                     <td class="whitespace-nowrap px-6 py-4">{{ $knowledge->name }}</td>
-                                                    <td class="whitespace-nowrap px-6 py-4">{{ $knowledge->description }}
-                                                    </td>
+                                                    <td> {{ strlen($knowledge->description) > 50 ? substr($knowledge->description, 0, 50) . '...' : $knowledge->description }}</td>
                                                     <td class="whitespace-nowrap px-6 py-4">
                                                         <a href="{{ asset('storage/' . $knowledge->file) }}"
                                                             class="text-blue-500 hover:underline">Download</a>
