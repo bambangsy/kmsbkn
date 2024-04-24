@@ -128,6 +128,8 @@ Route::middleware(['auth', 'verified', 'role:expert'])->group(function () {
         'edit' => 'course_path.edit',
         'update' => 'course_path.update'
     ]);
+    Route::patch('/expert/alur-pelatihan/{id}/validate', [CoursePathController::class, 'validate'])->name('course_path.validate');
+    Route::patch('/expert/alur-pelatihan/{id}/cancel_validate', [CoursePathController::class, 'cancel_validate'])->name('course_path.cancel_validate');
 
 });
 

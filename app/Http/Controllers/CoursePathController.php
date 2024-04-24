@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Path;
 use Illuminate\Http\Request;
 
 class CoursePathController extends Controller
@@ -29,16 +30,38 @@ class CoursePathController extends Controller
     {
         $name = $request->name;
         $description = $request->description;
-        $file = $request->file('file')->store('file');
-        $filePath = 'storage/'.$file;
-        Knowledge::create([
+        Path::create([
             'name' => $name,
             'description' => $description,
-            'file' => $file,
-            'status' => 0
+            'status' => 3
         ]);
-        return redirect('/dashboard/pelatihan');
+        return redirect(route('course'));
     }
+
+    public function validate(Request $request, $id)
+    {   
+        
+        $id = $request->id;
+        $knowledge = Path::findOrFail($id);
+    
+        // Update the status
+        $knowledge->status = 0;
+        $knowledge->save();
+    
+        return redirect()->route('course');
+    }
+    public function cancel_validate(Request $request, $id)
+    {
+        $id = $request->id;
+        $knowledge = Path::findOrFail($id);
+    
+        // Update the status
+        $knowledge->status = 3;
+        $knowledge->save();
+    
+        return redirect()->route('course');
+    }
+
 
     /**
      * Display the specified resource.
@@ -69,6 +92,11 @@ class CoursePathController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $path = Path::find($id);
+        $path->delete();
+        return redirect(route('course'));
     }
+
+
+
 }

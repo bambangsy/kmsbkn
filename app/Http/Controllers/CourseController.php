@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Path;
 use Illuminate\Http\Request;
 
 class CourseController extends Controller
@@ -11,7 +12,8 @@ class CourseController extends Controller
      */
     public function index()
     {
-        return view('expert.course.course');
+        $paths = Path::all();
+        return view('expert.course.course', compact('paths'));
     }
 
     /**

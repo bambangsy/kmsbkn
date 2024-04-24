@@ -20,7 +20,8 @@
             <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 text-gray-900 dark:text-gray-100">
                     <h1 class="mb-6 text-3xl">Alur Pelatihan</h1>
-                    <a href="{{route('course_path.create')}}" class="bg-blue-500 px-5 py-3 rounded-md text-white shadow-sm hover:bg-blue-600">
+                    <a href="{{ route('course_path.create') }}"
+                        class="bg-blue-500 px-5 py-3 rounded-md text-white shadow-sm hover:bg-blue-600">
                         Add
                     </a>
                     <div class="flex flex-col">
@@ -32,89 +33,86 @@
                                             <tr>
                                                 <th scope="col" class="px-6 py-4">Name</th>
                                                 <th scope="col" class="px-6 py-4">Description</th>
-                                                <th scope="col" class="px-6 py-4">File</th>
                                                 <th scope="col" class="px-6 py-4">Status</th>
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            @foreach ($knowledges as $knowledge)
+                                            @foreach ($paths as $path)
                                                 <tr class="border-b border-neutral-200 dark:border-white/10">
-                                                    <td class="whitespace-nowrap px-6 py-4">{{ $knowledge->name }}</td>
+                                                    <td class="whitespace-nowrap px-6 py-4">{{ $path->name }}</td>
                                                     <td class="whitespace-nowrap px-6 py-4">
-                                                        {{ $knowledge->description }}</td>
+                                                        {{ $path->description }}</td>
+
                                                     <td class="whitespace-nowrap px-6 py-4">
-                                                        <a href="{{ asset('storage/' . $knowledge->file) }}"
-                                                            class="text-blue-500 hover:underline">Download</a>
-                                                    </td>
-                                                    <td class="whitespace-nowrap px-6 py-4">
-                                                        @if ($knowledge->status == 0)
+                                                        @if ($path->status == 0)
                                                             <span class="text-gray-500">menunggu validasi</span>
-                                                        @elseif ($knowledge->status == 1)
+                                                        @elseif ($path->status == 1)
                                                             <span class="text-green-500">sudah disetujui</span>
-                                                        @elseif ($knowledge->status == 2)
+                                                        @elseif ($path->status == 2)
                                                             <span class="text-red-500">ditolak</span>
+                                                        @elseif ($path->status == 3)
+                                                            <span class="text-gray-500">draft</span>
                                                         @endif
 
                                                     </td>
-                                                    <td class="whitespace-nowrap py-2 flex justify-end">
-                                                        <a href="#"
-                                                            class="bg-green-500 px-5 py-3 ml-2 rounded-md text-white shadow-sm hover:bg-green-600 ">
-                                                            Validate
-                                                        </a>
-                                                        <a href="#"
-                                                            class="bg-yellow-500 px-5 py-3 ml-2 rounded-md text-white shadow-sm hover:bg-yellow-600 ">
-                                                            Edit
-                                                        </a>
-                                                        <form action="#" method="POST">
-                                                            @csrf
-                                                            @method('DELETE')
-                                                            <button type="submit"
-                                                                class="bg-red-500 px-5 py-3 ml-2 rounded-md text-white shadow-sm hover:bg-red-600">
-                                                                Delete
-                                                            </button>
-                                                        </form>
-                                                    </td>
-                                                </tr>
-                                            @endforeach
-                                            @foreach ($knowledges as $knowledge)
-                                                <tr class="border-b border-neutral-200 dark:border-white/10">
-                                                    <td class="whitespace-nowrap px-6 py-4">{{ $knowledge->name }}</td>
-                                                    <td class="whitespace-nowrap px-6 py-4">
-                                                        {{ $knowledge->description }}</td>
-                                                    <td class="whitespace-nowrap px-6 py-4">
-                                                        <a href="{{ asset('storage/' . $knowledge->file) }}"
-                                                            class="text-blue-500 hover:underline">Download</a>
-                                                    </td>
-                                                    <td class="whitespace-nowrap px-6 py-4">
-                                                        @if ($knowledge->status == 0)
-                                                            <span class="text-gray-500">menunggu validasi</span>
-                                                        @elseif ($knowledge->status == 1)
-                                                            <span class="text-green-500">sudah disetujui</span>
-                                                        @elseif ($knowledge->status == 2)
-                                                            <span class="text-red-500">ditolak</span>
-                                                        @endif
 
-                                                    </td>
-                                                    <td class="whitespace-nowrap py-2 flex justify-end">
-                                                        <a href="#"
-                                                            class="bg-green-500 px-5 py-3 ml-2 rounded-md text-white shadow-sm hover:bg-green-600 ">
-                                                            Validate
-                                                        </a>
-                                                        <a href="#"
-                                                            class="bg-yellow-500 px-5 py-3 ml-2 rounded-md text-white shadow-sm hover:bg-yellow-600 ">
-                                                            Edit
-                                                        </a>
-                                                        <form action="#" method="POST">
-                                                            @csrf
-                                                            @method('DELETE')
-                                                            <button type="submit"
-                                                                class="bg-red-500 px-5 py-3 ml-2 rounded-md text-white shadow-sm hover:bg-red-600">
-                                                                Delete
-                                                            </button>
-                                                        </form>
-                                                    </td>
+                                                    @if ($path->status == 3)
+                                                        <td class="whitespace-nowrap py-2 flex justify-end">
+                                                            <div class="flex">
+                                                                <a href="#"
+                                                                    class="bg-black px-5 py-3 ml-2 rounded-md text-white shadow-sm hover:bg-gray-800 ">
+                                                                    Go to Courses
+                                                                </a>
+
+                                                                <form
+                                                                    action="{{ route('course_path.validate', $path->id) }}"
+                                                                    method="POST">
+                                                                    @csrf
+                                                                    @method('PATCH')
+                                                                    <button type="submit"
+                                                                        class="bg-green-500 px-5 py-3 ml-2 rounded-md text-white shadow-sm hover:bg-green-600 ">
+                                                                        Validate
+                                                                    </button>
+                                                                </form>
+
+                                                                <form
+                                                                    action="{{ route('course_path.destroy', $path->id) }}"
+                                                                    method="POST">
+                                                                    @csrf
+                                                                    @method('DELETE')
+                                                                    <button type="submit"
+                                                                        class="bg-red-500 px-5 py-3 ml-2 rounded-md text-white shadow-sm hover:bg-red-600">
+                                                                        Delete
+                                                                    </button>
+                                                                </form>
+                                                            </div>
+                                                        </td>
+                                                    @elseif($path->status == 0)
+                                                        <td class="whitespace-nowrap py-2 flex justify-end">
+                                                            <div class="flex">
+                                                                <a href="#"
+                                                                    class="bg-black px-5 py-3 ml-2 rounded-md text-white shadow-sm hover:bg-gray-800 ">
+                                                                    Go to Courses
+                                                                </a>
+
+
+                                                                <form
+                                                                    action="{{ route('course_path.cancel_validate', $path->id) }}"
+                                                                    method="POST">
+                                                                    @csrf
+                                                                    @method('PATCH')
+                                                                    <button type="submit"
+                                                                        class="bg-red-500 px-5 py-3 ml-2 rounded-md text-white shadow-sm hover:bg-red-600">
+                                                                        Batal verifikasi
+                                                                    </button>
+                                                                </form>
+                                                            </div>
+                                                        </td>
+                                                    @endif
+
                                                 </tr>
                                             @endforeach
+
                                         </tbody>
                                     </table>
                                 </div>
@@ -130,7 +128,8 @@
 
                 <div class="p-6 text-gray-900 dark:text-gray-100">
                     <h1 class="mb-6 text-3xl">Pelatihan</h1>
-                    <a href="{{route('course.create')}}" class="bg-blue-500 px-5 py-3 rounded-md text-white shadow-sm hover:bg-blue-600">
+                    <a href="{{ route('course.create') }}"
+                        class="bg-blue-500 px-5 py-3 rounded-md text-white shadow-sm hover:bg-blue-600">
                         Add
                     </a>
                     <div class="flex flex-col">
