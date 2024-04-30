@@ -16,6 +16,8 @@ return new class extends Migration
             $table->string('name');
             $table->text('description');
             $table->text('file');
+            $table->integer('view_count')->default(0);
+            $table->text('images')->nullable();
             $table->tinyInteger('status')->default(0);
             $table->timestamps();
              // Changed foreign key definition

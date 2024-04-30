@@ -27,7 +27,7 @@
         <div class="container page__container">
 
             <div class="page-separator">
-                <div class="page-separator__text">Artikel Terbaru</div>
+                <div class="page-separator__text">Pengetahuan Terbaru</div>
             </div>
 
             <div class="row card-group-row">
