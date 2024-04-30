@@ -10,17 +10,14 @@ class KnowledgeController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index(Request $request)
+    public function index()
     {
-        $sortField = $request->input('sort', 'newest') == 'newest' ? 'created_at' : 'views';
-        $sortOrder = $sortField == 'created_at' ? 'desc' : 'asc';
-        $knowledges = Knowledge::where('status', 1)->orderBy($sortField, $sortOrder)->get();
-        return view("expert.knowledge", compact('knowledges'));
+        $knowledges = Knowledge::all();
+        return view("expert.knowledge", ['knowledges' => $knowledges]);
     }
-    
-
 
     /**
+     * 
      * Show the form for creating a new resource.
      */
     public function create()
@@ -33,70 +30,58 @@ class KnowledgeController extends Controller
      */
     public function store(Request $request)
     {   
-        $validatedData = $request->validate([
-            'name' => 'required|max:255',
-            'description' => 'required',
-            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-        ]);
-
+        $name = $request->name;
+        $description = $request->description;
         $file = $request->file('image')->store('post-images');
         $filePath = 'storage/'.$file;
-
-        $knowledge = Knowledge::create([
-            'name' => $validatedData['name'],
-            'description' => $validatedData['description'],
-            'file' => $filePath,
+        Knowledge::create([
+            'name' => $name,
+            'description' => $description,
+            'file' => $file,
             'status' => 0
         ]);
-
-        return redirect(route('knowledge.index'))->with('success', 'Knowledge has been created successfully.');
+        return redirect(route('knowledge'));
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(Knowledge $knowledge)
+    public function show(string $id)
     {
-        return view("expert.show", compact('knowledge'));
+        return view("expert.show");
     }
 
     /**
      * Show the form for editing the specified resource.
-     */
-    public function edit(Knowledge $knowledge)
+     *  */
+    public function edit(string $id)
     {
-        return view("expert.edit", compact('knowledge'));
+        $knowledge = Knowledge::find($id);
+        return view("expert.edit", ['knowledge' => $knowledge]);
     }
     
 
-    public function update(Request $request, Knowledge $knowledge)
+    public function update(Request $request, string $id)
     {
-        $validatedData = $request->validate([
-            'name' => 'required|max:255',
-            'description' => 'required',
-            'image' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-        ]);
-
-        $knowledge->name = $validatedData['name'];
-        $knowledge->description = $validatedData['description'];
-
-        if ($request->hasFile('image')) {
+        $knowledge = Knowledge::find($id);
+        $knowledge->name = $request->name;
+        $knowledge->description = $request->description;
+        if ($request->image) {
             $file = $request->file('image')->store('post-images');
             $filePath = 'storage/'.$file;
-            $knowledge->file = $filePath;
+            $knowledge->file = $file;
+         
         }
-
         $knowledge->save();
-
-        return redirect(route('knowledge.index'))->with('success', 'Knowledge has been updated successfully.');
+        return redirect(route('knowledge'));
     }
-
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Knowledge $knowledge)
+    public function destroy(string $id)
     {
+        $knowledge = Knowledge::find($id);
         $knowledge->delete();
-        return redirect(route('knowledge.index'))->with('success', 'Knowledge has been deleted successfully.');
+        return redirect(route('knowledge'));
     }
 }

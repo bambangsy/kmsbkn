@@ -14,10 +14,11 @@ class UserKnowledgeController extends Controller
         
         if ($search) {
             $knowledges = Knowledge::where('name', 'LIKE', "%{$search}%")
+                ->where('status', 1)
                 ->get();
             
         } else {
-            $knowledges = Knowledge::all();
+            $knowledges = Knowledge::where('status', 1)->get();
         }
         
         return view("user.knowledge", ['knowledges' => $knowledges]);
@@ -25,6 +26,13 @@ class UserKnowledgeController extends Controller
     public function show($id)
     {
         $knowledge = Knowledge::find($id);
+        if ($knowledge) {
+            if (!session()->has('knowledge_view_count_' . $knowledge->id)) {
+                $knowledge->view_count += 1;
+                $knowledge->save();
+                session()->put('knowledge_view_count_' . $knowledge->id, true);
+            }
+        }
         return view("user.showknowledge", ['knowledge' => $knowledge]);
     }
 

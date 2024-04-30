@@ -65,7 +65,7 @@
                                     <div class="card-body d-flex align-items-center">
                                         <a style="text-decoration: none;" class="d-flex align-items-center" href=""><i
                                                 class="material-icons mr-1" style="font-size: inherit;">remove_red_eye</i>
-                                            <small>327</small></a>
+                                            <small>{{$knowledge->view_count}}</small></a>
                                     </div>
                                     <div class="posts-card-popular__title card-body">
                                         <small class="text-muted text-uppercase">{{$knowledge->name}}</small>
