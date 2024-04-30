@@ -31,11 +31,9 @@ Route::get('/pelatihan', function () {
 })->name('pelatihan');
 Route::prefix('user')->name('user.')->group(function () {
     Route::get('/pengetahuan', [UserKnowledgeController::class, 'index'])->name('knowledge');
-    Route::get('/pengetahuan/{id}', [UserKnowledgeController::class, 'show'])->name('knowledge.show');
+    Route::get('/pengetahuan/{id}/{filter?}', [UserKnowledgeController::class, 'show'])->name('knowledge.show');
+    Route::get('/pengetahuan/search', [KnowledgeController::class, 'search'])->name('knowledge.search');
 });
-
-
-
 Route::get('/dashboard', function () {
     $user = Auth::user();
     $role = $user->roles->first()->name;

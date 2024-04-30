@@ -10,14 +10,26 @@ class KnowledgeController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
-        $knowledges = Knowledge::all();
-        return view("expert.knowledge", ['knowledges' => $knowledges]);
+        $sortField = $request->input('sort', 'newest') == 'newest' ? 'created_at' : 'views';
+        $sortOrder = $sortField == 'created_at' ? 'desc' : 'asc';
+        $knowledges = Knowledge::where('status', 1)->orderBy($sortField, $sortOrder)->get();
+        return view("expert.knowledge", compact('knowledges'));
+    }
+    
+
+    public function search(Request $request)
+    {
+        $searchTerm = $request->input('search');
+        $knowledges = Knowledge::where('name', 'LIKE', "%{$searchTerm}%")
+                                ->orWhere('description', 'LIKE', "%{$searchTerm}%")
+                                ->get();
+
+        return view("user.knowledge", compact('knowledges'));
     }
 
     /**
-     * 
      * Show the form for creating a new resource.
      */
     public function create()
@@ -30,58 +42,70 @@ class KnowledgeController extends Controller
      */
     public function store(Request $request)
     {   
-        $name = $request->name;
-        $description = $request->description;
+        $validatedData = $request->validate([
+            'name' => 'required|max:255',
+            'description' => 'required',
+            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+        ]);
+
         $file = $request->file('image')->store('post-images');
         $filePath = 'storage/'.$file;
-        Knowledge::create([
-            'name' => $name,
-            'description' => $description,
-            'file' => $file,
+
+        $knowledge = Knowledge::create([
+            'name' => $validatedData['name'],
+            'description' => $validatedData['description'],
+            'file' => $filePath,
             'status' => 0
         ]);
-        return redirect('/dashboard/pelatihan');
+
+        return redirect(route('knowledge.index'))->with('success', 'Knowledge has been created successfully.');
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show(Knowledge $knowledge)
     {
-        return view("expert.show");
+        return view("expert.show", compact('knowledge'));
     }
 
     /**
      * Show the form for editing the specified resource.
-     *  */
-    public function edit(string $id)
+     */
+    public function edit(Knowledge $knowledge)
     {
-        $knowledge = Knowledge::find($id);
-        return view("expert.edit", ['knowledge' => $knowledge]);
+        return view("expert.edit", compact('knowledge'));
     }
     
 
-    public function update(Request $request, string $id)
+    public function update(Request $request, Knowledge $knowledge)
     {
-        $knowledge = Knowledge::find($id);
-        $knowledge->name = $request->name;
-        $knowledge->description = $request->description;
-        if ($request->image) {
+        $validatedData = $request->validate([
+            'name' => 'required|max:255',
+            'description' => 'required',
+            'image' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+        ]);
+
+        $knowledge->name = $validatedData['name'];
+        $knowledge->description = $validatedData['description'];
+
+        if ($request->hasFile('image')) {
             $file = $request->file('image')->store('post-images');
             $filePath = 'storage/'.$file;
-            $knowledge->file = $file;
-         
+            $knowledge->file = $filePath;
         }
+
         $knowledge->save();
-        return redirect('/dashboard/pelatihan');
+
+        return redirect(route('knowledge.index'))->with('success', 'Knowledge has been updated successfully.');
     }
+
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(Knowledge $knowledge)
     {
-        $knowledge = Knowledge::find($id);
         $knowledge->delete();
-        return redirect('/dashboard/pelatihan');
+        return redirect(route('knowledge.index'))->with('success', 'Knowledge has been deleted successfully.');
     }
 }

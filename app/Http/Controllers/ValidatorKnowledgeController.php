@@ -89,3 +89,4 @@ class ValidatorKnowledgeController extends Controller
         //
     }
 }
+

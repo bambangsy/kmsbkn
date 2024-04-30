@@ -13,23 +13,23 @@
                 <div class="hero container page__container text-center py-112pt">
                     <h1 class="text-white text-shadow">Pengetahuan</h1>
                     <p class="lead measure-hero-lead mx-auto text-white text-shadow ">Halo Sobat BKN, Ingin membaca artikel terbaru hari ini?</p>
-                    <form action="">
+                    <form action="{{ route('user.knowledge.search') }}" method="GET">
                         <div class="relative">
                             <div class="flex flex-col md:flex-row">
                                 <input
                                   type="search"
-                                  class="relative m-0 block w-full rounded border border-solid border-neutral-200 bg-white bg-clip-padding px-3 py-[1rem] text-base font-normal leading-[1.6] text-surface outline-none transition duration-200 ease-in-out placeholder:text-blue-500 focus:z-[3] focus:border-primary  focus:shadow-inset focus:outline-none opacity-70"
-                                  placeholder="Search"
-                                  aria-label="Search"
-                                  id="exampleFormControlInput4" />
-                                <button class="px-3 btn btn-white text-primary mt-0 md:mt-2 ">Cari</button>
+                                  class="form-control"
+                                  placeholder="Cari"
+                                  aria-label="Cari"
+                                  id="exampleFormControlInput4"
+                                  name="search" />
+                                <button type="submit" class="btn btn-primary ml-md-2 mt-2 mt-md-0">Cari</button>
                             </div>
                         </div>            
                     </form>
                 </div>
             </div>
         </div>
-
 
         <div class="container page__container">
             
@@ -38,12 +38,9 @@
                 <small class="flex text-muted text-headings text-uppercase mr-3 mb-2 mb-sm-0">Displaying 4 out of 10 courses</small>
                 <div class="w-auto ml-sm-auto table d-flex align-items-center mb-2 mb-sm-0">
                     <small class="text-muted text-headings text-uppercase mr-3 d-none d-sm-block">Sort by</small>
+                    <a href="#" onclick="sortByNewest(event);" class="sort desc small text-headings text-uppercase">Newest</a>
 
-                    <a href="#"
-                    class="sort desc small text-headings text-uppercase">Newest</a>
-
-                    <a href="#"
-                    class="sort small text-headings text-uppercase ml-2">Popularity</a>
+                    <a href="#"  class="sort small text-headings text-uppercase ml-2">Popularity</a>
 
                 </div>
 
@@ -65,7 +62,7 @@
         
                     <div class="row card-group-row">
         
-                        @foreach($knowledges->where('status', 1) as $knowledge)
+                        @foreach($knowledges as $knowledge)
                         <div class="col-md-6 col-lg-4 card-group-row__col">
 
                             <div class="card card--elevated posts-card-popular overlay card-group-row__card">
