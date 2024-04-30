@@ -29,10 +29,12 @@ Route::get('/alur-belajar', function () {
 Route::get('/pelatihan', function () {
     return view('user/pelatihan');
 })->name('pelatihan');
+
 Route::prefix('user')->name('user.')->group(function () {
     Route::get('/pengetahuan', [UserKnowledgeController::class, 'index'])->name('knowledge');
     Route::get('/pengetahuan/{id}/{filter?}', [UserKnowledgeController::class, 'show'])->name('knowledge.show');
-    Route::get('/pengetahuan/search', [KnowledgeController::class, 'search'])->name('knowledge.search');
+
+    Route::get('/pengetahuan/search/{search}', [UserKnowledgeController::class, 'search'])->name('pengetahuan.search');
 });
 Route::get('/dashboard', function () {
     $user = Auth::user();
@@ -47,9 +49,6 @@ Route::get('/dashboard', function () {
         return redirect(route('validator-dashboard'));
     }
 })->middleware(['auth', 'verified'])->name('dashboard');
-
-
-
 
 
 Route::middleware(['auth', 'verified', 'role:admin'])->group(function () {

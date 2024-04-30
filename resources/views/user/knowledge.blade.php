@@ -13,16 +13,17 @@
                 <div class="hero container page__container text-center py-112pt">
                     <h1 class="text-white text-shadow">Pengetahuan</h1>
                     <p class="lead measure-hero-lead mx-auto text-white text-shadow ">Halo Sobat BKN, Ingin membaca artikel terbaru hari ini?</p>
-                    <form action="{{ route('user.knowledge.search') }}" method="GET">
+                    <form action="{{ route('user.knowledge') }}" method="GET">
                         <div class="relative">
                             <div class="flex flex-col md:flex-row">
                                 <input
                                   type="search"
                                   class="form-control"
-                                  placeholder="Cari"
-                                  aria-label="Cari"
+                                  placeholder="Cari Pengetahuan"
+                                  aria-label="Cari Pengetahuan"
                                   id="exampleFormControlInput4"
-                                  name="search" />
+                                  name="search"
+                                  value="{{ request()->query('search') }}" />
                                 <button type="submit" class="btn btn-primary ml-md-2 mt-2 mt-md-0">Cari</button>
                             </div>
                         </div>            
@@ -84,9 +85,48 @@
                         </div>
                         @endforeach
                         
+                        
         
             
         
+                    </div>
+                    <div class="mb-32pt">
+
+                        <ul class="pagination justify-content-start pagination-xsm m-0">
+                            <li class="page-item disabled">
+                                <a class="page-link"
+                                   href="#"
+                                   aria-label="Previous">
+                                    <span aria-hidden="true"
+                                          class="material-icons">chevron_left</span>
+                                    <span>Prev</span>
+                                </a>
+                            </li>
+                            <li class="page-item">
+                                <a class="page-link"
+                                   href="#"
+                                   aria-label="Page 1">
+                                    <span>1</span>
+                                </a>
+                            </li>
+                            <li class="page-item">
+                                <a class="page-link"
+                                   href="#"
+                                   aria-label="Page 2">
+                                    <span>2</span>
+                                </a>
+                            </li>
+                            <li class="page-item">
+                                <a class="page-link"
+                                   href="#"
+                                   aria-label="Next">
+                                    <span>Next</span>
+                                    <span aria-hidden="true"
+                                          class="material-icons">chevron_right</span>
+                                </a>
+                            </li>
+                        </ul>
+
                     </div>
                 </div>
             </div>

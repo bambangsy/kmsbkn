@@ -19,15 +19,6 @@ class KnowledgeController extends Controller
     }
     
 
-    public function search(Request $request)
-    {
-        $searchTerm = $request->input('search');
-        $knowledges = Knowledge::where('name', 'LIKE', "%{$searchTerm}%")
-                                ->orWhere('description', 'LIKE', "%{$searchTerm}%")
-                                ->get();
-
-        return view("user.knowledge", compact('knowledges'));
-    }
 
     /**
      * Show the form for creating a new resource.
