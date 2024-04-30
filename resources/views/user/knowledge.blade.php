@@ -43,14 +43,6 @@
                     <a href="#"  class="sort small text-headings text-uppercase ml-2">Popularity</a>
 
                 </div>
-
-                <a href="#"
-                data-target="#library-drawer"
-                data-toggle="sidebar"
-                class="btn btn-sm btn-white ml-sm-16pt">
-                    <i class="material-icons icon--left">tune</i> Filters
-                </a>
-
             </div>
 
             <div class="page-separator">

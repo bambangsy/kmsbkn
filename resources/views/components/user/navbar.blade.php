@@ -14,10 +14,10 @@
                 </a>
 
                 <ul class="nav navbar-nav d-none d-sm-flex flex justify-content-start ml-8pt">
-                    <li class="nav-item active">
+                    <li class="nav-item {{ request()->routeIs('home') ? 'active' : '' }}">
                         <a href="{{route('home')}}" class="nav-link">Beranda</a>
                     </li>
-                    <li class="nav-item dropdown">
+                    <li class="nav-item dropdown {{ request()->routeIs('pelatihan', 'alur-belajar') ? 'active' : '' }}">
                         <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown"
                             data-caret="false">Pelatihan</a>
                         <div class="dropdown-menu">
@@ -25,10 +25,10 @@
                             <a href="{{route('alur-belajar')}}" class="dropdown-item">Alur Belajar</a>
                         </div>
                     </li>
-                    <li class="nav-item">
-                        <a href="{{route('user.knowledge')}}" class="nav-link">Artikel</a>
+                    <li class="nav-item {{ request()->routeIs('user.knowledge') ? 'active' : '' }}">
+                        <a href="{{route('user.knowledge')}}" class="nav-link">Pengetahuan</a>
                     </li>
-                    <li class="nav-item">
+                    <li class="nav-item {{ request()->is('pricing.html') ? 'active' : '' }}">
                         <a href="pricing.html" class="nav-link">FAQ</a>
                     </li>
         
@@ -56,4 +56,3 @@
                     
                 </ul>
             </div>
-
