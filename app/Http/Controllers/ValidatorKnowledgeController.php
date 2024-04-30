@@ -23,6 +23,7 @@ class ValidatorKnowledgeController extends Controller
     
         // Update the status
         $knowledge->status = 1;
+        $knowledge->validated_at = now();
         $knowledge->save();
     
         return redirect()->route('validasiknowledge');

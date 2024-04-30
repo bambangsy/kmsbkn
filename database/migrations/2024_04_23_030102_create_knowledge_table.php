@@ -19,6 +19,7 @@ return new class extends Migration
             $table->integer('view_count')->default(0);
             $table->text('images')->nullable();
             $table->tinyInteger('status')->default(0);
+            $table->timestamp('validated_at')->nullable();
             $table->timestamps();
              // Changed foreign key definition
         });

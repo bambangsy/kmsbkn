@@ -36,13 +36,11 @@
             
             <div class="d-flex flex-column flex-sm-row align-items-sm-center mb-24pt"
                 style="white-space: nowrap;">
-                <small class="flex text-muted text-headings text-uppercase mr-3 mb-2 mb-sm-0">Displaying 4 out of 10 courses</small>
                 <div class="w-auto ml-sm-auto table d-flex align-items-center mb-2 mb-sm-0">
                     <small class="text-muted text-headings text-uppercase mr-3 d-none d-sm-block">Sort by</small>
-                    <a href="#" onclick="sortByNewest(event);" class="sort desc small text-headings text-uppercase">Newest</a>
+                    <a href="{{ route('user.knowledge', ['search' => request()->query('search'), 'sorted_by' => 'newest']) }}" class="sort {{ $sorted_by == 'newest' ? 'desc' : '' }} small text-headings text-uppercase ml-2">Newest</a>
 
-                    <a href="#"  class="sort small text-headings text-uppercase ml-2">Popularity</a>
-
+                    <a href="{{ route('user.knowledge', ['search' => request()->query('search'), 'sorted_by' => 'popularity']) }}" class="sort {{ $sorted_by == 'popularity' ? 'desc' : '' }} small text-headings text-uppercase ml-2">Popularity</a>
                 </div>
             </div>
 
@@ -82,44 +80,11 @@
             
         
                     </div>
-                    <div class="mb-32pt">
-
-                        <ul class="pagination justify-content-start pagination-xsm m-0">
-                            <li class="page-item disabled">
-                                <a class="page-link"
-                                   href="#"
-                                   aria-label="Previous">
-                                    <span aria-hidden="true"
-                                          class="material-icons">chevron_left</span>
-                                    <span>Prev</span>
-                                </a>
-                            </li>
-                            <li class="page-item">
-                                <a class="page-link"
-                                   href="#"
-                                   aria-label="Page 1">
-                                    <span>1</span>
-                                </a>
-                            </li>
-                            <li class="page-item">
-                                <a class="page-link"
-                                   href="#"
-                                   aria-label="Page 2">
-                                    <span>2</span>
-                                </a>
-                            </li>
-                            <li class="page-item">
-                                <a class="page-link"
-                                   href="#"
-                                   aria-label="Next">
-                                    <span>Next</span>
-                                    <span aria-hidden="true"
-                                          class="material-icons">chevron_right</span>
-                                </a>
-                            </li>
-                        </ul>
-
-                    </div>
+                    @if ($knowledges->hasPages())
+                        <div class="mb-32pt">
+                            {{ $knowledges->appends(['search' => request()->query('search'), 'sorted_by' => request()->query('sorted_by')])->links() }}
+                        </div>
+                    @endif
                 </div>
             </div>
         </div>
