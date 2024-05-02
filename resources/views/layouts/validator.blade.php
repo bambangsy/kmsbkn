@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
     <head>
@@ -18,6 +16,7 @@
         @vite(['resources/css/app.css', 'resources/js/app.js'])
     </head>
     <body class="font-sans antialiased">
+        
         <div class="min-h-screen bg-gray-100 dark:bg-gray-900">
             @include('components.validator.navbar')
 
@@ -35,6 +34,7 @@
                 @yield('content')
             </main>
         </div>
+        
     </body>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.js"></script>
 

@@ -84,6 +84,9 @@ Route::middleware(['auth', 'verified', 'role:validator'])->group(function () {
     ]);
     Route::patch('/validator/validasi/{id}/approve', [ValidatorKnowledgeController::class, 'approve'])->name('validasiknowledge.approve');
     Route::patch('/validator/validasi/{id}/reject', [ValidatorKnowledgeController::class, 'reject'])->name('validasiknowledge.reject');
+    Route::patch('/validator/validasi/{id}/retrieve', [ValidatorKnowledgeController::class, 'retrieve'])->name('validasiknowledge.retrieve');
+    Route::patch('/validator/validasi/{id}/cancel', [ValidatorKnowledgeController::class, 'cancel'])->name('validasiknowledge.cancel');
+    
 
     Route::get('/validasicourse', function () {
         return view('validator.courses.course');

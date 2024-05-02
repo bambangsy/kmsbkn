@@ -21,6 +21,7 @@ return new class extends Migration
             $table->tinyInteger('status')->default(0);
             $table->timestamp('validated_at')->nullable();
             $table->foreignId('user_id')->nullable()->constrained('users')->onDelete('set null');
+            $table->foreignId('is_currently_checked_by')->nullable()->constrained('users')->onDelete('set null');
             $table->timestamps();
              // Changed foreign key definition
         });
