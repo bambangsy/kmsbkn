@@ -17,7 +17,7 @@
                     </x-nav-link>
 
                     <x-nav-link :href="route('validasiknowledge')" :active="request()->routeIs('validasiknowledge')">
-                        {{ __('Validasi Artikel') }}
+                        {{ __('Validasi Pengetahuan') }}
                     </x-nav-link>
 
                     <x-nav-link :href="route('validasicourse')" :active="request()->routeIs('validasicourse')">
