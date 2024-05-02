@@ -11,8 +11,10 @@ class ValidatorKnowledgeController extends Controller
      */
     public function index()
     {
-        $knowledges = Knowledge::all();
-        return view("validator.validasi.validasi", compact('knowledges'));
+        $knowledges_queue = Knowledge::whereNull('is_currently_checked_by')->get();
+        $knowledges = Knowledge::where('is_currently_checked_by', auth()->id())->get();
+        
+        return view("validator.validasi.validasi", compact('knowledges_queue', 'knowledges'));
     }
 
 
@@ -23,10 +25,26 @@ class ValidatorKnowledgeController extends Controller
     
         // Update the status
         $knowledge->status = 1;
+       
         $knowledge->validated_at = now();
         $knowledge->save();
     
         return redirect()->route('validasiknowledge');
+    }
+
+    public function retrieve(Request $request, $id)
+    {
+        $id = $request->id;
+        $knowledge = Knowledge::findOrFail($id);
+        if ($knowledge->is_currently_checked_by == null) {
+            $knowledge->is_currently_checked_by = auth()->id();
+            $knowledge->save();
+            return redirect()->route('validasiknowledge');
+        }
+        else{
+            return redirect()->route('validasiknowledge')->with('warning', 'Pengetahuan ini sedang divalidasi oleh validator lain');
+        }
+        
     }
 
     public function reject(Request $request, $id)
@@ -36,6 +54,15 @@ class ValidatorKnowledgeController extends Controller
     
         // Update the status
         $knowledge->status = 2;
+        $knowledge->save();
+    
+        return redirect()->route('validasiknowledge');
+    }
+    public function cancel(Request $request, $id)
+    {
+        $id = $request->id;
+        $knowledge = Knowledge::findOrFail($id);
+        $knowledge->is_currently_checked_by = null;
         $knowledge->save();
     
         return redirect()->route('validasiknowledge');
