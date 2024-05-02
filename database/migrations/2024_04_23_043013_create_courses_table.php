@@ -16,10 +16,13 @@ return new class extends Migration
             $table->string('name');
             $table->text('description');
             $table->text('file');
-            $table->tinyInteger('status')->default(3);
+            $table->integer('view_count')->default(0);
+            $table->tinyInteger('status')->default(0);
+            $table->integer('source_id');
+            $table->timestamp('validated_at')->nullable();
+            $table->foreignId('created_by_id')->constrained('users');
+            $table->foreignId('is_currently_checked_by')->nullable()->constrained('users')->onDelete('set null');
             $table->timestamps();
-
-
         });
     }
 

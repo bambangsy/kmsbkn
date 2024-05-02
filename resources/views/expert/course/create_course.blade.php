@@ -19,7 +19,7 @@
                     </div>
                     <h1 class="pb-6 text-3xl">Create Course</h1>
                     <div>
-                        <form class="" method="POST" action="{{route("knowledge.store")}}" enctype="multipart/form-data" >
+                        <form class="" method="POST" action="{{route("course.store")}}" enctype="multipart/form-data" >
                             @csrf
                             {{-- nama --}}
                             <div class="mb-5">
@@ -42,20 +42,40 @@
                             </div>
 
 
-
+                            
                             {{-- upload --}}
                             <div class="mb-5">
+                               
+                                <button id="button_video" type="button" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" onclick="showVideo()">Upload Video</button>
+                                <button id="button_link" type="button" class="text-white bg-gray-400 hover:bg-gray-500 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" onclick="showLink()">Upload Link</button>
+                            </div>
+                            <div class="mb-5" id="video" style="display:block;">
                                 <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-                                for="user_avatar">Unggah dokumen</label>
-                                <input name="image"
+                                for="user_avatar">Unggah Video</label>
+                                <input name="video"
                                     class="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400"
                                     aria-describedby="user_avatar_help" id="user_avatar" type="file">
                             </div>
+                            <div class="mb-5" id="link" style="display:none;">
+                                <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                                for="user_avatar">Masukkan Link Youtube</label>
+                                <input type="text" name="link" class="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg  bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400" placeholder="Masukkan link youtube">
+                            </div>
+                            <script>
+                                function showVideo() {
+                                    document.getElementById("video").style.display = "block";
+                                    document.getElementById("link").style.display = "none";
+                                    document.getElementById("button_video").style.backgroundColor = "blue";
+                                    document.getElementById("button_link").style.backgroundColor = "gray";
+                                }
+                                function showLink() {
+                                    document.getElementById("video").style.display = "none";
+                                    document.getElementById("link").style.display = "block";
+                                    document.getElementById("button_video").style.backgroundColor = "gray";
+                                    document.getElementById("button_link").style.backgroundColor = "blue";
+                                }
+                            </script>
                             
-                            
-
-
-
                             <button type="submit"
                                 class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Submit</button>
                         </form>

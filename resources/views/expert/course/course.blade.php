@@ -146,21 +146,26 @@
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            @foreach ($knowledges as $knowledge)
+                                            @foreach ($courses as $course)
                                                 <tr class="border-b border-neutral-200 dark:border-white/10">
-                                                    <td class="whitespace-nowrap px-6 py-4">{{ $knowledge->name }}</td>
+                                                    <td class="whitespace-nowrap px-6 py-4">{{ $course->name }}</td>
                                                     <td class="whitespace-nowrap px-6 py-4">
-                                                        {{ $knowledge->description }}</td>
+                                                        {{ $course->description }}</td>
                                                     <td class="whitespace-nowrap px-6 py-4">
-                                                        <a href="{{ asset('storage/' . $knowledge->file) }}"
-                                                            class="text-blue-500 hover:underline">Download</a>
+                                                        @if ($course->source_id == 1)
+                                                            <a href="{{ asset('storage/' . $course->file) }}"
+                                                                class="text-blue-500 hover:underline">Download</a>
+                                                        @elseif ($course->source_id == 2)
+                                                            <a href="{{ $course->file }} "target="_blank"
+                                                                class="text-blue-500 hover:underline">Download</a>
+                                                        @endif
                                                     </td>
                                                     <td class="whitespace-nowrap px-6 py-4">
-                                                        @if ($knowledge->status == 0)
+                                                        @if ($course->status == 0)
                                                             <span class="text-gray-500">menunggu validasi</span>
-                                                        @elseif ($knowledge->status == 1)
+                                                        @elseif ($course->status == 1)
                                                             <span class="text-green-500">sudah disetujui</span>
-                                                        @elseif ($knowledge->status == 2)
+                                                        @elseif ($course->status == 2)
                                                             <span class="text-red-500">ditolak</span>
                                                         @endif
 
@@ -182,42 +187,7 @@
                                                     </td>
                                                 </tr>
                                             @endforeach
-                                            @foreach ($knowledges as $knowledge)
-                                                <tr class="border-b border-neutral-200 dark:border-white/10">
-                                                    <td class="whitespace-nowrap px-6 py-4">{{ $knowledge->name }}</td>
-                                                    <td class="whitespace-nowrap px-6 py-4">
-                                                        {{ $knowledge->description }}</td>
-                                                    <td class="whitespace-nowrap px-6 py-4">
-                                                        <a href="{{ asset('storage/' . $knowledge->file) }}"
-                                                            class="text-blue-500 hover:underline">Download</a>
-                                                    </td>
-                                                    <td class="whitespace-nowrap px-6 py-4">
-                                                        @if ($knowledge->status == 0)
-                                                            <span class="text-gray-500">menunggu validasi</span>
-                                                        @elseif ($knowledge->status == 1)
-                                                            <span class="text-green-500">sudah disetujui</span>
-                                                        @elseif ($knowledge->status == 2)
-                                                            <span class="text-red-500">ditolak</span>
-                                                        @endif
-
-                                                    </td>
-                                                    <td class="whitespace-nowrap py-2 flex justify-end">
-
-                                                        <a href="#"
-                                                            class="bg-yellow-500 px-5 py-3 rounded-md text-white shadow-sm hover:bg-yellow-600 ">
-                                                            Edit
-                                                        </a>
-                                                        <form action="#" method="POST">
-                                                            @csrf
-                                                            @method('DELETE')
-                                                            <button type="submit"
-                                                                class="bg-red-500 px-5 py-3 ml-2 rounded-md text-white shadow-sm hover:bg-red-600">
-                                                                Delete
-                                                            </button>
-                                                        </form>
-                                                    </td>
-                                                </tr>
-                                            @endforeach
+                                           
                                         </tbody>
                                     </table>
                                 </div>
