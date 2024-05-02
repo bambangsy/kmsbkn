@@ -21,7 +21,7 @@
                         <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown"
                             data-caret="false">Pelatihan</a>
                         <div class="dropdown-menu">
-                            <a href="{{route('pelatihan')}}" class="dropdown-item">Cari Pelatihan</a>
+                            <a href="{{route('user.pelatihan')}}" class="dropdown-item">Cari Pelatihan</a>
                             <a href="{{route('alur-belajar')}}" class="dropdown-item">Alur Belajar</a>
                         </div>
                     </li>
