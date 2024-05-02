@@ -13,7 +13,9 @@ class KnowledgeController extends Controller
     public function index()
     {
         $userId = auth()->user()->id;
+    
         $knowledges = Knowledge::where('user_id', $userId)->get();
+
         return view("expert.knowledge", ['knowledges' => $knowledges]);
     }
 
@@ -35,12 +37,13 @@ class KnowledgeController extends Controller
         $description = $request->description;
         $file = $request->file('image')->store('post-images');
         $filePath = 'storage/'.$file;
+        $userId = auth()->user()->id;
         Knowledge::create([
             'name' => $name,
             'description' => $description,
             'file' => $file,
             'status' => 0,
-            'user_id' => $request->user()->id
+            'user_id' => $userId
         ]);
         return redirect(route('knowledge'));
     }

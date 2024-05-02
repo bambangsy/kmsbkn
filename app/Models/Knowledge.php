@@ -8,6 +8,6 @@ use Illuminate\Database\Eloquent\Model;
 class Knowledge extends Model
 {
     use HasFactory;
-    protected $fillable = ['name', 'description', 'file'];
+    protected $fillable = ['name', 'description', 'file', 'user_id'];
 }
 
