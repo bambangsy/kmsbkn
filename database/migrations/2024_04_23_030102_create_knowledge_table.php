@@ -20,6 +20,7 @@ return new class extends Migration
             $table->text('images')->nullable();
             $table->tinyInteger('status')->default(0);
             $table->timestamp('validated_at')->nullable();
+            $table->foreignId('user_id')->nullable()->constrained('users')->onDelete('set null');
             $table->timestamps();
              // Changed foreign key definition
         });

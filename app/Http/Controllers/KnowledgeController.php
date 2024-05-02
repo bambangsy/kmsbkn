@@ -12,7 +12,8 @@ class KnowledgeController extends Controller
      */
     public function index()
     {
-        $knowledges = Knowledge::all();
+        $userId = auth()->user()->id;
+        $knowledges = Knowledge::where('user_id', $userId)->get();
         return view("expert.knowledge", ['knowledges' => $knowledges]);
     }
 
@@ -38,7 +39,8 @@ class KnowledgeController extends Controller
             'name' => $name,
             'description' => $description,
             'file' => $file,
-            'status' => 0
+            'status' => 0,
+            'user_id' => $request->user()->id
         ]);
         return redirect(route('knowledge'));
     }
