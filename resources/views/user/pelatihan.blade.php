@@ -53,13 +53,13 @@
 
                 <div class="row card-group-row">
 
-                    @for ($i = 0; $i < 12; $i++)
+                    @foreach ($courses as $course)
                         <div class="col-md-6 col-lg-4 col-xl-3 card-group-row__col">
 
                             <div class="card card-sm card--elevated p-relative o-hidden overlay overlay--primary-dodger-blue js-overlay card-group-row__card"
                                 data-toggle="popover" data-trigger="click">
 
-                                <a href="student-course.html" class="card-img-top js-image" data-position=""
+                                <a href="{{ route('user.pelatihan.show', $course->id) }}" class="card-img-top js-image" data-position=""
                                     data-height="140">
                                     <img src="https://random.imagecdn.app/1280/720" alt="course">
                                     <span class="overlay__content">
@@ -73,21 +73,21 @@
                                 <div class="card-body flex">
                                     <div class="d-flex">
                                         <div class="flex">
-                                            <a class="card-title" href="student-course.html">Microlearning</a>
-                                            <small class="text-50 font-weight-bold mb-4pt">Raden Bambang</small>
+                                            <a class="card-title" href="{{ route('user.pelatihan.show', $course->id) }}">{{ $course->name }}</a>
+                                            <small class="text-50 font-weight-bold mb-4pt">{{ $course->author }}</small>
                                         </div>
-                                        <a href="student-course.html" data-toggle="tooltip" data-title="Add Favorite"
+                                        <a href="{{ route('user.pelatihan.show', $course->id) }}" data-toggle="tooltip" data-title="Add Favorite"
                                             data-placement="top" data-boundary="window"
                                             class="ml-4pt material-icons text-20 card-course__icon-favorite">favorite_border</a>
                                     </div>
                                     <div class="d-flex">
                                         <div class="rating flex">
-                                            <span class="rating__item"><span class="material-icons">star</span></span>
-                                            <span class="rating__item"><span class="material-icons">star</span></span>
-                                            <span class="rating__item"><span class="material-icons">star</span></span>
-                                            <span class="rating__item"><span class="material-icons">star</span></span>
-                                            <span class="rating__item"><span
-                                                    class="material-icons">star_border</span></span>
+                                            @for ($i = 0; $i < $course->rating; $i++)
+                                                <span class="rating__item"><span class="material-icons">star</span></span>
+                                            @endfor
+                                            @for ($i = $course->rating; $i < 5; $i++)
+                                                <span class="rating__item"><span class="material-icons">star_border</span></span>
+                                            @endfor
                                         </div>
                                         <!-- <small class="text-50">6 hours</small> -->
                                     </div>
@@ -106,7 +106,7 @@
                                 </div>
                             </div>
                         </div>
-                    @endfor
+                    @endforeach
 
 
 

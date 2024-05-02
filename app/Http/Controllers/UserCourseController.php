@@ -10,12 +10,12 @@ class UserCourseController extends Controller
 {
     public function index(Request $request)
     {
+
         $search = $request->input('search');
         $sorted_by = $request->input('sorted_by');
         $page = $request->input('page', 1);
         $perPage = 3;
-
-        $courses = Course::where('status', 1)
+        $courses = Course::where('status', 0)
             ->when($search, function ($query) use ($search) {
                 return $query->where('name', 'LIKE', "%{$search}%");
             })
@@ -27,8 +27,35 @@ class UserCourseController extends Controller
             })
             ->orderBy('validated_at', 'desc')
             ->paginate($perPage, ['*'], 'page', $page);
+
+
+        // $courses = Course::where('status', 1)
+        //     ->when($search, function ($query) use ($search) {
+        //         return $query->where('name', 'LIKE', "%{$search}%");
+        //     })
+        //     ->when($sorted_by === 'newest', function ($query) {
+        //         return $query->orderBy('validated_at', 'desc');
+        //     })
+        //     ->when($sorted_by === 'popularity', function ($query) {
+        //         return $query->orderBy('view_count', 'desc');
+        //     })
+        //     ->orderBy('validated_at', 'desc')
+        //     ->paginate($perPage, ['*'], 'page', $page);
         
             return view("user.pelatihan", ['courses' => $courses, 'sorted_by' => $sorted_by,]);
+    }
+
+    public function show($id)
+    {
+        $course = Course::find($id);
+        if ($course) {
+            if (!session()->has('course_view_count_' . $course->id)) {
+                $course->view_count += 1;
+                $course->save();
+                session()->put('course_view_count_' . $course->id, true);
+            }
+        }
+        return view("user.showpelatihan", ['course' => $course]);
     }
 }
 
