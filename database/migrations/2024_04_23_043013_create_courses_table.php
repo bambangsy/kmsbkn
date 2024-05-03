@@ -18,6 +18,8 @@ return new class extends Migration
             $table->text('file');
             $table->integer('view_count')->default(0);
             $table->tinyInteger('status')->default(0);
+            $table->float('rating')->default(0);
+            $table->time('duration')->nullable();
             $table->integer('source_id');
             $table->timestamp('validated_at')->nullable();
             $table->foreignId('created_by_id')->constrained('users');
