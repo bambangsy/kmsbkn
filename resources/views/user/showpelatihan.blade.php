@@ -14,9 +14,11 @@
                     <div class="card shadow-sm">
                         <div class="card-body">
                             @if($course->source_id == 1)
-                                <iframe src="{{ asset('storage/' . $course->file) }}" width="100%" height="600px" id="knowledge-iframe" allow="autoplay; fullscreen"></iframe>
+                            <video src="{{ asset('storage/' . $course->file) }}" type="video/mp4" width="100%" height="600px" id="knowledge-iframe" controls>
+                            </video>
                             @elseif($course->source_id == 2)
-                                <iframe src="https://www.youtube.com/embed/{{ str_replace('https://www.youtube.com/watch?v=', '', $course->file) }}" width="100%" height="600px" id="knowledge-iframe" allow="autoplay; fullscreen"></iframe>
+                                <iframe width="100%" height="600px" src="https://www.youtube.com/embed/{{$course->file}}" title="YouTube video player" frameborder="0" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                                
                             @endif
                             {{-- <script>
                                 const iframe = document.getElementById('knowledge-iframe');
