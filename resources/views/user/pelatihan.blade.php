@@ -31,7 +31,7 @@
     <div class="container page__container">
 
         <div class="d-flex flex-column flex-sm-row align-items-sm-center mb-24pt" style="white-space: nowrap;">
-                
+
             <div class="w-auto ml-sm-auto table d-flex align-items-center mb-2 mb-sm-0">
                 <small class="text-muted text-headings text-uppercase mr-3 d-none d-sm-block">Sort by</small>
                 <a href="{{ route('user.pelatihan', ['search' => request()->query('search'), 'sorted_by' => 'newest']) }}"
@@ -77,8 +77,8 @@
                                                 href="{{ route('user.pelatihan.show', $course->id) }}">{{ $course->name }}</a>
                                             <small class="text-50 font-weight-bold mb-4pt">{{ $course->author }}</small>
                                         </div>
-                                        <div class="d-flex align-items-center">
-                                            <div class="rating flex ml-2">
+                                        <div class="d-flex align-items-center ">
+                                            <div class="rating flex mt-2">
                                                 @for ($i = 0; $i < $course->rating; $i++)
                                                     <span class="rating__item"><span
                                                             class="material-icons">star</span></span>
@@ -87,23 +87,24 @@
                                                     <span class="rating__item"><span
                                                             class="material-icons">star_border</span></span>
                                                 @endfor
-                                                <a
-                                                    class="material-icons text-20 card-course__icon-favorite">favorite_border</a>
+                                                <span>
+                                                   
+                                                    <a class="material-icons text-20 cursor:pointer card-course__icon-favorite ml-2" style="cursor: pointer;" id="favorite-{{ $course->id }}" >
+                                                        favorite_border
+                                                    </a>
+                                                </span>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-
+                                
                                 <div class="card-footer">
                                     <div class="row justify-content-between">
                                         <div class="col-auto d-flex align-items-center">
                                             <span class="material-icons icon-16pt text-50 mr-4pt">access_time</span>
                                             <p class="flex text-50 lh-1 mb-0"><small>6 jam</small></p>
                                         </div>
-                                        <div class="col-auto d-flex align-items-center">
-                                            <span class="material-icons icon-16pt text-50 mr-4pt">play_circle_outline</span>
-                                            <p class="flex text-50 lh-1 mb-0"><small>12 pelajaran</small></p>
-                                        </div>
+                                        
                                     </div>
                                 </div>
                             </div>
