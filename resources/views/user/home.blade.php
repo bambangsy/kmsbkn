@@ -125,7 +125,7 @@
                                             </div>
                                         </div>
                                         <div class="flex">
-                                            <div class="card-title">Pengembangan SDM</div>
+                                            <div class="card-title">11 SDM</div>
                                             <p class="flex text-50 lh-1 mb-0"><small>18 kursus</small></p>
                                         </div>
                                     </div>
@@ -147,7 +147,7 @@
                                     alt="Angular" class="rounded">
                             </div>
                             <div class="media-body">
-                                <div class="card-title">Pengembangan SDM</div>
+                                <div class="card-title">11 SDM</div>
                                 <p class="text-50 d-flex lh-1 mb-0 small">18 kursus</p>
                             </div>
                         </div>
