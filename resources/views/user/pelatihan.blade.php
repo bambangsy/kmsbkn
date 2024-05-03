@@ -59,8 +59,8 @@
                             <div class="card card-sm card--elevated p-relative o-hidden overlay overlay--primary-dodger-blue js-overlay card-group-row__card"
                                 data-toggle="popover" data-trigger="click">
 
-                                <a href="{{ route('user.pelatihan.show', $course->id) }}" class="card-img-top js-image" data-position=""
-                                    data-height="140">
+                                <a href="{{ route('user.pelatihan.show', $course->id) }}" class="card-img-top js-image"
+                                    data-position="" data-height="140">
                                     <img src="https://random.imagecdn.app/1280/720" alt="course">
                                     <span class="overlay__content">
                                         <span class="overlay__action d-flex flex-column text-center">
@@ -71,27 +71,29 @@
                                 </a>
 
                                 <div class="card-body flex">
-                                    <div class="d-flex">
+                                    <div class="d-flex flex-column">
                                         <div class="flex">
-                                            <a class="card-title" href="{{ route('user.pelatihan.show', $course->id) }}">{{ $course->name }}</a>
+                                            <a class="card-title"
+                                                href="{{ route('user.pelatihan.show', $course->id) }}">{{ $course->name }}</a>
                                             <small class="text-50 font-weight-bold mb-4pt">{{ $course->author }}</small>
                                         </div>
-                                        <a href="{{ route('user.pelatihan.show', $course->id) }}" data-toggle="tooltip" data-title="Add Favorite"
-                                            data-placement="top" data-boundary="window"
-                                            class="ml-4pt material-icons text-20 card-course__icon-favorite">favorite_border</a>
-                                    </div>
-                                    <div class="d-flex">
-                                        <div class="rating flex">
-                                            @for ($i = 0; $i < $course->rating; $i++)
-                                                <span class="rating__item"><span class="material-icons">star</span></span>
-                                            @endfor
-                                            @for ($i = $course->rating; $i < 5; $i++)
-                                                <span class="rating__item"><span class="material-icons">star_border</span></span>
-                                            @endfor
+                                        <div class="d-flex align-items-center">
+                                            <div class="rating flex ml-2">
+                                                @for ($i = 0; $i < $course->rating; $i++)
+                                                    <span class="rating__item"><span
+                                                            class="material-icons">star</span></span>
+                                                @endfor
+                                                @for ($i = $course->rating; $i < 5; $i++)
+                                                    <span class="rating__item"><span
+                                                            class="material-icons">star_border</span></span>
+                                                @endfor
+                                                <a
+                                                    class="material-icons text-20 card-course__icon-favorite">favorite_border</a>
+                                            </div>
                                         </div>
-                                        <!-- <small class="text-50">6 hours</small> -->
                                     </div>
                                 </div>
+
                                 <div class="card-footer">
                                     <div class="row justify-content-between">
                                         <div class="col-auto d-flex align-items-center">
