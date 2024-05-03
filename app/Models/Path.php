@@ -9,6 +9,11 @@ class Path extends Model
 {
     use HasFactory;
     protected $table = 'learning_path';
-    protected $fillable = ['name', 'description'];
+    protected $fillable = ['name', 'description', 'created_by_id'];
+
+    public function user()
+    {
+        return $this->belongsTo(User::class, 'created_by_id');
+    }
 }
 

@@ -17,8 +17,8 @@ class CourseController extends Controller
         $userId = auth()->user()->id;
     
         $courses = Course::where('created_by_id', $userId)->get();
-
-        $paths = Path::all();
+        
+        $paths = Path::where('created_by_id', $userId)->get();
         return view('expert.course.course', compact('paths','courses'));
     }
 

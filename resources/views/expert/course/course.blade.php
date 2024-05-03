@@ -41,7 +41,7 @@
                                                 <tr class="border-b border-neutral-200 dark:border-white/10">
                                                     <td class="whitespace-nowrap px-6 py-4">{{ $path->name }}</td>
                                                     <td> {{ strlen($path->description) > 50 ? substr($path->description, 0, 50) . '...' : $path->description }}</td>
-                                                       
+                                                    
 
                                                     <td class="whitespace-nowrap px-6 py-4">
                                                         @if ($path->status == 0)
@@ -59,11 +59,13 @@
                                                     @if ($path->status == 3)
                                                         <td class="whitespace-nowrap py-2 flex justify-end">
                                                             <div class="flex">
-                                                                <a href="#"
-                                                                    class="bg-black px-5 py-3 ml-2 rounded-md text-white shadow-sm hover:bg-gray-800 ">
-                                                                    Go to Courses
-                                                                </a>
 
+
+                                                                <a href="{{ route('course_path.show', $path->id) }}"
+                                                                    class="bg-black px-5 py-3 ml-2 rounded-md text-white shadow-sm hover:bg-gray-800">
+                                                                    Go To Course
+                                                                </a>
+                                                                
                                                                 <form
                                                                     action="{{ route('course_path.validate', $path->id) }}"
                                                                     method="POST">

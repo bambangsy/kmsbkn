@@ -14,10 +14,10 @@ return new class extends Migration
         Schema::create('path_courses', function (Blueprint $table) {
             $table->id();
 
-            $table->unsignedBigInteger('courses_id');
-            $table->unsignedBigInteger('learning_path_id');
-            $table->foreign('courses_id')->references('id')->on('courses');
-            $table->foreign('learning_path_id')->references('id')->on('learning_path');
+            $table->unsignedBigInteger('course_id');
+            $table->unsignedBigInteger('path_id');
+            $table->foreign('course_id')->references('id')->on('courses');
+            $table->foreign('path_id')->references('id')->on('learning_path');
 
             $table->timestamps();
         });

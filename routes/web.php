@@ -136,12 +136,14 @@ Route::middleware(['auth', 'verified', 'role:expert'])->group(function () {
 
     Route::resource('/expert/alur-pelatihan', CoursePathController::class)->names([
 
+        'show' => 'course_path.show',
         'create' => 'course_path.create',
         'store' => 'course_path.store',
         'destroy' => 'course_path.destroy',
         'edit' => 'course_path.edit',
         'update' => 'course_path.update'
     ]);
+    Route::post('/expert/alur-pelatihan/{id}/store_items', [CoursePathController::class, 'store_items'])->name('course_path.store_items');
     Route::patch('/expert/alur-pelatihan/{id}/validate', [CoursePathController::class, 'validate'])->name('course_path.validate');
     Route::patch('/expert/alur-pelatihan/{id}/cancel_validate', [CoursePathController::class, 'cancel_validate'])->name('course_path.cancel_validate');
 
