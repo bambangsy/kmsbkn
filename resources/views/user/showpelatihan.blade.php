@@ -14,12 +14,36 @@
                     <div class="card shadow-sm">
                         <div class="card-body">
                             @if($course->source_id == 1)
-                                <iframe src="{{ asset('storage/' . $course->file) }}" width="100%" height="600px"></iframe>
+                                <iframe src="{{ asset('storage/' . $course->file) }}" width="100%" height="600px" id="knowledge-iframe" allow="autoplay; fullscreen"></iframe>
                             @elseif($course->source_id == 2)
-
-                             
-                                <iframe src="https://www.youtube.com/embed/{{ str_replace('https://www.youtube.com/watch?v=', '', $course->file) }}" width="100%" height="600px"></iframe>
+                                <iframe src="https://www.youtube.com/embed/{{ str_replace('https://www.youtube.com/watch?v=', '', $course->file) }}" width="100%" height="600px" id="knowledge-iframe" allow="autoplay; fullscreen"></iframe>
                             @endif
+                            {{-- <script>
+                                const iframe = document.getElementById('knowledge-iframe');
+                                const video = iframe.contentWindow.document.querySelector('video');
+                                console.log(video);
+                                if (video) {
+                                    video.addEventListener('loadedmetadata', () => {
+                                        var duration = video.duration;
+                                        finished_duration = duration - 10;
+                                        console.log('Duration:', duration);
+                                        console.log('Finished duration:', finished_duration);
+                                        setInterval(() => {
+                                            const currentTime = video.currentTime;
+                                            console.log('Current Time:', currentTime);
+                                            
+                                            if (currentTime >= finished_duration) {
+                                                console.log('done bitch');
+                                                // Add your code here to indicate completion    
+                                                // For example, you could send an AJAX request to the server
+                                                // or display a message to the user.
+                                            }
+                                        }, 2000);
+                                    });
+                                } else {
+                                    console.log('Video element not found in iframe.');
+                                }
+                            </script> --}}
                             <h1 class="card-title my-3">{{ $course->name }}</h1>
                             <p class="card-text">{{ $course->description }}</p>
                         </div>

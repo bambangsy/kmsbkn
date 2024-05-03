@@ -31,8 +31,7 @@
     <div class="container page__container">
 
         <div class="d-flex flex-column flex-sm-row align-items-sm-center mb-24pt" style="white-space: nowrap;">
-            <small class="flex text-muted text-headings text-uppercase mr-3 mb-2 mb-sm-0">Displaying 4 out of 10
-                courses</small>
+                
             <div class="w-auto ml-sm-auto table d-flex align-items-center mb-2 mb-sm-0">
                 <small class="text-muted text-headings text-uppercase mr-3 d-none d-sm-block">Sort by</small>
                 <a href="{{ route('user.pelatihan', ['search' => request()->query('search'), 'sorted_by' => 'newest']) }}"
@@ -54,6 +53,7 @@
                 <div class="row card-group-row">
 
                     @foreach ($courses as $course)
+                        
                         <div class="col-md-6 col-lg-4 col-xl-3 card-group-row__col">
 
                             <div class="card card-sm card--elevated p-relative o-hidden overlay overlay--primary-dodger-blue js-overlay card-group-row__card"
@@ -113,6 +113,11 @@
 
 
                 </div>
+                @if ($courses->hasPages())
+                    <div class="mb-32pt">
+                        {{ $courses->appends(['search' => request()->query('search'), 'sorted_by' => request()->query('sorted_by')])->links() }}
+                    </div>
+                @endif
             </div>
         </div>
     </div>

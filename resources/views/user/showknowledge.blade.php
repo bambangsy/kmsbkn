@@ -12,7 +12,8 @@
                 <div class="col-12">
                     <div class="card shadow-sm">
                         <div class="card-body">
-                            <iframe src="{{ asset('storage/' . $knowledge->file) }}" width="100%" height="600px"></iframe>
+                            <iframe src="{{ asset('storage/' . $knowledge->file) }}" width="100%" height="600px" id="knowledge-iframe"></iframe>
+                            
                             <h1 class="card-title my-3">{{ $knowledge->name }}</h1>
                             <p class="card-text">{{ $knowledge->description }}</p>
                         </div>
