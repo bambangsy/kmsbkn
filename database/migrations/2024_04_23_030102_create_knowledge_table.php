@@ -19,6 +19,8 @@ return new class extends Migration
             $table->integer('view_count')->default(0);
             $table->text('images')->nullable();
             $table->tinyInteger('status')->default(0);
+            $table->float('rating')->default(0);
+            $table->time('duration')->nullable();
             $table->timestamp('validated_at')->nullable();
             $table->foreignId('user_id')->nullable()->constrained('users')->onDelete('set null');
             $table->foreignId('is_currently_checked_by')->nullable()->constrained('users')->onDelete('set null');
