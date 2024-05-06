@@ -36,9 +36,25 @@ Route::prefix('user')->name('user.')->group(function () {
     Route::get('/pengetahuan/{id}/{filter?}', [UserKnowledgeController::class, 'show'])->name('knowledge.show');
     Route::get('/pengetahuan/search/{search}', [UserKnowledgeController::class, 'search'])->name('pengetahuan.search');
     
+    
+
     Route::get('/pelatihan', [UserCourseController::class, 'index'])->name('pelatihan');
     Route::get('/pelatihan/{id}/{filter?}', [UserCourseController::class, 'show'])->name('pelatihan.show');
     Route::get('/pelatihan/search/{search}', [UserCourseController::class, 'search'])->name('pelatihan.search');
+
+    Route::get('/take-pelatihan', function () {
+        return view('user/courses/take_courses');
+    })->name('pelatihan.take_courses');
+
+    Route::get('/take-pelatihan', function () {
+        return view('user/courses/take_courses');
+    })->name('pelatihan.take_courses');
+
+    Route::get('/take-lesson', function () {
+        return view('user/courses/take_lesson');
+    })->name('pelatihan.take_lesson');
+
+    
 });
 Route::get('/dashboard', function () {
     $user = Auth::user();
