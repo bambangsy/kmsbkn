@@ -7,6 +7,7 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\UserKnowledgeController;
 use App\Http\Controllers\UserCourseController;
 use App\Http\Controllers\ValidatorKnowledgeController;
+use App\Http\Controllers\UserCoursePathController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Role;
@@ -36,6 +37,8 @@ Route::prefix('user')->name('user.')->group(function () {
     Route::get('/pengetahuan/{id}/{filter?}', [UserKnowledgeController::class, 'show'])->name('knowledge.show');
     Route::get('/pengetahuan/search/{search}', [UserKnowledgeController::class, 'search'])->name('pengetahuan.search');
     
+    Route::get('/alur-belajar', [UserCoursePathController::class, 'index'])->name('alur-belajar');
+
     Route::get('/pelatihan', [UserCourseController::class, 'index'])->name('pelatihan');
     Route::get('/pelatihan/{id}/{filter?}', [UserCourseController::class, 'show'])->name('pelatihan.show');
     Route::get('/pelatihan/search/{search}', [UserCourseController::class, 'search'])->name('pelatihan.search');
