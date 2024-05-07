@@ -53,7 +53,6 @@
                 <div class="row card-group-row">
 
                     @foreach ($courses as $course)
-                        
                         <div class="col-md-6 col-lg-4 col-xl-3 card-group-row__col">
 
                             <div class="card card-sm card--elevated p-relative o-hidden overlay overlay--primary-dodger-blue js-overlay card-group-row__card"
@@ -88,8 +87,8 @@
                                                             class="material-icons">star_border</span></span>
                                                 @endfor
                                                 <span>
-                                                   
-                                                    <a class="material-icons text-20 cursor:pointer card-course__icon-favorite ml-2" style="cursor: pointer;" id="favorite-{{ $course->id }}" >
+                                                    <a class="material-icons text-20 cursor:pointer card-course__icon-favorite ml-2"
+                                                        style="cursor: pointer;" id="favorite-{{ $course->id }}">
                                                         favorite_border
                                                     </a>
                                                 </span>
@@ -97,14 +96,14 @@
                                         </div>
                                     </div>
                                 </div>
-                                
+
                                 <div class="card-footer">
                                     <div class="row justify-content-between">
                                         <div class="col-auto d-flex align-items-center">
                                             <span class="material-icons icon-16pt text-50 mr-4pt">access_time</span>
                                             <p class="flex text-50 lh-1 mb-0"><small>6 jam</small></p>
                                         </div>
-                                        
+
                                     </div>
                                 </div>
                             </div>

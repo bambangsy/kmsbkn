@@ -50,47 +50,44 @@
 
         <div class="page-section border-bottom-2">
             <div class="container page__container">
-
                 <div class="row card-group-row">
-
                     @foreach ($pathCourses as $pathCourse)
-                        
-                        <div class="card js-overlay card-sm overlay--primary-dodger-blue stack stack--1 card-group-row__card"
-                            data-toggle="popover" data-trigger="click">
-
-                            <div class="card-body d-flex flex-column">
-                                <div class="d-flex align-items-center">
-                                    <div class="flex">
-                                        <div class="d-flex align-items-center">
-                                            <div class="rounded mr-12pt z-0 o-hidden">
-                                                <div class="overlay">
-                                                    <img src="https://random.imagecdn.app/1280/720" width="40"
-                                                        height="40" alt="Angular" class="rounded">
-                                                    <span class="overlay__content overlay__content-transparent">
-                                                        <span class="overlay__action d-flex flex-column text-center lh-1">
-                                                            <small class="h6 small text-white mb-0"
-                                                                style="font-weight: 500;">80%</small>
+                        <div class="col-md-6 col-lg-4 col-xl-4 card-group-row__col">
+                            <div class="card js-overlay card-sm overlay--primary-dodger-blue stack stack--1 card-group-row__card"
+                                data-toggle="popover" data-trigger="click">
+                                <div class="card-body d-flex flex-column">
+                                    <div class="d-flex align-items-center">
+                                        <div class="flex">
+                                            <div class="d-flex align-items-center">
+                                                <div class="rounded mr-12pt z-0 o-hidden">
+                                                    <div class="overlay">
+                                                        <img src="https://random.imagecdn.app/1280/720" width="40"
+                                                            height="40" alt="Angular" class="rounded">
+                                                        <span class="overlay__content overlay__content-transparent">
+                                                            <span
+                                                                class="overlay__action d-flex flex-column text-center lh-1">
+                                                                <small class="h6 small text-white mb-0"
+                                                                    style="font-weight: 500;">80%</small>
+                                                            </span>
                                                         </span>
-                                                    </span>
+                                                    </div>
+                                                </div>
+                                                <div class="flex">
+                                                    <a href="{{ route('user.pelatihan.take_courses') }}"
+                                                        class="card-title">{{ $pathCourse->name }}</a>
+                                                    <p class="flex text-50 lh-1 mb-0"><small>{{ $pathCourse->name }}
+                                                        </small></p>
                                                 </div>
                                             </div>
-                                            <div class="flex">
-                                                <div class="card-title">{{ $pathCourse->name }}</div>
-                                                <p class="flex text-50 lh-1 mb-0"><small>{{ $pathCourse->name }} </small></p>
-                                            </div>
                                         </div>
+                                        <a href="student-path.html" data-toggle="tooltip" data-title="Add Favorite"
+                                            data-placement="top" data-boundary="window"
+                                            class="ml-4pt material-icons text-20 card-course__icon-favorite">favorite_border</a>
                                     </div>
-
-                                    <a href="student-path.html" data-toggle="tooltip" data-title="Add Favorite"
-                                        data-placement="top" data-boundary="window"
-                                        class="ml-4pt material-icons text-20 card-course__icon-favorite">favorite_border</a>
-
                                 </div>
-
                             </div>
                         </div>
                     @endforeach
-
                 </div>
             </div>
         </div>
