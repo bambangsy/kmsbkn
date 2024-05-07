@@ -39,6 +39,8 @@ Route::prefix('user')->name('user.')->group(function () {
     Route::get('/pengetahuan/search/{search}', [UserKnowledgeController::class, 'search'])->name('pengetahuan.search');
     
     Route::get('/alur-belajar', [UserCoursePathController::class, 'index'])->name('alur-belajar');
+    Route::get('/alur-belajar/{id}/{filter?}', [UserCoursePathController::class, 'show'])->name('alur-belajar.show');
+    Route::get('/alur-belajar/search/{search}', [UserCoursePathController::class, 'search'])->name('alur-belajar.search');
 
     Route::get('/pelatihan', [UserCourseController::class, 'index'])->name('pelatihan');
     Route::get('/pelatihan/{id}', [UserCourseController::class, 'show'])->name('pelatihan.show');
