@@ -37,9 +37,11 @@
             <div class="w-auto ml-sm-auto table d-flex align-items-center mb-2 mb-sm-0">
                 <small class="text-muted text-headings text-uppercase mr-3 d-none d-sm-block">Sort by</small>
 
-                <a href="#" class="sort desc small text-headings text-uppercase">Newest</a>
+                <a href="{{ route('user.alur-belajar', ['search' => request()->query('search'), 'sorted_by' => 'newest']) }}"
+                    class="sort {{ $sorted_by == 'newest' ? 'desc' : '' }} small text-headings text-uppercase ml-2">Newest</a>
 
-                <a href="#" class="sort small text-headings text-uppercase ml-2">Popularity</a>
+                <a href="{{ route('user.alur-belajar', ['search' => request()->query('search'), 'sorted_by' => 'popularity']) }}"
+                    class="sort {{ $sorted_by == 'popularity' ? 'desc' : '' }} small text-headings text-uppercase ml-2">Popularity</a>
 
             </div>
         </div>
