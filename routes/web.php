@@ -8,6 +8,7 @@ use App\Http\Controllers\UserKnowledgeController;
 use App\Http\Controllers\UserCourseController;
 use App\Http\Controllers\ValidatorKnowledgeController;
 use App\Http\Controllers\UserCoursePathController;
+use App\Http\Controllers\ValidatorCourseController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Role;
@@ -108,11 +109,20 @@ Route::middleware(['auth', 'verified', 'role:validator'])->group(function () {
     Route::patch('/validator/validasi/{id}/retrieve', [ValidatorKnowledgeController::class, 'retrieve'])->name('validasiknowledge.retrieve');
     Route::patch('/validator/validasi/{id}/cancel', [ValidatorKnowledgeController::class, 'cancel'])->name('validasiknowledge.cancel');
     
-
-    Route::get('/validasicourse', function () {
-        return view('validator.courses.course');
-    })->name('validasicourse');
-
+    Route::resource('/validator/pelatihan', ValidatorCourseController::class)->names([
+        'index' => 'validasicourse',
+        'create' => 'validasicourse.create',
+        'store' => 'validasicourse.store',
+        'destroy' => 'validasicourse.destroy',
+        'edit' => 'validasicourse.edit',
+        'update' => 'validasicourse.update'
+    ]);
+    Route::patch('/validator/validasi/{id}/approve', [ValidatorCourseController::class, 'approve'])->name('validasicourse.approve');
+    Route::patch('/validator/validasi/{id}/reject', [ValidatorCourseController::class, 'reject'])->name('validasicourse.reject');
+    Route::patch('/validator/validasi/{id}/retrieve', [ValidatorCourseController::class, 'retrieve'])->name('validasicourse.retrieve');
+    Route::patch('/validator/validasi/{id}/cancel', [ValidatorCourseController::class, 'cancel'])->name('validasicourse.cancel');
+    
+    
     Route::get('/validasicoursepath', function () {
         return view('validator.coursepath.coursepath');
     })->name('validasicoursepath');
