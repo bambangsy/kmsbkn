@@ -92,5 +92,12 @@ class PermissionsDemoSeeder extends Seeder
             'password' => 'user'
         ]);
         $user->assignRole($role4);
+
+        $user = \App\Models\User::factory()->create([
+            'name' => 'user1',
+            'email' => 'user1@gmail.com',
+            'password' => 'user'
+        ]);
+        $user->assignRole($role4);
     }
 }

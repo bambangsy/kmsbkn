@@ -41,7 +41,8 @@ Route::prefix('user')->name('user.')->group(function () {
     Route::get('/alur-belajar', [UserCoursePathController::class, 'index'])->name('alur-belajar');
 
     Route::get('/pelatihan', [UserCourseController::class, 'index'])->name('pelatihan');
-    Route::get('/pelatihan/{id}/{filter?}', [UserCourseController::class, 'show'])->name('pelatihan.show');
+    Route::get('/pelatihan/{id}', [UserCourseController::class, 'show'])->name('pelatihan.show');
+    Route::post('/pelatihan/{id}/enroll', [UserCourseController::class, 'enroll'])->name('pelatihan.enroll')->middleware('auth');
     Route::get('/pelatihan/search/{search}', [UserCourseController::class, 'search'])->name('pelatihan.search');
 
     Route::get('/take-pelatihan', function () {

@@ -59,7 +59,7 @@ style="white-space: nowrap;">
         </div>
         <div class="player__embed">
             <video class="embed-responsive-item" controls>
-                <source src="{{asset('storage/' . 'course-videos/4w2XV41fuoRprTafIdIqFwIH877N1ll6wbqrL5FG.mp4')}}" type="video/mp4">
+                <source src="{{asset('storage/' . $course->thumbnail)}}" type="video/mp4">
                 Your browser does not support the video tag.
             </video>
         </div>
@@ -67,12 +67,18 @@ style="white-space: nowrap;">
 </div>
 
    <div class="d-flex flex-wrap align-items-end mb-16pt">
-       <h1 class="text-white text-4xl flex m-0">Introduction to TypeScript</h1>
+       <h1 class="text-white text-4xl flex m-0"> {{$course->name}} </h1>
        <p class="h1 text-white-50 font-weight-light m-0">50:13</p>
    </div>
 
-   <p class="hero__lead measure-hero-lead text-white-50 mb-24pt">JavaScript is now used to power backends, create hybrid mobile applications, architect cloud solutions, design neural networks and even control robots. Enter TypeScript: a superset of JavaScript for scalable, secure, performant and feature-rich applications.</p>
-
+   <p class="hero__lead measure-hero-lead text-white-50 mb-24pt">{{$course->description}}</p>
+   <form action="{{ route('user.pelatihan.enroll', $course->id) }}" method="POST">
+    @csrf
+    <button type="submit"
+        class="bg-white px-5 py-3 ml-2 rounded-md text-black shadow-sm hover:bg-gray-300">
+        Enroll
+    </button>
+    </form>
 </div>
 </div>
 <div class="navbar navbar-expand-sm navbar-light bg-white border-bottom-2 navbar-list p-0 m-0 align-items-center">

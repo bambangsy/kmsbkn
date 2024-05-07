@@ -2,7 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Course; // Menambahkan model Course
+use App\Models\Course;
+use App\Models\User;
+use App\Models\Progress;
+
 
 use Illuminate\Http\Request;
 
@@ -46,10 +49,37 @@ class UserCourseController extends Controller
     }
 
     public function show($id)
-    {
+    {   
+         
+        $user = auth()->id();
         $course = Course::find($id);
-       
-        return view("user.showpelatihan", ['course' => $course]);
+        $progress = Progress::where('task_id', $course->id)->where('type', 'course')->where('user_id', $user)->first();
+        if ($progress) {
+            return view("user.courses.take_lesson", compact('course','progress'));
+        } else {
+            return view("user.enrollpelatihan", compact('course'));
+        }
+      }
+
+
+    public function enroll(Request $request,$id)
+    {   
+        $id = $request->id;
+        $user = auth()->id();
+        $course = Course::find($id);
+        $progress = Progress::where('task_id', $course)->where('user_id', $user)->first();
+        if (!$progress) {
+            
+            $progress = new Progress();
+            $progress->task_id = $course->id;
+            $progress->user_id = $user;
+            $progress->type = 'course';
+            $progress->save();
+
+            return view("user.courses.take_lesson", compact('course','progress'));
+        }
+        return view("user.courses.take_lesson", compact('course','progress'));
+        
     }
 }
 
