@@ -17,10 +17,11 @@
                 <form action="{{ route('user.knowledge') }}" method="GET">
                     <div class="relative">
                         <div class="flex flex-col md:flex-row">
-                            <input type="search" class="form-control" placeholder="Cari Pengetahuan"
-                                aria-label="Cari Pengetahuan" id="exampleFormControlInput4" name="search"
+                            <input type="search"
+                                class="relative m-0 block w-full rounded border border-solid border-neutral-200 bg-white bg-clip-padding px-3 py-[1rem] text-base font-normal leading-[1.6] text-surface outline-none transition duration-200 ease-in-out placeholder:text-blue-500 focus:z-[3] focus:border-primary  focus:shadow-inset focus:outline-none opacity-70"
+                                placeholder="Search" aria-label="Search" id="exampleFormControlInput4" name="search"
                                 value="{{ request()->query('search') }}" />
-                            <button type="submit" class="btn btn-primary ml-md-2 mt-2 mt-md-0">Cari</button>
+                            <button class="px-3 btn btn-white text-primary mt-0 md:mt-2 ">Cari</button>
                         </div>
                     </div>
                 </form>
