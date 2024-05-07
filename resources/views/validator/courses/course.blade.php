@@ -81,11 +81,7 @@
                                                             class="text-blue-500 hover:underline">Download</a>
                                                     </td>
                                                     <td class="whitespace-nowrap py-2 flex justify-end">
-                                                        
-                                                        <a href="{{ route('course.edit', $course->id) }}"
-                                                            class="bg-yellow-500 px-5 py-3 rounded-md text-white shadow-sm hover:bg-yellow-600 ">
-                                                            Edit
-                                                        </a>
+                                                     
                                                         
                                                         <form action="{{ route('validasicourse.approve', $course->id) }}" method="POST">
                                                             @csrf

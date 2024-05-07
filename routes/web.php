@@ -117,10 +117,10 @@ Route::middleware(['auth', 'verified', 'role:validator'])->group(function () {
         'edit' => 'validasicourse.edit',
         'update' => 'validasicourse.update'
     ]);
-    Route::patch('/validator/validasi/{id}/approve', [ValidatorCourseController::class, 'approve'])->name('validasicourse.approve');
-    Route::patch('/validator/validasi/{id}/reject', [ValidatorCourseController::class, 'reject'])->name('validasicourse.reject');
-    Route::patch('/validator/validasi/{id}/retrieve', [ValidatorCourseController::class, 'retrieve'])->name('validasicourse.retrieve');
-    Route::patch('/validator/validasi/{id}/cancel', [ValidatorCourseController::class, 'cancel'])->name('validasicourse.cancel');
+    Route::patch('/validator/pelatihan/{id}/approve', [ValidatorCourseController::class, 'approve'])->name('validasicourse.approve');
+    Route::patch('/validator/pelatihan/{id}/reject', [ValidatorCourseController::class, 'reject'])->name('validasicourse.reject');
+    Route::patch('/validator/pelatihan/{id}/retrieve', [ValidatorCourseController::class, 'retrieve'])->name('validasicourse.retrieve');
+    Route::patch('/validator/pelatihan/{id}/cancel', [ValidatorCourseController::class, 'cancel'])->name('validasicourse.cancel');
     
     
     Route::get('/validasicoursepath', function () {

@@ -15,7 +15,7 @@ class UserCourseController extends Controller
         $sorted_by = $request->input('sorted_by');
         $page = $request->input('page', 1);
         $perPage = 3;
-        $courses = Course::where('status', 0)
+        $courses = Course::where('status', 1)
             ->when($search, function ($query) use ($search) {
                 return $query->where('name', 'LIKE', "%{$search}%");
             })
@@ -48,13 +48,7 @@ class UserCourseController extends Controller
     public function show($id)
     {
         $course = Course::find($id);
-        if ($course) {
-            if (!session()->has('course_view_count_' . $course->id)) {
-                $course->view_count += 1;
-                $course->save();
-                session()->put('course_view_count_' . $course->id, true);
-            }
-        }
+       
         return view("user.showpelatihan", ['course' => $course]);
     }
 }
