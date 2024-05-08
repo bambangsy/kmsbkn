@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AdminFrontPageController;
+use App\Http\Controllers\AdminUserController;
 use App\Http\Controllers\CourseController;
 use App\Http\Controllers\CoursePathController;
 use App\Http\Controllers\KnowledgeController;
@@ -89,9 +90,18 @@ Route::middleware(['auth', 'verified', 'role:admin'])->group(function () {
         // 'update' => 'admin.frontpage_management.update'
     ]);
 
-    Route::get('/user-management', function () {
-        return view('admin.user-management');
-    })->name('admin-user-management');
+    Route::resource('/user-management', AdminUserController::class)->names([
+        'index' => 'admin.user_management',
+        'create' => 'admin.user_management.create',
+        'store' => 'admin.user_management.store',
+        'accept' => 'admin.user_management.accept',
+        'destroy' => 'admin.user_management.destroy',
+        // 'edit' => 'admin.user_management.edit',
+        // 'update' => 'admin.user_management.update'
+    ]);
+    Route::get('/user-management/{filter}', [AdminUserController::class, 'filter'])->name('admin.user_management.filter');
+    Route::patch('/user-management/{id}/accept', [AdminUserController::class, 'accept'])->name('admin.user_management.accept');
+    Route::patch('/user-management/{id}/declined', [AdminUserController::class,'declined'])->name('admin.user_management.declined');
 
     Route::get('/knowledge-management', function () {
         return view('admin.knowledge-management');

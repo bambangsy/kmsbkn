@@ -15,57 +15,52 @@ class AdminFrontPageController extends Controller
      * Display a listing of the resource.
      */
     public function index()
-    {   
-        $knowledge_highlight = Highlight::where('type','knowledge')->get();
-        
+    {
+        $knowledge_highlight = Highlight::where('type', 'knowledge')->get();
+
         $knowledges = $knowledge_highlight->map(function ($highlight) {
             $knowledge = Knowledge::find($highlight->content_id);
-            $highlight->name = $knowledge->name; 
+            $highlight->name = $knowledge->name;
             return $highlight;
         });
-       
-        $path_highlight = Highlight::where('type','path')->get();
+
+        $path_highlight = Highlight::where('type', 'path')->get();
         $paths = $path_highlight->map(function ($highlight) {
             $path = Path::find($highlight->content_id);
-            $highlight->name = $path->name; 
+            $highlight->name = $path->name;
             return $highlight;
         });
 
-        $course_highlight = Highlight::where('type','course')->get();
+        $course_highlight = Highlight::where('type', 'course')->get();
         $courses = $course_highlight->map(function ($highlight) {
             $course = Course::find($highlight->content_id);
-            $highlight->name = $course->name; 
+            $highlight->name = $course->name;
             return $highlight;
         });
-        
+
 
         return view('admin.frontpage_management.frontpage_management', compact('knowledges', 'paths', 'courses'));
-        
-        
-        
     }
 
     /**
      * Show the form for creating a new resource.
      */
     public function create(Request $request)
-    {   
+    {
         $value = $request->value;
         $list = ['knowledge', 'path', 'course'];
-        
+
         if (in_array($value, $list)) {
 
             if ($value === 'knowledge') {
                 $content = Knowledge::where('status', 1)->orderBy('updated_at', 'desc')->get();
-            }
-            else if ($value === 'path') {
+            } else if ($value === 'path') {
                 $content = Path::where('status', 1)->orderBy('updated_at', 'desc')->get();
-            }
-            else if ($value === 'course') {
+            } else if ($value === 'course') {
                 $content = Course::where('status', 1)->orderBy('updated_at', 'desc')->get();
             }
 
-            return view('admin.frontpage_management.create_frontpage', compact('content','value'));
+            return view('admin.frontpage_management.create_frontpage', compact('content', 'value'));
         } else {
             return redirect()->route('admin.frontpage_management');
         }
@@ -78,7 +73,7 @@ class AdminFrontPageController extends Controller
     {
         $opsi = $request->opsi;
         $type = $request->value;
-        $last_order = Highlight::where('type',$type )->orderBy('order', 'desc')->first();
+        $last_order = Highlight::where('type', $type)->orderBy('order', 'desc')->first();
         if (is_null($last_order)) {
             $newHighlight = new Highlight();
             $newHighlight->content_id = $opsi; // Assuming content_id value
@@ -92,7 +87,7 @@ class AdminFrontPageController extends Controller
             $newHighlight->order = $last_order->order + 1;
             $newHighlight->save();
         }
-        
+
         return redirect()->route('admin.frontpage_management');
     }
 
@@ -124,7 +119,7 @@ class AdminFrontPageController extends Controller
      * Remove the specified resource from storage.
      */
     public function destroy(Request $request, string $id)
-    {   
+    {
         $type =  $request->deleted_value;
         $highlight = Highlight::find($id);
         $order = $highlight->order;
