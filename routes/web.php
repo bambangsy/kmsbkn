@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AdminFrontPageController;
 use App\Http\Controllers\CourseController;
 use App\Http\Controllers\CoursePathController;
 use App\Http\Controllers\KnowledgeController;
@@ -37,7 +38,7 @@ Route::prefix('user')->name('user.')->group(function () {
     Route::get('/pengetahuan', [UserKnowledgeController::class, 'index'])->name('knowledge');
     Route::get('/pengetahuan/{id}/{filter?}', [UserKnowledgeController::class, 'show'])->name('knowledge.show');
     Route::get('/pengetahuan/search/{search}', [UserKnowledgeController::class, 'search'])->name('pengetahuan.search');
-    
+
     Route::get('/alur-belajar', [UserCoursePathController::class, 'index'])->name('alur-belajar');
     Route::get('/alur-belajar/{id}/{filter?}', [UserCoursePathController::class, 'show'])->name('alur-belajar.show');
     Route::get('/alur-belajar/search/{search}', [UserCoursePathController::class, 'search'])->name('alur-belajar.search');
@@ -58,8 +59,6 @@ Route::prefix('user')->name('user.')->group(function () {
     Route::get('/take-lesson', function () {
         return view('user/courses/take_lesson');
     })->name('pelatihan.take_lesson');
-
-    
 });
 Route::get('/dashboard', function () {
     $user = Auth::user();
@@ -81,9 +80,14 @@ Route::middleware(['auth', 'verified', 'role:admin'])->group(function () {
         return view('admin.dbadmin');
     })->name('admin');
 
-    Route::get('/kanban', function () {
-        return view('admin.kanban');
-    })->name('admin-kanban');
+    Route::resource('/frontpage-management', AdminFrontPageController::class)->names([
+        'index' => 'admin.frontpage_management',
+        'create' => 'admin.frontpage_management.create',
+        'store' => 'admin.frontpage_management.store',
+        'destroy' => 'admin.frontpage_management.destroy',
+        // 'edit' => 'admin.frontpage_management.edit',
+        // 'update' => 'admin.frontpage_management.update'
+    ]);
 
     Route::get('/user-management', function () {
         return view('admin.user-management');
@@ -111,7 +115,7 @@ Route::middleware(['auth', 'verified', 'role:validator'])->group(function () {
     Route::patch('/validator/validasi/{id}/reject', [ValidatorKnowledgeController::class, 'reject'])->name('validasiknowledge.reject');
     Route::patch('/validator/validasi/{id}/retrieve', [ValidatorKnowledgeController::class, 'retrieve'])->name('validasiknowledge.retrieve');
     Route::patch('/validator/validasi/{id}/cancel', [ValidatorKnowledgeController::class, 'cancel'])->name('validasiknowledge.cancel');
-    
+
     Route::resource('/validator/pelatihan', ValidatorCourseController::class)->names([
         'index' => 'validasicourse',
         'create' => 'validasicourse.create',
@@ -124,13 +128,11 @@ Route::middleware(['auth', 'verified', 'role:validator'])->group(function () {
     Route::patch('/validator/pelatihan/{id}/reject', [ValidatorCourseController::class, 'reject'])->name('validasicourse.reject');
     Route::patch('/validator/pelatihan/{id}/retrieve', [ValidatorCourseController::class, 'retrieve'])->name('validasicourse.retrieve');
     Route::patch('/validator/pelatihan/{id}/cancel', [ValidatorCourseController::class, 'cancel'])->name('validasicourse.cancel');
-    
-    
+
+
     Route::get('/validasicoursepath', function () {
         return view('validator.coursepath.coursepath');
     })->name('validasicoursepath');
-
-    
 });
 
 Route::middleware(['auth', 'verified', 'role:expert'])->group(function () {
@@ -176,7 +178,6 @@ Route::middleware(['auth', 'verified', 'role:expert'])->group(function () {
     Route::post('/expert/alur-pelatihan/{id}/store_items', [CoursePathController::class, 'store_items'])->name('course_path.store_items');
     Route::patch('/expert/alur-pelatihan/{id}/validate', [CoursePathController::class, 'validate'])->name('course_path.validate');
     Route::patch('/expert/alur-pelatihan/{id}/cancel_validate', [CoursePathController::class, 'cancel_validate'])->name('course_path.cancel_validate');
-
 });
 
 
