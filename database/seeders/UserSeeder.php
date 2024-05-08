@@ -1,11 +1,12 @@
 <?php
 
+
 namespace Database\Seeders;
 
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
-use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Facades\Hash;
+use Spatie\Permission\Models\Permission;
+use Spatie\Permission\Models\Role;
+use Spatie\Permission\PermissionRegistrar;
 
 class UserSeeder extends Seeder
 {
@@ -14,46 +15,88 @@ class UserSeeder extends Seeder
      */
     public function run(): void
     {
-        DB::table('users')->insert([
+        app()[PermissionRegistrar::class]->forgetCachedPermissions();
+
+        // create permissions
+        Permission::create(['name' => 'admin']);
+        Permission::create(['name' => 'user']);
+        Permission::create(['name' => 'validator']);
+        Permission::create(['name' => 'expert']);
+        
+        // create roles and assign existing permissions
+        $role1 = Role::create(['name' => 'admin']);
+        $role1->givePermissionTo('admin');
+
+        $role2 = Role::create(['name' => 'validator']);
+        $role2->givePermissionTo('validator');
+
+        $role3 = Role::create(['name' => 'expert']);
+        $role3->givePermissionTo('expert');
+        
+        $role4 = Role::create(['name' => 'user']);
+        $role4->givePermissionTo('user');
+
+        // gets all permissions via Gate::before rule; see AuthServiceProvider
+
+        // create demo users
+        
+        
+
+
+        $user = \App\Models\User::factory()->create([
             'name' => 'admin',
             'email' => 'admin@gmail.com',
-            'password' =>  Hash::make('admin'),
-            'role_id' => 1,
-            'created_at' => now()->setTimezone('Asia/Jakarta'),
-            'updated_at' => now()->setTimezone('Asia/Jakarta'),
-            'email_verified_at' => now()->setTimezone('Asia/Jakarta')
-
+            'password' => 'admin'
         ]);
+        $user->assignRole($role1);
 
-        DB::table('users')->insert([
-            'name' => 'expert',
-            'email' => 'expert@gmail.com',
-            'password' =>  Hash::make('expert'),
-            'role_id' => 2,
-            'created_at' => now()->setTimezone('Asia/Jakarta'),
-            'updated_at' => now()->setTimezone('Asia/Jakarta'),
-            'email_verified_at' => now()->setTimezone('Asia/Jakarta')
-        ]);
-
-        DB::table('users')->insert([
-            'name' => 'user',
-            'email' => 'user@gmail.com',
-            'password' =>  Hash::make('user'),
-            'role_id' => 3,
-            'created_at' => now()->setTimezone('Asia/Jakarta'),
-            'updated_at' => now()->setTimezone('Asia/Jakarta'),
-            'email_verified_at' => now()->setTimezone('Asia/Jakarta')
-        ]);
-
-        DB::table('users')->insert([
+        $user = \App\Models\User::factory()->create([
             'name' => 'validator',
             'email' => 'validator@gmail.com',
-            'password' =>  Hash::make('validator'),
-            'role_id' => 4,
-            'created_at' => now()->setTimezone('Asia/Jakarta'),
-            'updated_at' => now()->setTimezone('Asia/Jakarta'),
-            'email_verified_at' => now()->setTimezone('Asia/Jakarta')
+            'password' => 'validator'
         ]);
+        $user->assignRole($role2);
 
+        $user = \App\Models\User::factory()->create([
+            'name' => 'raka',
+            'email' => 'raka@gmail.com',
+            'password' => 'validator'
+        ]);
+        $user->assignRole($role2);
+
+        $user = \App\Models\User::factory()->create([
+            'name' => 'expert',
+            'email' => 'expert@gmail.com',
+            'password' => 'expert'
+        ]);
+        $user->assignRole($role3);
+
+        $user = \App\Models\User::factory()->create([
+            'name' => 'bambang',
+            'email' => 'bambang@gmail.com',
+            'password' => 'expert'
+        ]);
+        $user->assignRole($role3);
+        
+        $user = \App\Models\User::factory()->create([
+            'name' => 'user',
+            'email' => 'user@gmail.com',
+            'password' => 'user'
+        ]);
+        $user->assignRole($role4);
+
+        $user = \App\Models\User::factory()->create([
+            'name' => 'user1',
+            'email' => 'user1@gmail.com',
+            'password' => 'user'
+        ]);
+        $user->assignRole($role4);
+
+        \App\Models\User::factory()
+        ->count(100)
+        ->create()
+        ->each(function ($user) {
+            $user->assignRole('Member');
+        });
     }
 }

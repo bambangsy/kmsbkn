@@ -1,4 +1,3 @@
-
 @extends('layouts.user')
 @section('content')
     <!-- BEFORE Page Content -->
@@ -16,18 +15,22 @@
         <div class="mdk-box__content justify-content-center">
             <div class="hero container page__container text-center py-112pt">
                 <h1 class="text-white text-shadow">BKN Learning Hub</h1>
-                <p class="lead measure-hero-lead mx-auto text-white text-shadow ">Temukan berbagai materi pembelajaran dari para ahli di bidangnya.</p>
-                <a href="courses.html" class="btn btn-lg btn-white btn--raised mb-16pt">Cari Pelatihan</a>               
+                <p class="lead measure-hero-lead mx-auto text-white text-shadow ">Temukan berbagai materi pembelajaran dari
+                    para ahli di bidangnya.
+                </p>
+                <a href="courses.html" class="btn btn-lg btn-white btn--raised mb-16pt">Cari Pelatihan</a>
             </div>
         </div>
     </div>
+
+    
 
 
     <div class="page-section border-bottom-2">
         <div class="container page__container">
 
             <div class="page-separator">
-                <div class="page-separator__text">Pengetahuan Terbaru</div>
+                <div class="page-separator__text">Pengetahuan</div>
             </div>
 
             <div class="row card-group-row">
@@ -45,7 +48,8 @@
                             </div>
                             <div class="posts-card-popular__title card-body">
                                 <small class="text-muted text-uppercase">Raka Dimas Saputra</small>
-                                <a class="card-title" href="blog-post.html">Suasana Sholat Idul Fitri 1445H di Lapangan Kantor Pusat BKN</a>
+                                <a class="card-title" href="blog-post.html">Suasana Sholat Idul Fitri 1445H di Lapangan
+                                    Kantor Pusat BKN</a>
                             </div>
                         </div>
                     </div>
@@ -65,7 +69,8 @@
                             </div>
                             <div class="posts-card-popular__title card-body">
                                 <small class="text-muted text-uppercase">Raka Dimas Saputra</small>
-                                <a class="card-title" href="blog-post.html">Capaian Koperasi Promart BKN Tahun Buku 2023 Tercatat Berkinerja Positif</a>
+                                <a class="card-title" href="blog-post.html">Capaian Koperasi Promart BKN Tahun Buku 2023
+                                    Tercatat Berkinerja Positif</a>
                             </div>
                         </div>
                     </div>
@@ -86,7 +91,8 @@
                             </div>
                             <div class="posts-card-popular__title card-body">
                                 <small class="text-muted text-uppercase">Raka Dimas Saputra</small>
-                                <a class="card-title" href="blog-post.html">Paket Sembako Gratis PT. Taspen Bagi PPNPN di BKN</a>
+                                <a class="card-title" href="blog-post.html">Paket Sembako Gratis PT. Taspen Bagi PPNPN di
+                                    BKN</a>
                             </div>
                         </div>
                     </div>
@@ -94,6 +100,8 @@
             </div>
         </div>
     </div>
+
+    
 
     <div class="page-section border-bottom-2">
         <div class="container page__container">
@@ -694,7 +702,8 @@
                             </div>
                         </div>
 
-                        <p class="my-16pt text-70">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent ac imperdiet risus, fringilla maximus ligula. Mauris eget felis ante. Suspendisse.</p>
+                        <p class="my-16pt text-70">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent ac
+                            imperdiet risus, fringilla maximus ligula. Mauris eget felis ante. Suspendisse.</p>
 
                         <div class="mb-16pt">
                             <div class="d-flex align-items-center">
@@ -808,7 +817,8 @@
                             </div>
                         </div>
 
-                        <p class="my-16pt text-70">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent ac imperdiet risus, fringilla maximus ligula. Mauris eget felis ante. Suspendisse.</p>
+                        <p class="my-16pt text-70">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent ac
+                            imperdiet risus, fringilla maximus ligula. Mauris eget felis ante. Suspendisse.</p>
 
                         <div class="mb-16pt">
                             <div class="d-flex align-items-center">
@@ -922,7 +932,8 @@
                             </div>
                         </div>
 
-                        <p class="my-16pt text-70">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent ac imperdiet risus, fringilla maximus ligula. Mauris eget felis ante. Suspendisse.</p>
+                        <p class="my-16pt text-70">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent ac
+                            imperdiet risus, fringilla maximus ligula. Mauris eget felis ante. Suspendisse.</p>
 
                         <div class="mb-16pt">
                             <div class="d-flex align-items-center">
@@ -1036,7 +1047,8 @@
                             </div>
                         </div>
 
-                        <p class="my-16pt text-70">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent ac imperdiet risus, fringilla maximus ligula. Mauris eget felis ante. Suspendisse.</p>
+                        <p class="my-16pt text-70">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent ac
+                            imperdiet risus, fringilla maximus ligula. Mauris eget felis ante. Suspendisse.</p>
 
                         <div class="mb-16pt">
                             <div class="d-flex align-items-center">

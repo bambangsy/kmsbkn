@@ -24,14 +24,6 @@ class PermissionsDemoSeeder extends Seeder
         Permission::create(['name' => 'user']);
         Permission::create(['name' => 'validator']);
         Permission::create(['name' => 'expert']);
-
-
-
-
-
-
-
-
         
         // create roles and assign existing permissions
         $role1 = Role::create(['name' => 'admin']);
@@ -99,5 +91,16 @@ class PermissionsDemoSeeder extends Seeder
             'password' => 'user'
         ]);
         $user->assignRole($role4);
-    }
+
+        \App\Models\User::factory()
+            ->count(15)
+            ->create()
+            ->each(function ($user) use ($role1, $role2, $role3, $role4) {
+                $user->assignRole([$role1, $role2, $role3, $role4]);
+            });
+
+        \App\Models\Knowledge::factory()
+            ->count(50)
+            ->create();
+        }
 }

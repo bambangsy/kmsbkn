@@ -13,7 +13,7 @@ class UserKnowledgeController extends Controller
         $search = $request->input('search');
         $sorted_by = $request->input('sorted_by');
         $page = $request->input('page', 1);
-        $perPage = 3;
+        $perPage = 9;
 
         $knowledges = Knowledge::where('status', 1)
             ->when($search, function ($query) use ($search) {
