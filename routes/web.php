@@ -95,13 +95,13 @@ Route::middleware(['auth', 'verified', 'role:admin'])->group(function () {
         'create' => 'admin.user_management.create',
         'store' => 'admin.user_management.store',
         'accept' => 'admin.user_management.accept',
-        'destroy' => 'admin.user_management.destroy',
         // 'edit' => 'admin.user_management.edit',
         // 'update' => 'admin.user_management.update'
     ]);
     Route::get('/user-management/{filter}', [AdminUserController::class, 'filter'])->name('admin.user_management.filter');
     Route::patch('/user-management/{id}/accept', [AdminUserController::class, 'accept'])->name('admin.user_management.accept');
     Route::patch('/user-management/{id}/declined', [AdminUserController::class,'declined'])->name('admin.user_management.declined');
+    Route::post('/user-management/{id}/destroy', [AdminUserController::class,'destroy'])->name('admin.user_management.destroy');
 
     Route::get('/knowledge-management', function () {
         return view('admin.knowledge-management');

@@ -12,22 +12,24 @@ class AdminUserController extends Controller
      */
     public function index(Request $request)
     {   
+
+        $users = User::all();
         $filter = $request->input('filter');
         if ($filter === null) {
             $filter = 'belum_divalidasi';
         }
-        
-        $filter = $request->filter === 'belum_divalidasi' ? 0 : 1;
-        $users = User::all();
+        $validated_users = User::where('is_validated', true)->get();
+        $not_validated_users = User::where('is_validated', false)->get();
 
-        return view('admin.user_management.user_management', compact('users','filter'));
+        return view('admin.user_management.user_management', compact('validated_users','not_validated_users','filter'));
     }
 
     /**
      * Memvalidasi user yang ada di database tabel user.
      */
-    public function accept(string $id)
+    public function accept(Request $request,string $id)
     {
+        $filter = $request->input('filter');
         $user = User::findOrFail($id);
         $user->is_validated = true;
         $user->email_verified_at = time();
@@ -35,21 +37,22 @@ class AdminUserController extends Controller
         
         // Lakukan proses validasi user disini
         
-        return redirect()->route('admin.user_management');
+        return redirect()->route('admin.user_management',['filter' => $filter]);
     }
 
     /**
      * Menolak pembuatan user.
      */
-    public function declined(string $id)
-    {
+    public function declined(Request $request,string $id)
+    {   
+        $filter = $request->input('filter');
         $user = User::findOrFail($id);
         $user->is_validated = false;
         $user->save();
         
         // Lakukan proses penolakan pembuatan user disini
         
-        return redirect()->route('admin.user_management');
+        return redirect()->route('admin.user_management',['filter' => $filter]);
     }
 
     /**
@@ -101,10 +104,11 @@ class AdminUserController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
-    {
+    public function destroy(Request $request,string $id)
+    {   
+        $filter = $request->input('filter');
         $user = User::find($id);
         $user->delete();
-        return redirect()->route('admin.user_management');
+        return redirect()->route('admin.user_management',['filter' => $filter]);
     }
 }
