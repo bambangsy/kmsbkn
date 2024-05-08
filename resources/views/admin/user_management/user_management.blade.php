@@ -15,26 +15,28 @@
                     <div class="mt-5">
                         <label for="filter" class="block font-medium text-sm text-gray-700 dark:text-white">
                             Filter Validasi:</label>
-                            
-                            <select id="filter" name="filter"
-                                class="form-select mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm dark:bg-gray-700 dark:border-gray-600 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" onchange="window.location.href = '{{ route('admin.user_management', ['filter' => 'sudah_divalidasi']) }}'">
-                                <option value="sudah_divalidasi">
-                                        Sudah Divalidasi
-                                </option>
-                                <option value="belum_divalidasi" selected>Belum Divalidasi</option>
-                            </select>
-        
-                            
-                    <script>
-                        function filterSelection() {
-                            var filter = document.getElementById("filter").value;
-                            console.log(filter);
-            
-            
-                            
-                            // Logika untuk penyaringan berdasarkan nilai yang dipilih
-                        }
-                    </script>
+
+                        // Start of Selection
+                        <select id="filter" name="filter"
+                            class="form-select mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm dark:bg-gray-700 dark:border-gray-600 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                            onchange="window.location.href = this.value">
+                            <option value="{{ route('admin.user_management', ['filter' => 'sudah_divalidasi']) }}">
+                                Sudah Divalidasi
+                            </option>
+                            <option value="{{ route('admin.user_management', ['filter' => 'belum_divalidasi']) }}" selected>Belum Divalidasi</option>
+                        </select>
+
+
+                        <script>
+                            function filterSelection() {
+                                var filter = document.getElementById("filter").value;
+                                console.log(filter);
+
+
+
+                                // Logika untuk penyaringan berdasarkan nilai yang dipilih
+                            }
+                        </script>
 
 
                     </div>
