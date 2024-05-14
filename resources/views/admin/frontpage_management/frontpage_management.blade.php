@@ -21,9 +21,9 @@
                         <th>Action</th>
                     </tr>
                 </thead>
-                <tbody>
+                <tbody id="sortable">
                     @foreach($knowledges as $knowledge)
-                    <tr>
+                    <tr class="list" data-id="{{ $knowledge->id }}">
                         <td>{{ $knowledge->order }}</td>
                         <td>{{ $knowledge->name }}</td>
                         <td><a href="#">Edit</a></td>
@@ -37,10 +37,33 @@
                     </tr>
                     @endforeach
                 </tbody>
+                
+               
             </table>
             </div>
 
         </div>
+        <div class="row justify-content-center">
+        <ul id="sortable-list" class="space-y-2">
+            <li class="bg-gray-200 p-4 cursor-grab">Item 1</li>
+            <li class="bg-gray-200 p-4 cursor-grab">Item 2</li>
+            <li class="bg-gray-200 p-4 cursor-grab">Item 3</li>
+          </ul>
+        </div>
+        <script src="https://cdn.jsdelivr.net/npm/sortablejs@latest/Sortable.min.js"></script>
+        <script>
+            
+    
+            var sortableList = document.getElementById('sortable-list');
+            var sortable = new Sortable(sortableList, {
+            animation: 150,
+            onUpdate: function (evt) {
+                console.log('Order updated:', evt.newIndex);
+                
+            }
+            });
+
+        </script>
         
 
 

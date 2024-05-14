@@ -40,8 +40,19 @@ Route::prefix('user')->name('user.')->group(function () {
     Route::get('/pengetahuan/{id}/{filter?}', [UserKnowledgeController::class, 'show'])->name('knowledge.show');
     Route::get('/pengetahuan/search/{search}', [UserKnowledgeController::class, 'search'])->name('pengetahuan.search');
 
-    Route::get('/alur-belajar', [UserCoursePathController::class, 'index'])->name('alur-belajar');
-    Route::get('/alur-belajar/{id}/{filter?}', [UserCoursePathController::class, 'show'])->name('alur-belajar.show');
+
+    Route::resource('/alur-belajar', UserCoursePathController::class)->names([
+        'index' => 'alur-belajar',
+        'show' => 'alur-belajar.show',
+        //'store' => 'admin.frontpage_management.store',
+        //'destroy' => 'admin.frontpage_management.destroy',
+        // 'edit' => 'admin.frontpage_management.edit',
+        // 'update' => 'admin.frontpage_management.update'
+    ]);
+    Route::post('/alur-belajar/{id}/enroll', [UserCoursePathController::class,'enroll'])->name('alur-belajar.enroll');
+    
+
+
     Route::get('/alur-belajar/search/{search}', [UserCoursePathController::class, 'search'])->name('alur-belajar.search');
 
     Route::get('/pelatihan', [UserCourseController::class, 'index'])->name('pelatihan');

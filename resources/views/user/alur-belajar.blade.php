@@ -75,7 +75,7 @@
                                                     </div>
                                                 </div>
                                                 <div class="flex">
-                                                    <a href="{{ route('user.pelatihan.take_courses') }}"
+                                                    <a href="{{ route('user.alur-belajar.show', $pathCourse->id) }}"
                                                         class="card-title">{{ $pathCourse->name }}</a>
                                                     <p class="flex text-50 lh-1 mb-0"><small>{{ $pathCourse->name }}
                                                         </small></p>
