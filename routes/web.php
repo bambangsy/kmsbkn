@@ -8,8 +8,9 @@ use App\Http\Controllers\KnowledgeController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\UserKnowledgeController;
 use App\Http\Controllers\UserCourseController;
-use App\Http\Controllers\ValidatorKnowledgeController;
 use App\Http\Controllers\UserCoursePathController;
+use App\Http\Controllers\UserHomeController;
+use App\Http\Controllers\ValidatorKnowledgeController;
 use App\Http\Controllers\ValidatorCourseController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
@@ -17,9 +18,8 @@ use App\Models\Role;
 use App\Models\User;
 use Illuminate\Auth\Middleware\Authorize\RoleMiddleware;
 
-Route::get('/', function () {
-    return view('user/home');
-});
+Route::get('/', [UserHomeController::class, 'index'])->name('home');
+
 
 Route::get('/menus', function () {
     return view('menus');
@@ -36,6 +36,7 @@ Route::get('/pelatihan', function () {
 })->name('pelatihan');
 
 Route::prefix('user')->name('user.')->group(function () {
+
     Route::get('/pengetahuan', [UserKnowledgeController::class, 'index'])->name('knowledge');
     Route::get('/pengetahuan/{id}/{filter?}', [UserKnowledgeController::class, 'show'])->name('knowledge.show');
     Route::get('/pengetahuan/search/{search}', [UserKnowledgeController::class, 'search'])->name('pengetahuan.search');
