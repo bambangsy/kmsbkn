@@ -28,9 +28,6 @@
                     <li class="nav-item {{ request()->routeIs('user.knowledge') ? 'active' : '' }}">
                         <a href="{{route('user.knowledge')}}" class="nav-link">Pengetahuan</a>
                     </li>
-                    <li class="nav-item {{ request()->is('pricing.html') ? 'active' : '' }}">
-                        <a href="pricing.html" class="nav-link">FAQ</a>
-                    </li>
         
                 </ul>
 
