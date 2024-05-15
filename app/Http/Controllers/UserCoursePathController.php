@@ -24,7 +24,7 @@ class UserCoursePathController extends Controller
         $page = $request->input('page', 1);
         
         $perPage = 3;
-        $pathCourses = Path::all()
+        $pathCourses = Path::where('status', 1)->get()
         ->when($search, function ($query) use ($search) {
             return $query->where('name', 'LIKE', "%{$search}%");
         });

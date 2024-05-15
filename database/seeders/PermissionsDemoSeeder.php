@@ -102,7 +102,20 @@ class PermissionsDemoSeeder extends Seeder
         \App\Models\Knowledge::factory()
             ->count(50)
             ->create();
+        \App\Models\Course::factory()
+            ->count(100)
+            ->create();
+        \App\Models\Path::factory()
+            ->count(10)
+            ->create();
+        \App\Models\PathCourse::factory()
+            ->count(30)
+            ->create();
         }
+        
+        
+        
+        
 
         
 }

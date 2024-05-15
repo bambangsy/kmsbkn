@@ -16,8 +16,13 @@ class PathFactory extends Factory
      */
     public function definition(): array
     {
+        
         return [
-            //
+            'name' => $this->faker->sentence(),
+            'description' => $this->faker->text(),
+            'status' => $this->faker->numberBetween(0, 1),
+            'created_by_id' => \App\Models\User::factory()->create()->id,
         ];
+        
     }
 }
