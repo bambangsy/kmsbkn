@@ -20,14 +20,15 @@ use Illuminate\Auth\Middleware\Authorize\RoleMiddleware;
 
 Route::get('/', [UserHomeController::class, 'index'])->name('home');
 
+Route::get('/rank', function () {
+    return view('user/rank');
+})->name('rank');
+
 
 Route::get('/menus', function () {
     return view('menus');
 });
 
-Route::get('/user', function () {
-    return view('user/home');
-})->name('home');
 Route::get('/alur-belajar', function () {
     return view('user/alur-belajar');
 })->name('alur-belajar');

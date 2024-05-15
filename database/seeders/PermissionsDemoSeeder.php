@@ -103,4 +103,6 @@ class PermissionsDemoSeeder extends Seeder
             ->count(50)
             ->create();
         }
+
+        
 }
