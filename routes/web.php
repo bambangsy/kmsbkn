@@ -10,6 +10,7 @@ use App\Http\Controllers\UserKnowledgeController;
 use App\Http\Controllers\UserCourseController;
 use App\Http\Controllers\UserCoursePathController;
 use App\Http\Controllers\UserHomeController;
+use App\Http\Controllers\UserRankingController;
 use App\Http\Controllers\ValidatorKnowledgeController;
 use App\Http\Controllers\ValidatorCourseController;
 use Illuminate\Support\Facades\Route;
@@ -20,9 +21,7 @@ use Illuminate\Auth\Middleware\Authorize\RoleMiddleware;
 
 Route::get('/', [UserHomeController::class, 'index'])->name('home');
 
-Route::get('/rank', function () {
-    return view('user/rank');
-})->name('rank');
+Route::resource('/rank', UserRankingController::class)->names('rank');
 
 
 Route::get('/menus', function () {

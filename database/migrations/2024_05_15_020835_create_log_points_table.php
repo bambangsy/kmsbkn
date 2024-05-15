@@ -13,10 +13,10 @@ return new class extends Migration
     {
         Schema::create('log_points', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('user_id')->constrained('users');
             $table->string('type');
             $table->integer('task_id');
             $table->integer('point');
-            $table->foreignId('user_id')->constrained('users');
             $table->timestamps();
         });
     }

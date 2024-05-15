@@ -13,8 +13,8 @@ return new class extends Migration
     {
         Schema::create('points', function (Blueprint $table) {
             $table->id();
-            $table->integer('point');
             $table->foreignId('user_id')->constrained('users');
+            $table->integer('point');
             $table->timestamps();
         });
     }
