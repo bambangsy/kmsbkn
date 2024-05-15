@@ -111,6 +111,9 @@ class PermissionsDemoSeeder extends Seeder
         \App\Models\PathCourse::factory()
             ->count(30)
             ->create();
+        \App\Models\Progress::factory()
+            ->count(20)
+            ->create();
         }
         
         

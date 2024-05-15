@@ -16,6 +16,7 @@ return new class extends Migration
             $table->foreignId('user_id')->constrained();
             $table->integer('task_id');
             $table->string('type');
+            $table->unique(['user_id', 'task_id', 'type']);
             $table->integer('progress')->default(0);
             $table->boolean('is_completed')->default(false);
             $table->boolean('is_attached_to_path')->default(false);

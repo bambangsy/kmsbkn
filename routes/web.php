@@ -5,6 +5,7 @@ use App\Http\Controllers\AdminUserController;
 use App\Http\Controllers\CourseController;
 use App\Http\Controllers\CoursePathController;
 use App\Http\Controllers\KnowledgeController;
+use App\Http\Controllers\LearningHistoryController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\UserKnowledgeController;
 use App\Http\Controllers\UserCourseController;
@@ -36,6 +37,16 @@ Route::get('/pelatihan', function () {
 })->name('pelatihan');
 
 Route::prefix('user')->name('user.')->group(function () {
+
+    Route::resource('/riwayat-pembelajaran', LearningHistoryController::class)->names([
+        'index' => 'learninghistory',
+        //'create' => 'learninghistory.create',
+        //'store' => 'learninghistory.store',
+        //'show' => 'learninghistory.show',
+        //'edit' => 'learninghistory.edit',
+        //'update' => 'learninghistory.update',
+        //'destroy' => 'learninghistory.destroy'
+    ])->middleware('auth');
 
     Route::get('/pengetahuan', [UserKnowledgeController::class, 'index'])->name('knowledge');
     Route::get('/pengetahuan/{id}/{filter?}', [UserKnowledgeController::class, 'show'])->name('knowledge.show');
