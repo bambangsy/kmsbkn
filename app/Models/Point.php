@@ -9,5 +9,7 @@ class Point extends Model
 {
     use HasFactory;
     protected $table = 'points';
-    protected $fillable = ['user_id', 'course_id', 'path_id', 'point'];
+    protected $fillable = ['point','user_id'];
+
+    
 }

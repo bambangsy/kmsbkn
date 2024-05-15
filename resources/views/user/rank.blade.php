@@ -15,16 +15,13 @@
             </tr>
         </thead>
         <tbody>
-        <tr>
-            <td>1</td>
-            <td>John Doe</td>
-            <td>100</td>
-        </tr>
-        <tr>
-            <td>2</td>
-            <td>Jane Smith</td>
-            <td>90</td>
-        </tr>
+        @foreach($usersWithPoints as $user)
+            <tr>
+                <td>{{ $loop->iteration }}</td>
+                <td>{{ $user['name'] }}</td>
+                <td>{{ $user['point'] }}</td>
+            </tr>
+        @endforeach
         </tbody>
     </table>
     </div>
