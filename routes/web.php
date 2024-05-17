@@ -14,6 +14,7 @@ use App\Http\Controllers\UserHomeController;
 use App\Http\Controllers\UserRankingController;
 use App\Http\Controllers\ValidatorKnowledgeController;
 use App\Http\Controllers\ValidatorCourseController;
+use App\Http\Middleware\UserValidatedMiddleware;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Role;
@@ -53,19 +54,12 @@ Route::prefix('user')->name('user.')->group(function () {
     Route::get('/pengetahuan/search/{search}', [UserKnowledgeController::class, 'search'])->name('pengetahuan.search');
 
 
-    Route::resource('/alur-belajar', UserCoursePathController::class)->names([
-        'index' => 'alur-belajar',
-        'show' => 'alur-belajar.show',
-        //'store' => 'admin.frontpage_management.store',
-        //'destroy' => 'admin.frontpage_management.destroy',
-        // 'edit' => 'admin.frontpage_management.edit',
-        // 'update' => 'admin.frontpage_management.update'
-    ]);
-    Route::post('/alur-belajar/{id}/enroll', [UserCoursePathController::class,'enroll'])->name('alur-belajar.enroll');
-    
-
-
-    Route::get('/alur-belajar/search/{search}', [UserCoursePathController::class, 'search'])->name('alur-belajar.search');
+    Route::prefix('alur-belajar')->group(function () {
+        Route::get('/', [UserCoursePathController::class, 'index'])->name('alur-belajar');
+        Route::get('/{id}', [UserCoursePathController::class, 'show'])->name('alur-belajar.show');
+        Route::post('/{id}/enroll', [UserCoursePathController::class, 'enroll'])->name('alur-belajar.enroll')->middleware(['auth',UserValidatedMiddleware::class]);
+        Route::get('/search/{search}', [UserCoursePathController::class, 'search'])->name('alur-belajar.search');
+    });
 
     Route::get('/pelatihan', [UserCourseController::class, 'index'])->name('pelatihan');
     Route::get('/pelatihan/{id}', [UserCourseController::class, 'show'])->name('pelatihan.show');

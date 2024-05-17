@@ -11,6 +11,8 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\Rules;
 use Illuminate\View\View;
+use Illuminate\Foundation\Auth\User as Authenticatable;
+use Spatie\Permission\Traits\HasRoles;
 
 class RegisteredUserController extends Controller
 {
@@ -41,10 +43,12 @@ class RegisteredUserController extends Controller
             'password' => Hash::make($request->password),
         ]);
 
+        
         event(new Registered($user));
+        $user->assignRole('user');
 
         Auth::login($user);
-
+        
         return redirect(route('dashboard', absolute: false));
     }
 }
