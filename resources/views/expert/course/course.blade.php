@@ -39,11 +39,15 @@
                                         <tbody>
                                             @foreach ($paths as $path)
                                                 <tr class="border-b border-neutral-200 dark:border-white/10">
-                                                    <td class="whitespace-nowrap px-6 py-4">{{ $path->name }}</td>
-                                                    <td> {{ strlen($path->description) > 50 ? substr($path->description, 0, 50) . '...' : $path->description }}</td>
-                                                    
-
                                                     <td class="whitespace-nowrap px-6 py-4">
+                                                        {{ strlen($path->name) > 50 ? substr($path->name, 0, 20) . '...' : $path->name }}
+                                                    </td>
+                                                    <td class="whitespace-nowrap px-6 py-4">
+                                                        {{ strlen($path->description) > 50 ? substr($path->description, 0, 20) . '...' : $path->description }}
+                                                    </td>
+                                                    <td
+                                                        class="whitespace-nowrap
+                                                        px-6 py-4">
                                                         @if ($path->status == 0)
                                                             <span class="text-gray-500">menunggu validasi</span>
                                                         @elseif ($path->status == 1)
@@ -65,7 +69,7 @@
                                                                     class="bg-black px-5 py-3 ml-2 rounded-md text-white shadow-sm hover:bg-gray-800">
                                                                     Go To Course
                                                                 </a>
-                                                                
+
                                                                 <form
                                                                     action="{{ route('course_path.validate', $path->id) }}"
                                                                     method="POST">
@@ -150,9 +154,12 @@
                                         <tbody>
                                             @foreach ($courses as $course)
                                                 <tr class="border-b border-neutral-200 dark:border-white/10">
-                                                    <td class="whitespace-nowrap px-6 py-4">{{ $course->name }}</td>
                                                     <td class="whitespace-nowrap px-6 py-4">
-                                                        {{ $course->description }}</td>
+                                                        {{ strlen($course->name) > 50 ? substr($course->name, 0, 20) . '...' : $course->name }}
+                                                    </td>
+                                                    <td class="whitespace-nowrap px-6 py-4">
+                                                        {{ strlen($course->description) > 50 ? substr($course->description, 0, 20) . '...' : $course->description }}
+                                                    </td>
                                                     <td class="whitespace-nowrap px-6 py-4">
                                                         @if ($course->source_id == 1)
                                                             <a href="{{ asset('storage/' . $course->file) }}"
@@ -189,7 +196,7 @@
                                                     </td>
                                                 </tr>
                                             @endforeach
-                                           
+
                                         </tbody>
                                     </table>
                                 </div>
