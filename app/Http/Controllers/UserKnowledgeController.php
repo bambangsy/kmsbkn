@@ -2,8 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Knowledge;
+use App\Models\User;
 
+use App\Models\Knowledge;
 use Illuminate\Http\Request;
 
 class UserKnowledgeController extends Controller
@@ -27,6 +28,15 @@ class UserKnowledgeController extends Controller
             })
             ->orderBy('validated_at', 'desc')
             ->paginate($perPage, ['*'], 'page', $page);
+
+            $knowledges->getCollection()->transform(function ($knowledge) {
+                $createdBy = User::find($knowledge->user_id);
+                $knowledge->created_by = $createdBy ? $createdBy->name : null;
+                return $knowledge;
+            });
+            
+
+
         return view("user.knowledge", ['knowledges' => $knowledges,'sorted_by' => $sorted_by,]);
     }
     public function show($id)

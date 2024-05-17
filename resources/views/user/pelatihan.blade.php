@@ -54,7 +54,7 @@
                 <div class="row card-group-row">
 
                     @foreach ($courses as $course)
-                        <div class="col-md-6 col-lg-4 col-xl-3 card-group-row__col">
+                        <div class="col-md-6 col-lg-4 col-xl-4 card-group-row__col">
 
                             <div class="card card-sm card--elevated p-relative o-hidden overlay overlay--primary-dodger-blue js-overlay card-group-row__card"
                                 data-toggle="popover" data-trigger="click">
@@ -75,7 +75,10 @@
                                         <div class="flex">
                                             <a class="card-title"
                                                 href="{{ route('user.pelatihan.show', $course->id) }}">{{ $course->name }}</a>
-                                            <small class="text-50 font-weight-bold mb-4pt">{{ $course->author }}</small>
+                                            
+                                        </div>
+                                        <div>
+                                            <small class="text-50 font-weight-bold mb-4pt">{{ $course->created_by }}</small>
                                         </div>
                                         <div class="d-flex align-items-center ">
                                             <div class="rating flex mt-2">
@@ -104,12 +107,19 @@
                                             <span class="material-icons icon-16pt text-50 mr-4pt">access_time</span>
                                             <p class="flex text-50 lh-1 mb-0"><small>6 jam</small></p>
                                         </div>
+                                        <div class="col-auto d-flex align-items-center">
+                                            <p class="flex text-50 lh-1 mb-0"><small
+                                                    class="text-muted text-uppercase">{{ \Carbon\Carbon::parse($course->validated_at)->format('j F Y') }}</small>
+                                            </p>
+                                        </div>
 
                                     </div>
                                 </div>
                             </div>
                         </div>
                     @endforeach
+
+        
 
 
 

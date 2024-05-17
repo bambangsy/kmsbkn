@@ -28,8 +28,14 @@ class UserCoursePathController extends Controller
         ->when($search, function ($query) use ($search) {
             return $query->where('name', 'LIKE', "%{$search}%");
         });
-
-
+        
+        $users = User::all();
+    
+        $pathCourses = $pathCourses->map(function($pathCourse) use ($users) {
+            $createdBy = $users->where('id', $pathCourse->created_by_id)->first();
+            $pathCourse->created_by = $createdBy ? $createdBy->name : null;
+            return $pathCourse;
+        });    
 
         return view("user.alur-belajar", ['pathCourses' => $pathCourses, 'sorted_by' => $sorted_by]);
     }

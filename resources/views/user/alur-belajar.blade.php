@@ -17,9 +17,10 @@
                 <form action="">
                     <div class="relative">
                         <div class="flex flex-col md:flex-row">
-                            <input type="search" class="relative m-0 block w-full rounded border border-solid border-neutral-200 bg-white bg-clip-padding px-3 py-[1rem] text-base font-normal leading-[1.6] text-surface outline-none transition duration-200 ease-in-out placeholder:text-blue-500 focus:z-[3] focus:border-primary  focus:shadow-inset focus:outline-none opacity-70" placeholder="Search"
-                            aria-label="Search" id="exampleFormControlInput4" name="search"
-                            value="{{ request()->query('search') }}"/>
+                            <input type="search"
+                                class="relative m-0 block w-full rounded border border-solid border-neutral-200 bg-white bg-clip-padding px-3 py-[1rem] text-base font-normal leading-[1.6] text-surface outline-none transition duration-200 ease-in-out placeholder:text-blue-500 focus:z-[3] focus:border-primary  focus:shadow-inset focus:outline-none opacity-70"
+                                placeholder="Search" aria-label="Search" id="exampleFormControlInput4" name="search"
+                                value="{{ request()->query('search') }}" />
                             <button class="px-3 btn btn-white text-primary mt-0 md:mt-2 ">Cari</button>
                         </div>
                     </div>
@@ -54,7 +55,51 @@
             <div class="container page__container">
                 <div class="row card-group-row">
                     @foreach ($pathCourses as $pathCourse)
-                        <div class="col-md-6 col-lg-4 col-xl-4 card-group-row__col">
+                    <div class="col-md-6 col-lg-4 col-xl-3 card-group-row__col">
+
+                        <div class="card card-sm card--elevated p-relative o-hidden overlay overlay--primary-dodger-blue js-overlay card-group-row__card"
+                            data-toggle="popover" data-trigger="click">
+
+                            <div class="card-body flex">
+                                <div class="d-flex flex-column">
+                                    <div class="flex">
+                                        <a class="card-title"
+                                            href="{{ route('user.alur-belajar.show', $pathCourse->id) }}">{{ $pathCourse->name }}</a>
+                                        
+                                    </div>
+                                    <div>
+                                        <small class="text-50 font-weight-bold mb-4pt">{{ $pathCourse->created_by }}</small>
+                                    </div>
+                                    <div class="d-flex align-items-center ">
+                                        <div class="rating flex mt-2">
+                                            <span>
+                                                <a class="material-icons text-20 cursor:pointer card-course__icon-favorite ml-2"
+                                                    style="cursor: pointer;" id="favorite-{{ $pathCourse->id }}">
+                                                    favorite_border
+                                                </a>
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="card-footer">
+                                <div class="row justify-content-between">
+                                    <div class="col-auto d-flex align-items-center">
+                                        <span class="material-icons icon-16pt text-50 mr-4pt">access_time</span>
+                                        <p class="flex text-50 lh-1 mb-0"><small>6 jam</small></p>
+                                    </div>
+                                    <div class="col-auto d-flex align-items-center">
+                                        <p class="flex text-50 lh-1 mb-0"><small
+                                                class="text-muted text-uppercase">{{ \Carbon\Carbon::parse($pathCourse->validated_at)->format('j F Y') }}</small>
+                                        </p>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                        {{-- <div class="col-md-6 col-lg-4 col-xl-4 card-group-row__col">
                             <div class="card js-overlay card-sm overlay--primary-dodger-blue stack stack--1 card-group-row__card"
                                 data-toggle="popover" data-trigger="click">
                                 <div class="card-body d-flex flex-column">
@@ -88,7 +133,7 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                        </div> --}}
                     @endforeach
                 </div>
             </div>

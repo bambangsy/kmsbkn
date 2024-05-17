@@ -65,9 +65,10 @@
                                             <small>{{ $knowledge->view_count }}</small></a>
                                     </div>
                                     <div class="posts-card-popular__title card-body">
-                                        <small class="text-muted text-uppercase">{{ $knowledge->name }}</small>
+                                        <small class="text-muted text-uppercase">{{ $knowledge->created_by }}</small>
                                         <a class="card-title"
                                             href="{{ route('user.knowledge.show', ['id' => $knowledge->id]) }}">{{ $knowledge->name }}</a>
+                                        <small class="text-muted text-uppercase">{{ \Carbon\Carbon::parse($knowledge->validated_at)->format('j F Y') }}</small>
                                     </div>
                                 </div>
                             </div>
