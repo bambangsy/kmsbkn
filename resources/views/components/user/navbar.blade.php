@@ -28,9 +28,11 @@
                     <li class="nav-item {{ request()->routeIs('user.knowledge') ? 'active' : '' }}">
                         <a href="{{route('user.knowledge')}}" class="nav-link">Pengetahuan</a>
                     </li>
+                    @auth
                     <li class="nav-item {{ request()->routeIs('user.learninghistory') ? 'active' : '' }}">
                         <a href="{{route('user.learninghistory')}}" class="nav-link">Riwayat Pembelajaran</a>
                     </li> 
+                    @endauth
                 </ul>
 
                 <ul class="nav navbar-nav ml-auto mr-0">

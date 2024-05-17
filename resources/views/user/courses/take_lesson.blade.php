@@ -29,7 +29,7 @@ style="white-space: nowrap;">
 </div>
 <div class="bg-primary pb-lg-64pt py-32pt">
 <div class="container page__container">
-   <nav class="course-nav">
+   {{-- <nav class="course-nav">
        <a data-toggle="tooltip"
           data-placement="bottom"
           data-title="Getting Started with Angular: Introduction"
@@ -46,8 +46,8 @@ style="white-space: nowrap;">
           data-placement="bottom"
           data-title="Quiz: Getting Started with Angular"
           href="student-take-quiz.html"><span class="material-icons">hourglass_empty</span></a>
-   </nav>
-<div class="js-player bg-primary embed-responsive embed-responsive-16by9 mb-32pt">
+   </nav> --}}
+<div class="js-player bg-primary embed-responsive embed-responsive-16by9 mb-32pt mt-32pt">
     <div class="player embed-responsive-item">
         <div class="player__content">
             <div class="player__image"
