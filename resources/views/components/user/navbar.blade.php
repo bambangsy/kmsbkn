@@ -31,6 +31,12 @@
                     @auth
                     <li class="nav-item {{ request()->routeIs('user.learninghistory') ? 'active' : '' }}">
                         <a href="{{route('user.learninghistory')}}" class="nav-link">Riwayat Pembelajaran</a>
+                    </li>
+                    <li class="nav-item {{ request()->routeIs('user.favourite') ? 'active' : '' }}">
+                        <a href="{{route('user.favourite.index')}}" class="nav-link">Favorit</a>
+                    </li> 
+                    <li class="nav-item {{ request()->routeIs('user.favourite') ? 'active' : '' }}">
+                        <a href="{{route('rank.index')}}" class="nav-link">Peringkat</a>
                     </li> 
                     @endauth
                 </ul>

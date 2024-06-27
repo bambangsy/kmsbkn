@@ -4,6 +4,7 @@ use App\Http\Controllers\AdminFrontPageController;
 use App\Http\Controllers\AdminUserController;
 use App\Http\Controllers\CourseController;
 use App\Http\Controllers\CoursePathController;
+use App\Http\Controllers\FavouriteController;
 use App\Http\Controllers\KnowledgeController;
 use App\Http\Controllers\LearningHistoryController;
 use App\Http\Controllers\ProfileController;
@@ -38,6 +39,12 @@ Route::get('/pelatihan', function () {
 })->name('pelatihan');
 
 Route::prefix('user')->name('user.')->group(function () {
+
+
+    Route::resource('/favourite', FavouriteController::class)->names('favourite');
+    Route::patch('/favourite/{id}/edit_course', [FavouriteController::class, 'edit_course'])->name('favourite.edit_course');
+    Route::patch('/favourite/{id}/edit_path', [FavouriteController::class,'path'])->name('favourite.edit_path');
+
 
     Route::resource('/riwayat-pembelajaran', LearningHistoryController::class)->names([
         'index' => 'learninghistory',
@@ -170,6 +177,7 @@ Route::middleware(['auth', 'verified', 'role:expert'])->group(function () {
     Route::resource('/dashboard/pengetahuan', KnowledgeController::class)->names([
         'index' => 'knowledge',
         'create' => 'knowledge.create',
+        'show' => 'knowledge.show',
         'store' => 'knowledge.store',
         'destroy' => 'knowledge.destroy',
         'edit' => 'knowledge.edit',
@@ -186,6 +194,7 @@ Route::middleware(['auth', 'verified', 'role:expert'])->group(function () {
 
     Route::resource('/expert/pelatihan', CourseController::class)->names([
         'index' => 'course',
+        'show' => 'course.show',
         'create' => 'course.create',
         'store' => 'course.store',
         'destroy' => 'course.destroy',

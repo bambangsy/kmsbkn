@@ -11,13 +11,13 @@
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 text-gray-900 dark:text-gray-100">
-                    <a href="{{ route('knowledge') }}" class="bg-blue-500 px-5 py-3 rounded-md text-white shadow-sm hover:bg-blue-600">
+                    <a href="{{ route('knowledge') }}" class="bg-blue-500 px-5 py-3  rounded-md text-white shadow-sm hover:bg-blue-600">
                         back
                     </a>
                     <form method="POST" action="{{ route('knowledge.update', $knowledge->id) }}" enctype="multipart/form-data" >
                         @csrf
                         @method('PUT')
-                        <div class="mb-5">
+                        <div class="my-5">
                             <label for="name" 
                                 class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
                                 Nama</label>

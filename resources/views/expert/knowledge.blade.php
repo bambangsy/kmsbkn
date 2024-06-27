@@ -1,12 +1,21 @@
 <x-app-layout>
-
+    
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight">
             {{ __('Pengetahuan') }}
         </h2>
 
     </x-slot>
-
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    @if (session('error'))
+        <script>
+            Swal.fire({
+                icon: 'error',
+                title: 'Oops...',
+                text: '{{ session('error') }}',
+            });
+        </script>
+    @endif
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg">
@@ -53,10 +62,18 @@
                                                     </td>
                                                     <td class="whitespace-nowrap py-2 flex justify-end">
 
+                                                        <a href="{{ route('knowledge.show', $knowledge->id) }}"
+                                                            class="bg-blue-500 px-5 py-3 rounded-md text-white shadow-sm hover:bg-blue-600 ">
+                                                            Show
+                                                        </a>
+                                                        
+                                                        @if ($knowledge->status != 1)
                                                         <a href="{{ route('knowledge.edit', $knowledge->id) }}"
-                                                            class="bg-yellow-500 px-5 py-3 rounded-md text-white shadow-sm hover:bg-yellow-600 ">
+                                                            class="bg-yellow-500 px-5 py-3 ml-2 rounded-md text-white shadow-sm hover:bg-yellow-600 ">
                                                             Edit
                                                         </a>
+                                                        @endif
+                                                        
                                                         <form action="{{ route('knowledge.destroy', $knowledge->id) }}"
                                                             method="POST">
                                                             @csrf

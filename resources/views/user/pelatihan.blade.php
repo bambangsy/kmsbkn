@@ -54,77 +54,20 @@
                 <div class="row card-group-row">
 
                     @foreach ($courses as $course)
-                        <div class="col-md-6 col-lg-4 col-xl-4 card-group-row__col">
-
-                            <div class="card card-sm card--elevated p-relative o-hidden overlay overlay--primary-dodger-blue js-overlay card-group-row__card"
-                                data-toggle="popover" data-trigger="click">
-
-                                <a href="{{ route('user.pelatihan.show', $course->id) }}" class="card-img-top js-image"
-                                    data-position="" data-height="140">
-                                    <img src="https://random.imagecdn.app/1280/720" alt="course">
-                                    <span class="overlay__content">
-                                        <span class="overlay__action d-flex flex-column text-center">
-                                            <i class="material-icons icon-32pt">play_circle_outline</i>
-                                            <span class="card-title text-white">Pratinjau</span>
-                                        </span>
-                                    </span>
-                                </a>
-
-                                <div class="card-body flex">
-                                    <div class="d-flex flex-column">
-                                        <div class="flex">
-                                            <a class="card-title"
-                                                href="{{ route('user.pelatihan.show', $course->id) }}">{{ $course->name }}</a>
-                                            
-                                        </div>
-                                        <div>
-                                            <small class="text-50 font-weight-bold mb-4pt">{{ $course->created_by }}</small>
-                                        </div>
-                                        <div class="d-flex align-items-center ">
-                                            <div class="rating flex mt-2">
-                                                @for ($i = 0; $i < $course->rating; $i++)
-                                                    <span class="rating__item"><span
-                                                            class="material-icons">star</span></span>
-                                                @endfor
-                                                @for ($i = $course->rating; $i < 5; $i++)
-                                                    <span class="rating__item"><span
-                                                            class="material-icons">star_border</span></span>
-                                                @endfor
-                                                <span>
-                                                    <a class="material-icons text-20 cursor:pointer card-course__icon-favorite ml-2"
-                                                        style="cursor: pointer;" id="favorite-{{ $course->id }}">
-                                                        favorite_border
-                                                    </a>
-                                                </span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="card-footer">
-                                    <div class="row justify-content-between">
-                                        <div class="col-auto d-flex align-items-center">
-                                            <span class="material-icons icon-16pt text-50 mr-4pt">access_time</span>
-                                            <p class="flex text-50 lh-1 mb-0"><small>6 jam</small></p>
-                                        </div>
-                                        <div class="col-auto d-flex align-items-center">
-                                            <p class="flex text-50 lh-1 mb-0"><small
-                                                    class="text-muted text-uppercase">{{ \Carbon\Carbon::parse($course->validated_at)->format('j F Y') }}</small>
-                                            </p>
-                                        </div>
-
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                        <x-card 
+                            :type=2
+                            :imageUrl="$course->imageUrl ?? 'https://flowbite.com/docs/images/examples/image-1@2x.jpg'"
+                            :viewUrl="route('user.pelatihan.show', $course->id)"
+                            :viewCount="$course->view_count"
+                            :createdBy="$course->created_by"
+                            :detailUrl="route('user.pelatihan.show', $course->id)"
+                            :name="$course->name"
+                            :validatedAt="$course->validated_at"
+                            :rating="$course->rating"
+                            :favouriteUrl="route('user.favourite.edit_course', $course->id)"
+                            :isFavourite="$course->is_favourite"
+                        />
                     @endforeach
-
-        
-
-
-
-
-
                 </div>
                 @if ($courses->hasPages())
                     <div class="mb-32pt">

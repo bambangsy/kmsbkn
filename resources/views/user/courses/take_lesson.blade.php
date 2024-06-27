@@ -52,9 +52,9 @@
                         </a>
                     </div>
                     <div class="player__embed">
-                        <video class="embed-responsive-item" controls>
+                        <video class="embed-responsive-item" controls controlsList="nodownload">
                             <source
-                                src="{{ asset('storage/' . 'course-videos/4w2XV41fuoRprTafIdIqFwIH877N1ll6wbqrL5FG.mp4') }}"
+                                src="{{ asset('storage/' . $course->file) }}"
                                 type="video/mp4">
                             Your browser does not support the video tag.
                         </video>

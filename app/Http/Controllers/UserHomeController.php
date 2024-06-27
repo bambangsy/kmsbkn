@@ -18,14 +18,13 @@ class UserHomeController extends Controller
             ->orderBy('validated_at', 'desc')
             ->paginate($perPage, ['*'], 'page', $page);
 
-        $pathCourses = Path::where('status', 0)
-            // Column not found: 1054 Unknown column 'validated_at' in 'order clause'
-            // ->orderBy('validated_at', 'desc')
-            ->paginate($perPage, ['*'], 'page', $page);
+        $pathCourses = Path::where('status', 1)
+            ->orderBy('updated_at', 'desc')
+            ->paginate(4, ['*'], 'page', $page);
 
         $courses = Course::where('status', 1)
             ->orderBy('validated_at', 'desc')
-            ->paginate(4, ['*'], 'page', $page);
+            ->paginate(3, ['*'], 'page', $page);
 
         $rank = (new UserRankingController)->get_rank();
 

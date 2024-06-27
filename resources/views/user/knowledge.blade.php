@@ -52,28 +52,17 @@
                 <div class="row card-group-row">
 
                     @foreach ($knowledges as $knowledge)
-                        <div class="col-md-6 col-lg-4 card-group-row__col">
-
-                            <div class="card card--elevated posts-card-popular overlay card-group-row__card">
-                                <img src="https://random.imagecdn.app/1280/720" alt="" class="card-img">
-                                <div class="fullbleed bg-primary" style="opacity: .5"></div>
-                                <div class="posts-card-popular__content">
-                                    <div class="card-body d-flex align-items-center">
-                                        <a style="text-decoration: none;" class="d-flex align-items-center"
-                                            href=""><i class="material-icons mr-1"
-                                                style="font-size: inherit;">remove_red_eye</i>
-                                            <small>{{ $knowledge->view_count }}</small></a>
-                                    </div>
-                                    <div class="posts-card-popular__title card-body">
-                                        <small class="text-muted text-uppercase">{{ $knowledge->created_by }}</small>
-                                        <a class="card-title"
-                                            href="{{ route('user.knowledge.show', ['id' => $knowledge->id]) }}">{{ $knowledge->name }}</a>
-                                        <small class="text-muted text-uppercase">{{ \Carbon\Carbon::parse($knowledge->validated_at)->format('j F Y') }}</small>
-                                    </div>
-                                </div>
-                            </div>
-
-                        </div>
+                       <x-card 
+                           :id="$knowledge->id"
+                           :imageUrl="$knowledge->imageUrl" 
+                           :viewUrl="$knowledge->viewUrl" 
+                           :viewCount="$knowledge->view_count" 
+                           :createdBy="$knowledge->created_by" 
+                           :detailUrl="route('user.knowledge.show', ['id' => $knowledge->id])" 
+                           :name="$knowledge->name" 
+                           :validatedAt="$knowledge->validated_at" 
+                           :type=1
+                       />
                     @endforeach
 
 

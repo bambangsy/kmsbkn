@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Path;
 use App\Models\Course;
+use App\Models\Progress;
 use Illuminate\Http\Request;
 
 class CourseController extends Controller
@@ -64,7 +65,9 @@ class CourseController extends Controller
      */
     public function show(string $id)
     {
-        //
+        $user = auth()->id();
+        $course = Course::find($id);
+        return view("user.courses.take_lesson", compact('course'));
     }
 
     /**

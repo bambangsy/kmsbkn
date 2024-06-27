@@ -53,7 +53,9 @@ class KnowledgeController extends Controller
      */
     public function show(string $id)
     {
-        return view("expert.show");
+        $knowledge = Knowledge::find($id);
+        
+        return view("user.showknowledge", ['knowledge' => $knowledge]);
     }
 
     /**
@@ -62,7 +64,11 @@ class KnowledgeController extends Controller
     public function edit(string $id)
     {
         $knowledge = Knowledge::find($id);
-        return view("expert.edit", ['knowledge' => $knowledge]);
+        if ($knowledge->user_id == auth()->user()->id && $knowledge->status != 1) {
+            return view("expert.edit", ['knowledge' => $knowledge]);
+        } else {
+            return redirect()->back()->with('error', 'Unauthorized access');
+        }
     }
     
 

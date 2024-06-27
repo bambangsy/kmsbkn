@@ -14,7 +14,7 @@
         </h2>
 
     </x-slot>
-
+    
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg">
@@ -96,9 +96,10 @@
                                                     @elseif($path->status == 0)
                                                         <td class="whitespace-nowrap py-2 flex justify-end">
                                                             <div class="flex">
-                                                                <a href="#"
-                                                                    class="bg-black px-5 py-3 ml-2 rounded-md text-white shadow-sm hover:bg-gray-800 ">
-                                                                    Go to Courses
+                                                                
+                                                                <a href="{{ route('path.show', $path->id) }}"
+                                                                    class="bg-blue-500 px-5 py-3 rounded-md text-white shadow-sm hover:bg-blue-600 ">
+                                                                    Show
                                                                 </a>
 
 
@@ -180,16 +181,19 @@
 
                                                     </td>
                                                     <td class="whitespace-nowrap py-2 flex justify-end">
-
+                                                        <a href="{{ route('course.show', $course->id) }}"
+                                                            class="bg-blue-500 px-5 py-3 rounded-md text-white shadow-sm hover:bg-blue-600 ">
+                                                            Show
+                                                        </a>
                                                         <a href="#"
-                                                            class="bg-yellow-500 px-5 py-3 rounded-md text-white shadow-sm hover:bg-yellow-600 ">
+                                                            class="bg-yellow-500 px-5 py-3  mx-3 rounded-md text-white shadow-sm hover:bg-yellow-600 ">
                                                             Edit
                                                         </a>
                                                         <form action="#" method="POST">
                                                             @csrf
                                                             @method('DELETE')
                                                             <button type="submit"
-                                                                class="bg-red-500 px-5 py-3 ml-2 rounded-md text-white shadow-sm hover:bg-red-600">
+                                                                class="bg-red-500 px-5 py-3  rounded-md text-white shadow-sm hover:bg-red-600">
                                                                 Delete
                                                             </button>
                                                         </form>
