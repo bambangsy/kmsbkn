@@ -51,6 +51,9 @@
                                             @endforeach
                                         </tbody>
                                     </table>
+                                    <div class="mt-5">
+                                        {{ $courses_queue->links() }}
+                                    </div>
                                 </div>
 
                             </div>
@@ -71,7 +74,7 @@
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            @foreach ($courses->where('status', 0) as $course)
+                                            @foreach ($courses_checked as $course)
                                                 
                                                 <tr class="border-b border-neutral-200 dark:border-white/10">
                                                     <td class="whitespace-nowrap px-6 py-4">{{ $course->name }}</td>
@@ -112,6 +115,9 @@
                                             @endforeach
                                         </tbody>
                                     </table>
+                                    <div class="mt-5">
+                                        {{ $courses_checked->links() }}
+                                    </div>
                                 </div>
 
                             </div>
@@ -132,7 +138,7 @@
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            @foreach ($courses->where('status', 1) as $course)
+                                            @foreach ($courses_approved as $course)
                                                 <tr class="border-b border-neutral-200 dark:border-white/10">
                                                     <td class="whitespace-nowrap px-6 py-4">{{ $course->name }}</td>
                                                     <td> {{ strlen($course->description) > 50 ? substr($course->description, 0, 50) . '...' : $course->description }}</td>
@@ -156,6 +162,9 @@
                                             @endforeach
                                         </tbody>
                                     </table>
+                                    <div class="mt-5">
+                                        {{ $courses_approved->links() }}
+                                    </div>
                                 </div>
 
                             </div>
@@ -179,7 +188,7 @@
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            @foreach ($courses->where('status', 2) as $course)
+                                            @foreach ($courses_rejected as $course)
                                                 <tr class="border-b border-neutral-200 dark:border-white/10">
                                                     <td class="whitespace-nowrap px-6 py-4">{{ $course->name }}</td>
                                                     <td> {{ strlen($course->description) > 50 ? substr($course->description, 0, 50) . '...' : $course->description }}</td>
@@ -201,6 +210,9 @@
                                             @endforeach
                                         </tbody>
                                     </table>
+                                    <div class="mt-5">
+                                        {{ $courses_rejected->links() }}
+                                    </div>
                                 </div>
 
                             </div>
