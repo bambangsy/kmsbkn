@@ -97,7 +97,7 @@
                                                         <td class="whitespace-nowrap py-2 flex justify-end">
                                                             <div class="flex">
                                                                 
-                                                                <a href="{{ route('path.show', $path->id) }}"
+                                                                <a href="{{ route('course_path.show', $path->id) }}"
                                                                     class="bg-blue-500 px-5 py-3 rounded-md text-white shadow-sm hover:bg-blue-600 ">
                                                                     Show
                                                                 </a>

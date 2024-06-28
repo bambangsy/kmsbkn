@@ -16,7 +16,7 @@
     
 ])
 <!-- End Generation Here -->
-        
+    
 @if ($type == 1)
 <div class="col-md-6 col-lg-4 card-group-row__col">
 
@@ -67,7 +67,7 @@
                 <div>
                     <small class="text-50 font-weight-bold mb-4pt">{{ $createdBy }}</small>
                 </div>
-                <div class="d-flex align-items-center ">
+                {{-- <div class="d-flex align-items-center ">
                     <div class="rating flex mt-2">
                         @for ($i = 0; $i < $rating; $i++)
                             <span class="rating__item"><span
@@ -94,16 +94,16 @@
                             </form>
                         </span>
                     </div>
-                </div>
+                </div> --}}
             </div>
         </div>
 
         <div class="card-footer">
             <div class="row justify-content-between">
-                <div class="col-auto d-flex align-items-center">
+                {{-- <div class="col-auto d-flex align-items-center">
                     <span class="material-icons icon-16pt text-50 mr-4pt">access_time</span>
                     <p class="flex text-50 lh-1 mb-0"><small>6 jam</small></p>
-                </div>
+                </div> --}}
                 <div class="col-auto d-flex align-items-center">
                     <p class="flex text-50 lh-1 mb-0"><small
                             class="text-muted text-uppercase">{{ \Carbon\Carbon::parse($validatedAt)->format('j F Y') }}</small>
@@ -132,7 +132,7 @@
                 <div>
                     <small class="text-50 font-weight-bold mb-4pt">{{ $createdBy }}</small>
                 </div>
-                <div class="d-flex align-items-center ">
+                {{-- <div class="d-flex align-items-center ">
                     <div class="rating flex mt-2">
                         <span>
                             <a class="material-icons text-20 cursor:pointer card-course__icon-favorite ml-2"
@@ -141,16 +141,16 @@
                             </a>
                         </span>
                     </div>
-                </div>
+                </div> --}}
             </div>
         </div>
 
         <div class="card-footer">
             <div class="row justify-content-between">
-                <div class="col-auto d-flex align-items-center">
+                {{-- <div class="col-auto d-flex align-items-center">
                     <span class="material-icons icon-16pt text-50 mr-4pt">access_time</span>
                     <p class="flex text-50 lh-1 mb-0"><small>6 jam</small></p>
-                </div>
+                </div> --}}
                 <div class="col-auto d-flex align-items-center">
                     <p class="flex text-50 lh-1 mb-0"><small
                             class="text-muted text-uppercase">{{ \Carbon\Carbon::parse($validatedAt)->format('j F Y') }}</small>
@@ -162,3 +162,4 @@
     </div>
 </div>
 @endif
+
