@@ -11,10 +11,13 @@ class ValidatorKnowledgeController extends Controller
      */
     public function index()
     {
-        $knowledges_queue = Knowledge::whereNull('is_currently_checked_by')->get();
-        $knowledges = Knowledge::where('is_currently_checked_by', auth()->id())->get();
+        $paginationCount = 3;
+        $knowledges_queue = Knowledge::whereNull('is_currently_checked_by')->paginate($paginationCount, ['*'], 'queue_page');
+        $knowledges_checked = Knowledge::where('is_currently_checked_by', auth()->id())->where('status', 0)->paginate($paginationCount, ['*'], 'checked_page');
+        $knowledges_approved = Knowledge::where('status', 1)->paginate($paginationCount, ['*'], 'approved_page');
+        $knowledges_rejected = Knowledge::where('status', 2)->paginate($paginationCount, ['*'], 'rejected_page');
         
-        return view("validator.validasi.validasi", compact('knowledges_queue', 'knowledges'));
+        return view("validator.validasi.validasi", compact('knowledges_queue', 'knowledges_checked', 'knowledges_approved', 'knowledges_rejected'));
     }
 
 

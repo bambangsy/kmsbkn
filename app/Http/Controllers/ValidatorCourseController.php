@@ -9,11 +9,15 @@ class ValidatorCourseController extends Controller
 {
     public function index()
     {
-        $courses_queue = Course::whereNull('is_currently_checked_by')->get();
+        $paginationCount = 3;
+        $courses_queue = Course::whereNull('is_currently_checked_by')->paginate($paginationCount, ['*'], 'queue_page');
+        $courses_checked = Course::where('is_currently_checked_by', auth()->id())->where('status', 0)->paginate($paginationCount, ['*'], 'checked_page');
+        $courses_approved = Course::where('status', 1)->paginate($paginationCount, ['*'], 'approved_page');
+        $courses_rejected = Course::where('status', 2)->paginate($paginationCount, ['*'], 'rejected_page');
         
         $courses = Course::where('is_currently_checked_by', auth()->id())->get();
         
-        return view("validator.courses.course", compact('courses_queue', 'courses'));
+        return view("validator.courses.course", compact('courses_queue', 'courses_checked', 'courses_approved', 'courses_rejected'));
     }
 
 
